@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.system.infrastructure.mapper.RoleMapper">
+
+    <select id="pageList" parameterType="com.xunheng.system.client.dto.query.RolePageQuery" resultType="com.xunheng.system.infrastructure.DO.Role">
+        select ro.id,ro.name,ro.description,ro.data_type as dataType,ro.data_level as dataLevel,
+        ro.custom_expression as customExpression,ro.include_low as includLow
+        from sys_role ro
+        <where>
+            ro.del_flag = 0
+            <if test="qry.description != null and qry.description != ''"> and ro.description like concat('%',#{qry.description},'%') </if>
+        </where>
+        order by ro.create_time desc
+    </select>
+
+    <select id="getAll"  resultType="com.xunheng.system.infrastructure.DO.Role">
+        select ro.id,ro.name,ro.description,ro.data_type as dataType,ro.data_level as dataLevel,
+               ro.custom_expression as customExpression,ro.include_low as includLow
+        from sys_role ro
+        where ro.del_flag = 0
+        order by ro.create_time desc
+    </select>
+
+    <select id="getRoleByUserAndAction"  resultType="com.xunheng.system.infrastructure.DO.Role">
+        select ro.id,ro.name,ro.data_type as dataType,ro.data_level as dataLevel,
+               ro.custom_expression as customExpression,ro.include_low as includLow
+          from sys_role ro
+              where ro.id in ( select ro.id from sys_role ro
+          left join sys_user_role ur on ur.role_id = ro.id
+          left join sys_role_permission rp on rp.role_id = ro.id and rp.del_flag = 0
+          LEFT JOIN sys_permission_action pa on pa.permission_id = rp.permission_id
+        where ro.del_flag = 0 and ur.user_id = #{userId} and pa.code =  #{code} and pa.status = 0)
+    </select>
+
+</mapper>

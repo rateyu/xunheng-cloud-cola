@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.xunheng</groupId>
+        <artifactId>xunheng-cloud</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>xunheng-core</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>xunheng-core-config</module>
+        <module>xunheng-core-datasource</module>
+        <module>xunheng-core-log</module>
+        <module>xunheng-core-security</module>
+    </modules>
+
+
+
+</project>

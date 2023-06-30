@@ -1,0 +1,60 @@
+server:
+  port: 8011
+
+
+# gateway配置    
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: system-route
+          uri: lb://xunheng-system
+          predicates:
+            - Path=/xunheng-system/**
+          filters:
+            - StripPrefix=1
+        - id: log-route
+          uri: lb://xunheng-log
+          predicates:
+            - Path=/xunheng-log/**
+          filters:
+            - StripPrefix=1    
+        - id: quartz-route
+          uri: lb://xunheng-quartz
+          predicates:
+            - Path=/xunheng-quartz/**
+          filters:
+            - StripPrefix=1  
+        - id: generator-route
+          uri: lb://xunheng-generator
+          predicates:
+            - Path=/xunheng-generator/**
+          filters:
+            - StripPrefix=1     
+#忽略鉴权URL
+ignored:
+  urls:
+    - /login
+    - /captcha/*
+    - /captcha/draw/*
+    - /favicon.ico
+    - /quartz/quartzJob/**
+    - /system/admin/**
+    - /system/dictData/getByType/**
+    - /system/user/regist
+    - /system/common/**
+    - /druid/**
+    - /swagger-ui.html
+    - /swagger-resources/**
+    - /swagger/**
+    - /**/*.js
+    - /**/*.css
+    - /**/*.png
+    - /**/*.ico            
+
+#日志追踪
+plumelog:
+  appName: xunheng-auth
+  redisHost: 192.168.3.100:6379
+  redisAuth: 123456
+  redisDb: 3

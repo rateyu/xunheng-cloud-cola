@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.xunheng.base.config.SwaggerConfig,\
+  com.xunheng.base.handler.GlobalExceptionHandler,\
+  com.xunheng.base.handler.ResponseResultHandler
+
+

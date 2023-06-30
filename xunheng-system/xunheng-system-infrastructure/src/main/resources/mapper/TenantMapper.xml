@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.system.infrastructure.mapper.TenantMapper">
+
+    <sql id="filterSql">
+        <where>
+            te.del_flag = 0
+            <if test="qry.name != null and qry.name != ''"> and te.name like concat('%',#{qry.name},'%') </if>
+        </where>
+    </sql>
+
+    <select id="pageList" parameterType="com.xunheng.system.client.dto.query.TenantPageQuery" resultType="com.xunheng.system.infrastructure.DO.Tenant">
+       select te.id,te.code,te.status,te.address,te.contactor,te.contact,te.end_date as endDate,te.name from sys_tenant te
+        <include refid="filterSql"/>
+        order by te.create_time desc
+    </select>
+
+</mapper>

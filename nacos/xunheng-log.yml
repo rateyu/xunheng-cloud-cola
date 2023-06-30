@@ -1,0 +1,14 @@
+server:
+  port: 8013
+
+spring:
+  elasticsearch:
+    rest:
+      uris: 192.168.3.100:9200
+
+#日志追踪
+plumelog:
+  appName: xunheng-log
+  redisHost: 192.168.3.100:6379
+  redisAuth: 123456 
+  redisDb: 3 

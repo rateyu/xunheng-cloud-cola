@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.xunheng.feign.config.FeignConfig,\
+  com.xunheng.feign.config.FeignClientErrorDecoder,\
+  com.xunheng.feign.interceptor.FeignAuthInterceptor

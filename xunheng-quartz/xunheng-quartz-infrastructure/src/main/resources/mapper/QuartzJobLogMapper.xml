@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.quartz.infrastructure.mapper.QuartzJobLogMapper">
+
+    <select id="pageList" parameterType="com.xunheng.quartz.client.dto.query.QuartzJobLogPageQuery" resultType="com.xunheng.quartz.infrastructure.DO.QuartzJobLog">
+        select qjl.id,qj.description,qj.job_class_name as jobClassName,qjl.create_time as createTime,
+        qjl.job_message as jobMessage,qjl.exception_info as exceptionInfo,
+        qjl.start_time as startTime,qjl.stop_time as stopTime,qjl.status
+        from qrtz_quartz_job_log qjl
+        left join qrtz_quartz_job qj on qj.id = qjl.job_id
+        where 1=1 and qj.id = #{qry.jobId}
+        order by qjl.start_time desc
+    </select>
+
+</mapper>

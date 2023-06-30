@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.xunheng</groupId>
+        <artifactId>xunheng-cloud</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>xunheng-system</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>xunheng-system-client</module>
+        <module>xunheng-system-adapter</module>
+        <module>xunheng-system-app</module>
+        <module>xunheng-system-domain</module>
+        <module>xunheng-system-infrastructure</module>
+        <module>xunheng-system-start</module>
+    </modules>
+    <properties>
+        <cola.components.version>4.3.2</cola.components.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <!--Project modules-->
+            <dependency>
+                <groupId>com.xunheng</groupId>
+                <artifactId>xunheng-system-adapter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xunheng</groupId>
+                <artifactId>xunheng-system-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xunheng</groupId>
+                <artifactId>xunheng-system-app</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xunheng</groupId>
+                <artifactId>xunheng-system-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xunheng</groupId>
+                <artifactId>xunheng-system-infrastructure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--Project modules End-->
+            <!-- Cola组件版本管理 根据dependency继承-->
+            <dependency>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-components-bom</artifactId>
+                <version>${cola.components.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.xunheng</groupId>
+            <artifactId>xunheng-core-security</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xunheng</groupId>
+            <artifactId>xunheng-core-datasource</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xunheng</groupId>
+            <artifactId>xunheng-core-log</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>

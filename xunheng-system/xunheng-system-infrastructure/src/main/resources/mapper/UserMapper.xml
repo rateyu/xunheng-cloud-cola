@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.system.infrastructure.mapper.UserMapper">
+
+    <sql id="filterSql">
+        <where>
+            us.del_flag = 0
+            <if test="qry.username != null and qry.username != ''"> and us.username like concat('%',#{qry.username},'%') </if>
+            <if test="qry.status != null "> and us.status = #{qry.status} </if>
+            <if test="qry.roleId != null and qry.roleId != ''"> and ur.role_id = #{qry.roleId} </if>
+            <if test="qry.tenantId != null and qry.tenantId != ''"> and us.tenant_id = #{qry.tenantId} </if>
+        </where>
+    </sql>
+
+    <select id="pageList" parameterType="com.xunheng.system.client.dto.query.UserPageQuery" resultType="com.xunheng.system.infrastructure.DO.User">
+       <include refid="userSelect"></include>
+    </select>
+
+    <sql id="userSelect">
+        select us.id,us.create_time as createTime,us.username,us.password,us.nick_name as nickName,us.mobile,us.email,us.address,us.street,us.sex,us.superior,sr.username as superiorUsername,
+        us.birth,us.about,us.avatar,us.type,us.status,tenant.name as tenantTitle,org.title as departmentTitle,org.id as organizationId,us.tenant_id as tenantId,us.sub_company_id as subCompanyId
+        from sys_user us
+        left join sys_user sr on sr.id = us.superior
+        left join sys_tenant tenant on tenant.id =  us.tenant_id
+        left join sys_organization sub on sub.id = us.sub_company_id
+        left join sys_organization org on org.id = us.organization_id
+        left join sys_user_role ur on ur.user_id = us.id
+
+        <include refid="filterSql"/>
+        group  by us.id
+        order by us.create_time desc
+    </sql>
+
+
+
+
+</mapper>

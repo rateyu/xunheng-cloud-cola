@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.system.infrastructure.mapper.TenantAuthRecordMapper">
+
+    <sql id="filterSql">
+        <where>
+            tar.del_flag = 0
+            <if test="qry.tenantName != null and qry.tenantName != ''"> and te.name like concat('%',#{qry.tenantName},'%') </if>
+        </where>
+    </sql>
+
+    <select id="pageList" parameterType="com.xunheng.system.client.dto.query.TenantAuthRecordPageQuery" resultType="com.xunheng.system.infrastructure.DO.TenantAuthRecord">
+        select tar.id,tar.auth_date as authDate,tar.end_date as endDate,te.name as tenantName,te.id as tenantId from sys_tenant_auth_record tar
+        left join sys_tenant te on te.id = tar.tenant_id
+        <include refid="filterSql"/>
+        order by tar.create_time desc
+    </select>
+
+</mapper>

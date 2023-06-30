@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.system.infrastructure.mapper.NoticeMapper">
+
+    <sql id="filterSql">
+        <where>
+            no.del_flag = 0 and (no.user_id =  #{qry.userId} or no.is_pub = 1 )
+            <if test="qry.id != null and qry.id != ''"> and no.id  = #{qry.id} </if>
+        </where>
+    </sql>
+
+    <select id="pageList"  resultType="com.xunheng.system.infrastructure.DO.Notice">
+        select no.id,no.create_time as createTime,no.title,no.description,no.content,no.type,
+               if(no.id not in (select notice_id from sys_notice_read where user_id = #{qry.userId}),0,1) as readFlag
+        from sys_notice no
+        <include refid="filterSql"/>
+        order by no.create_time desc
+    </select>
+
+    <select id="getUnReadNoticeList"  resultType="com.xunheng.system.infrastructure.DO.Notice">
+        select no.id,no.create_time as createTime,no.title,no.description,no.content,no.type
+        from sys_notice no
+        where no.del_flag = 0 and (no.user_id =  #{userId} or no.is_pub = 1 ) and no.id not in (select notice_id from sys_notice_read where user_id = #{userId})
+        order by no.create_time desc
+    </select>
+
+</mapper>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.xunheng</groupId>
+        <artifactId>xunheng-core</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>xunheng-core-log</artifactId>
+
+    <properties>
+        <plumelog.version>3.5</plumelog.version>
+    </properties>
+
+    <dependencies>
+        <!--公共核心包依赖 base-->
+        <dependency>
+            <groupId>com.xunheng</groupId>
+            <artifactId>xunheng-core-base</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--公共核心包依赖 feign-->
+        <dependency>
+            <groupId>com.xunheng</groupId>
+            <artifactId>xunheng-core-feign</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--公共核心包依赖 redis-->
+        <dependency>
+            <groupId>com.xunheng</groupId>
+            <artifactId>xunheng-core-redis</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--公共核心包依赖 sentinel-->
+        <dependency>
+            <groupId>com.xunheng</groupId>
+            <artifactId>xunheng-core-sentinel</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- plumelog日志 -->
+        <dependency>
+            <groupId>com.plumelog</groupId>
+            <artifactId>plumelog-logback</artifactId>
+            <version>${plumelog.version}</version>
+        </dependency>
+        <!-- elasticsearch -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
+</project>

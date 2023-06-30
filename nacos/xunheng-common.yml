@@ -1,0 +1,63 @@
+spring:
+  cloud:
+    # sentinel控制台    
+    sentinel:
+      transport:
+        dashboard: 192.168.3.100:8858
+      eager: true    
+  # redis
+  redis:
+    database: 3
+    host: 192.168.3.100
+    password: 123456
+    port: 6379
+    timeout: 10s
+    lettuce:
+      pool:
+        max-active: 200
+        max-wait: -1ms
+        max-idle: 10
+        min-idle: 0
+  # swagger启用      
+  swagger:
+    enabled: true      
+
+# Sa-Token配置        
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: xunhengToken
+  # token有效期，单位s 默认30天, -1代表永不过期 设置为7天
+  timeout: 2592000
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: 18000
+  # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
+  is-concurrent: false
+  # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token)
+  is-share: false
+  # token风格 例：6fd4221395024b5f87edd34bc3258ee8
+  token-style: simple-uuid
+  # 是否输出操作日志
+  is-log: true
+  # 是否打开自动续签 (如果此值为true, 框架会在每次直接或间接调用 getLoginId() 时进行一次过期检查与续签操作)
+  auto-renew: true
+  # 是否在初始化配置时打印版本字符画
+  is-print: false
+  # 限制用户登陆错误次数（次） --自定义
+  loginTimeLimit: 5
+  # 错误次数保留的时间（小时）
+  loginFailCountKeepTime: 12
+  # 错误超过次数后多少分钟后才能继续登录（分钟）--自定义
+  loginAfterTime: 10
+
+# jackson格式化
+jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8  
+
+# feign启用sentinel
+feign:
+  sentinel:
+    enabled: true    
+
+logging:
+  config: classpath:logConfig/logback-spring.xml

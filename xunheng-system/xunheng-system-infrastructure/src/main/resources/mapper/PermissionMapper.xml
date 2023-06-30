@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.system.infrastructure.mapper.PermissionMapper">
+
+    <select id="getByUserId" resultType="com.xunheng.system.infrastructure.DO.Permission">
+
+        <if test="containDisable != null"> and p.status = 0 </if>
+        <if test="userId != null and userId != ''">  and us.id = #{userId} </if>
+        group by p.id
+        ORDER BY p.sort_order ASC
+    </select>
+
+    <sql id="query">
+        SELECT p.id, p.name, p.title,p.fullpage, p.path, p.icon, p.type, p.component, p.parent_id, p.sort_order, p.status,p.sort_order as sortOrder
+        from sys_permission p
+                 left join sys_role_permission rp on rp.permission_id = p.id and rp.del_flag = 0
+                 left join sys_role ro on ro.id = rp.role_id and ro.del_flag = 0
+                 left JOIN sys_user_role ur ON ur.role_id = ro.id
+                 left join sys_user us on us.id  = ur.user_id and us.del_flag = 0
+        WHERE p.del_flag = 0
+    </sql>
+
+    <select id="getUserPermissionList" resultType="com.xunheng.system.infrastructure.DO.Permission">
+        <include refid="query"></include>
+        and p.status = 0
+        <if test="isSuperAdmin != true"> and us.id = #{userId} </if>
+        group by p.id
+        ORDER BY p.sort_order ASC
+    </select>
+
+    <select id="getSystemPermissionList" resultType="com.xunheng.system.infrastructure.DO.Permission">
+        <include refid="query"></include>
+        group by p.id
+        ORDER BY p.sort_order ASC
+    </select>
+
+
+</mapper>
