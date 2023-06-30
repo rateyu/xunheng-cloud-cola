@@ -46,7 +46,7 @@
 12. 代码生成(进行中...)
 
 ### 前端项目
-前端项目请访问另一个仓库xunheng-cloud-front.基于scui开发，使用的elementplus+vue3
+前端项目请访问另一个仓库[xunheng-cloud-cola-front](https://gitee.com/hhqkkr/xunheng-cloud-cola-front).基于scui开发，使用的elementplus+vue3
 
 ### 安装教程
 
