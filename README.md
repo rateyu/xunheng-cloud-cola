@@ -21,19 +21,27 @@
 
 
 ### 功能介绍
-<img src="https://gitee.com/hhqkkr/xunheng-cloud-cola/blob/main/pic/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.png">
+![输入图片说明](pic/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.png)
 1. 用户管理
-<img src="https://gitee.com/hhqkkr/xunheng-cloud-cola/blob/main/pic/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.png">
+![输入图片说明](pic/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.png)
 2. 组织架构管理
-<img src="https://gitee.com/hhqkkr/xunheng-cloud-cola/blob/main/pic/组织架构管理.png">
+![输入图片说明](pic/%E7%BB%84%E7%BB%87%E6%9E%B6%E6%9E%84%E7%AE%A1%E7%90%86.png)
 3. 角色权限管理
+![输入图片说明](pic/%E8%A7%92%E8%89%B2%E7%AE%A1%E7%90%86.png)
 4. 菜单权限管理
+![输入图片说明](pic/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86.png)
 5. 计划任务管理
+![输入图片说明](pic/%E8%AE%A1%E5%88%92%E4%BB%BB%E5%8A%A1%E7%AE%A1%E7%90%86.png)
 6. 数据字典管理
+![输入图片说明](pic/%E6%95%B0%E6%8D%AE%E5%AD%97%E5%85%B8%E7%AE%A1%E7%90%86.png)
 7. 拓展配置管理
+![输入图片说明](pic/%E6%8B%93%E5%B1%95%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86.png)
 8. 矩阵管理
+![输入图片说明](pic/%E7%9F%A9%E9%98%B5%E7%AE%A1%E7%90%861.png)
+![输入图片说明](pic/%E7%9F%A9%E9%98%B5%E7%AE%A1%E7%90%862.png)
 9. 平台租户管理
 10. 操作日志
+![输入图片说明](pic/%E6%97%A5%E5%BF%97.png)
 11. 会话监控
 12. 代码生成(进行中...)
 
