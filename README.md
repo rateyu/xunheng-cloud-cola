@@ -21,8 +21,11 @@
 
 
 ### 功能介绍
+<img src="https://gitee.com/hhqkkr/xunheng-cloud-cola/blob/main/pic/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.png">
 1. 用户管理
+<img src="https://gitee.com/hhqkkr/xunheng-cloud-cola/blob/main/pic/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86.png">
 2. 组织架构管理
+<img src="https://gitee.com/hhqkkr/xunheng-cloud-cola/blob/main/pic/组织架构管理.png">
 3. 角色权限管理
 4. 菜单权限管理
 5. 计划任务管理
