@@ -1,4 +1,4 @@
-package log;
+package com.xunheng.log;
 
 import com.xunheng.feign.annotation.EnableXhFeignClients;
 import com.xunheng.security.config.annotation.XhMvc;
