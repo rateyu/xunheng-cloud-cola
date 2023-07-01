@@ -11,7 +11,7 @@
  Target Server Version : 50730
  File Encoding         : 65001
 
- Date: 30/06/2023 17:53:54
+ Date: 01/07/2023 16:04:50
 */
 
 SET NAMES utf8mb4;
@@ -44,9 +44,6 @@ CREATE TABLE `sys_custom_config` (
 -- Records of sys_custom_config
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_custom_config` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `sub_company_id`, `department_id`, `user_id`, `config_key`, `config_value`, `personal`, `config_type`, `config_title`) VALUES ('1660155585056288769', '682265633886208', '2023-05-21 05:28:30', '682265633886208', '2023-06-30 16:50:23', 0, '999', '999', '999', '682265633886208', 'APP_THEME', 'default', 1, 'personal', NULL);
-INSERT INTO `sys_custom_config` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `sub_company_id`, `department_id`, `user_id`, `config_key`, `config_value`, `personal`, `config_type`, `config_title`) VALUES ('1673245321865027586', '1642855819389222913', '2023-06-26 16:22:27', '1642855819389222913', '2023-06-26 17:21:52', 0, '1638392079592890369', '1638392079592890369', '1638399455054151681', '1642855819389222913', 'MY_GRID', '{\"layout\":[8,16],\"copmsList\":[[\"welcome\",\"time\"],[\"contact\"]]}', 1, 'personal', NULL);
-INSERT INTO `sys_custom_config` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `sub_company_id`, `department_id`, `user_id`, `config_key`, `config_value`, `personal`, `config_type`, `config_title`) VALUES ('1673562273363836930', '682265633886208', '2023-06-27 13:21:54', '682265633886208', '2023-06-27 13:22:36', 0, '999', '999', '999', '682265633886208', 'APP_COLOR', '#5A55E4', 1, 'personal', NULL);
 INSERT INTO `sys_custom_config` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `sub_company_id`, `department_id`, `user_id`, `config_key`, `config_value`, `personal`, `config_type`, `config_title`) VALUES ('1674711909625495554', '682265633886208', '2023-06-30 17:30:09', NULL, NULL, 0, '999', '999', '999', '-1', 'token', '123456', 0, 'msg', '短信通道token');
 COMMIT;
 
@@ -348,7 +345,7 @@ INSERT INTO `sys_organization` (`id`, `create_by`, `create_time`, `update_by`, `
 INSERT INTO `sys_organization` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `title`, `parent_id`, `sort_order`, `status`, `type`) VALUES ('1638393615807062017', '682265633886208', '2023-03-22 12:14:13', '682265633886208', '2023-03-22 12:14:23', 0, '1638392079592890369', '999', NULL, '2生产部B', '1638392079592890369', 3.00, 0, 'department');
 INSERT INTO `sys_organization` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `title`, `parent_id`, `sort_order`, `status`, `type`) VALUES ('1638399392198311938', '682265633886208', '2023-03-22 12:37:10', '682265633886208', '2023-03-22 12:38:37', 0, '1638391972344537089', '999', '1638391972344537089', '1经理室', '1638391972344537089', 0.00, 0, 'department');
 INSERT INTO `sys_organization` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `title`, `parent_id`, `sort_order`, `status`, `type`) VALUES ('1638399455054151681', '682265633886208', '2023-03-22 12:37:25', '682265633886208', '2023-03-22 12:38:36', 0, '1638392079592890369', '999', '1638392079592890369', '2经理室', '1638392079592890369', 0.00, 0, 'department');
-INSERT INTO `sys_organization` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `title`, `parent_id`, `sort_order`, `status`, `type`) VALUES ('999', '682265633886208', '2021-12-21 22:50:22', '682265633886208', '2023-03-13 16:02:13', 0, '999', NULL, NULL, '寻衡erp', NULL, 0.00, 0, 'hq');
+INSERT INTO `sys_organization` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `title`, `parent_id`, `sort_order`, `status`, `type`) VALUES ('999', '682265633886208', '2021-12-21 22:50:22', '682265633886208', '2023-06-30 18:45:28', 0, '999', NULL, NULL, '寻衡cloud', NULL, 0.00, 0, 'hq');
 COMMIT;
 
 -- ----------------------------
