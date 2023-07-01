@@ -27,7 +27,7 @@
                 <version>2.5.3</version>
                 <configuration>
                     <!-- main方法所在类。 -->
-                    <mainClass>com.xunheng.auth.AuthApplication</mainClass>
+                    <mainClass>com.xunheng.system.SystemApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
