@@ -17,7 +17,7 @@ import java.util.Date;
  * @create: 2021-12-24 16:09
  */
 @Data
-@Document(indexName = "log", shards = 1, replicas = 0, refreshInterval = "-1")
+@Document(indexName = "xhccLog", shards = 1, replicas = 0, refreshInterval = "-1")
 public class EsLogDO {
 
     @Id
