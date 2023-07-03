@@ -1,0 +1,21 @@
+<% var date = date(); %>
+package ${config.packageName};
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import ${config.servicePackage}.entity.${config.name};
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+/**
+ * ${config.description}数据处理层
+ * @author ${config.author}
+ * @date ${date,"yyyy-MM-dd HH:mm:ss"}
+ */
+@Repository
+public interface ${config.name}Mapper extends BaseMapper<${config.name}> {
+
+    IPage<${config.name}> pageList(Page<${config.name}> page, @Param("vo")${config.name} entity);
+
+}

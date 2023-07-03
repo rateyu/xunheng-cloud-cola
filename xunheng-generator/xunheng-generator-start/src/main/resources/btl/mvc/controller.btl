@@ -1,0 +1,78 @@
+<% var date = date(); %>
+package ${config.packageName};
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.hhq.xunheng.base.utils.ResultUtil;
+import com.hhq.xunheng.base.vo.PageVo;
+import com.hhq.xunheng.base.vo.Result;
+import com.hhq.xunheng.datasource.utils.PageUtil;
+import com.hhq.xunheng.log.annotation.Log;
+import com.hhq.xunheng.log.enums.BusinessType;
+import com.hhq.xunheng.security.annotation.PermissionCode;
+import ${config.servicePackage}.entity.${config.name};
+import ${config.servicePackage}.service.${config.name}Service;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+
+/**
+ * ${config.description}接口
+ * @author ${config.author}
+ * @date ${date,"yyyy-MM-dd HH:mm:ss"}
+ */
+@Slf4j
+@RestController
+@Api("${config.description}")
+@RequestMapping("/${config.lowerCaseName}")
+@Transactional
+public class ${config.name}Controller {
+
+
+    @Autowired
+    private ${config.name}Service ${config.lowerCaseName}Service;
+
+    @PermissionCode("${config.serviceName}.${config.lowerCaseName}.pageList")
+    @Log(module = "${config.description}",title = "${config.description}分页列表", businessType = BusinessType.LIST)
+    @RequestMapping(value = "/getPageList",method = RequestMethod.GET)
+    @ApiOperation(value = "${config.description}分页列表")
+    public Result<IPage<${config.name}>> getPageList(@ModelAttribute PageVo page, @ModelAttribute ${config.name} entity){
+        IPage<${config.name}> list = ${config.lowerCaseName}Service.pageList(PageUtil.initMpPage(page),entity);
+        return new ResultUtil<IPage<${config.name}>>().setData(list);
+    }
+
+    @PermissionCode("${config.serviceName}.${config.lowerCaseName}.add")
+    @Log(module = "${config.description}",title = "${config.description}新增", businessType = BusinessType.ADD)
+    @RequestMapping(value = "/save",method = RequestMethod.POST)
+    @ApiOperation(value = "${config.description}新增")
+    public Result<${config.name}> save(@ModelAttribute @Validated ${config.name} ${config.lowerCaseName}){
+        ${config.lowerCaseName}Service.saveOrUpdate(${config.lowerCaseName});
+        return new ResultUtil<${config.name}>().setData(${config.lowerCaseName});
+    }
+
+    @PermissionCode("${config.serviceName}.${config.lowerCaseName}.edit")
+    @Log(module = "${config.description}",title = "${config.description}修改", businessType = BusinessType.EDIT)
+    @RequestMapping(value = "/edit",method = RequestMethod.POST)
+    @ApiOperation(value = "${config.description}修改")
+    public Result<${config.name}> edit(@ModelAttribute @Validated ${config.name} ${config.lowerCaseName}){
+        ${config.lowerCaseName}Service.saveOrUpdate(${config.lowerCaseName});
+        return new ResultUtil<${config.name}>().setData(${config.lowerCaseName});
+    }
+
+
+    @PermissionCode("${config.serviceName}.${config.lowerCaseName}.deleteBatch")
+    @Log(module = "${config.description}",title = "${config.description}批量删除", businessType = BusinessType.DELETE)
+    @RequestMapping(value = "/delByIds/{ids}",method = RequestMethod.DELETE)
+    @ApiOperation(value = "${config.description}批量删除")
+    public Result<Object> delByIds(@PathVariable String[] ids){
+        for(String id : ids){
+            ${config.lowerCaseName}Service.removeById(id);
+        }
+        return new ResultUtil<Object>().setSuccessMsg("删除成功");
+    }
+
+}

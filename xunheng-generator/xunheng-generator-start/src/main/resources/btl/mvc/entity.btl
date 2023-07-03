@@ -1,0 +1,46 @@
+<% var date = date(); %>
+package ${config.packageName};
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.hhq.xunheng.datasource.entity.IXunhengBaseEntity;
+import com.tangzc.mpe.actable.annotation.Table;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import org.springframework.format.annotation.DateTimeFormat;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+import java.math.BigDecimal;
+import java.util.Date;
+import com.hhq.xunheng.base.constant.CommonConstant;
+
+/**
+ * ${config.description}
+ * @author ${config.author}
+ * @date ${date,"yyyy-MM-dd HH:mm:ss"}
+ */
+@Data
+@TableName("${config.tableName}")
+@ApiModel(value = "${config.description}")
+@Table
+public class ${config.name} extends IxunhengBaseEntity {
+
+    private static final long serialVersionUID = 1L;
+
+     <%
+       for(item in config.fieldList){
+     %>
+     <%if(item.type == 'Date'){ %>
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+     <%}%>
+     <%if(item.type == 'DateTime'){ %>
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+     <%}%>
+    @ApiModelProperty(value = "${item.description}")
+    private ${item.type == 'DateTime' ? 'Date':item.type } ${item.fieldName}<%if(item.defaultVal != '' && item.defaultVal != null){ %> = ${item.defaultVal}<%}%>;
+
+     <%
+       }
+     %>
+}

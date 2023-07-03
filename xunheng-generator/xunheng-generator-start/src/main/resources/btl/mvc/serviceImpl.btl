@@ -1,0 +1,33 @@
+<% var date = date(); %>
+package ${config.packageName};
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import ${config.servicePackage}.dao.mapper.${config.name}Mapper;
+import ${config.servicePackage}.entity.${config.name};
+import ${config.servicePackage}.service.${config.name}Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
+
+/**
+ * ${config.description}service实现类
+ * @author ${config.author}
+ * @date ${date,"yyyy-MM-dd HH:mm:ss"}
+ */
+@Slf4j
+@Service
+@Transactional
+public class ${config.name}ServiceImpl extends ServiceImpl<${config.name}Mapper, ${config.name}> implements ${config.name}Service {
+
+    @Autowired
+    private ${config.name}Mapper ${config.lowerCaseName}Mapper;
+
+    @Override
+    public IPage<${config.name}> pageList(Page<${config.name}> page, ${config.name} entity) {
+        return ${config.lowerCaseName}Mapper.pageList(page,entity);
+    }
+
+}

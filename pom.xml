@@ -10,6 +10,7 @@
     <module>xunheng-system</module>
     <module>xunheng-quartz</module>
     <module>xunheng-log</module>
+    <module>xunheng-generator</module>
   </modules>
     
   <groupId>com.xunheng</groupId>
