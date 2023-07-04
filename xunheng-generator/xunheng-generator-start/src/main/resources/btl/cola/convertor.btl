@@ -1,0 +1,41 @@
+package ${config.servicePackage}.infrastructure.convertor;
+
+import ${config.servicePackage}.infrastructure.DO.${config.name};
+import ${config.servicePackage}.domain.${config.domainName}.model.${config.name}Entity;
+
+/**
+ * @program: xunheng-cloud-cola
+ * @description: ${config.description}dto转换
+ * @author: ${config.author}
+ * @date: ${date(),"yyyy/MM/dd HH:mm:ss"}
+ */
+public class ${config.name}Convertor {
+
+    public static ${config.name} toDO(${config.name}Entity entity) {
+        if(entity == null)return null;
+        ${config.name} ${config.lowerCaseName} = new ${config.name}();
+        ${config.lowerCaseName}.setId(entity.getId());
+        <%
+          for(item in config.fieldList){
+        %>
+        ${config.lowerCaseName}.set${item.fieldUpperCaseName}(entity.get${item.fieldUpperCaseName}());
+        <%
+          }
+        %>
+        return ${config.lowerCaseName};
+    }
+
+    public static ${config.name}Entity toEntity(${config.name} db) {
+        if(db == null)return null;
+        ${config.name}Entity entity = new ${config.name}Entity();
+        entity.setId(db.getId());
+        <%
+          for(item in config.fieldList){
+        %>
+        entity.set${item.fieldUpperCaseName}(db.get${item.fieldUpperCaseName}());
+        <%
+          }
+        %>
+        return entity;
+    }
+}

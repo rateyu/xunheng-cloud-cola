@@ -29,6 +29,7 @@ public class GenConfigQueryCmdExe {
     public GenConfigVO execute(){
         /*查询基础配置*/
         GenConfigEntity entity = genConfigGateway.getConfig();
+        if(entity == null)return null;
         /*查询字段信息*/
         entity.setFieldList(genFieldConfigGateway.listAll());
         return GenConfigAssembler.toVo(entity);

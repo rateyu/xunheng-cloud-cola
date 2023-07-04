@@ -1,18 +1,19 @@
-package ${config.servicePackage}.controller;
+package ${config.servicePackage}.adapter.web;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.xunheng.base.dto.PageDto;
-import com.xunheng.datasource.config.util.PageUtil;
 import com.xunheng.base.enums.BusinessType;
 import com.xunheng.log.config.annotation.Log;
 import com.xunheng.base.annotation.PermissionCode;
-import ${config.servicePackage}.entity.${config.name};
-import ${config.servicePackage}.service.${config.name}Service;
+import ${config.servicePackage}.client.api.${config.name}Service;
+import ${config.servicePackage}.client.dto.VO.${config.name}VO;
+import ${config.servicePackage}.client.dto.query.${config.name}PageQuery;
+import ${config.servicePackage}.client.dto.${config.name}CreateCmd;
+import ${config.servicePackage}.client.dto.${config.name}UpdateCmd;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import javax.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import javax.annotation.Resource;
 
 @Api("${config.description}")
 @RestController
@@ -26,26 +27,32 @@ public class ${config.name}Controller {
     @Log(module = "${config.description}",title = "${config.description}分页列表", businessType = BusinessType.LIST)
     @RequestMapping(value = "/getPageList",method = RequestMethod.GET)
     @ApiOperation(value = "${config.description}分页列表")
-    public IPage<${config.name}> getPageList(PageDto page, ${config.name} entity){
-       return ${config.lowerCaseName}Service.pageList(PageUtil.initMpPage(page),entity);
+    public IPage<${config.name}VO> getPageList(${config.name}PageQuery query){
+        return ${config.lowerCaseName}Service.pageList(query);
+    }
+
+    @PermissionCode("${config.serviceName}.${config.lowerCaseName}.detail")
+    @Log(module = "${config.description}",title = "${config.description}详情", businessType = BusinessType.DETAIL)
+    @RequestMapping(value = "/getDetail/{id}",method = RequestMethod.GET)
+    @ApiOperation(value = "${config.description}详情")
+    public ${config.name}VO getDetail(@PathVariable String id){
+        return ${config.lowerCaseName}Service.getDetail(id);
     }
 
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.add")
     @Log(module = "${config.description}",title = "${config.description}新增", businessType = BusinessType.ADD)
     @RequestMapping(value = "/save",method = RequestMethod.POST)
     @ApiOperation(value = "${config.description}新增")
-    public ${config.name} save(@RequestBody @Validated ${config.name} ${config.lowerCaseName}){
-        ${config.lowerCaseName}Service.saveOrUpdate(${config.lowerCaseName});
-        return ${config.lowerCaseName};
+    public ${config.name}VO save(@RequestBody @Validated ${config.name}CreateCmd cmd){
+       return ${config.lowerCaseName}Service.create(cmd);
     }
 
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.edit")
     @Log(module = "${config.description}",title = "${config.description}修改", businessType = BusinessType.EDIT)
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
     @ApiOperation(value = "${config.description}修改")
-    public ${config.name} edit(@RequestBody @Validated ${config.name} ${config.lowerCaseName}){
-        ${config.lowerCaseName}Service.saveOrUpdate(${config.lowerCaseName});
-        return ${config.lowerCaseName};
+    public ${config.name}VO edit(@RequestBody @Validated ${config.name}UpdateCmd cmd){
+        return ${config.lowerCaseName}Service.update(cmd);
     }
 
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.deleteBatch")
@@ -54,9 +61,8 @@ public class ${config.name}Controller {
     @ApiOperation(value = "${config.description}批量删除")
     public String delByIds(@PathVariable String[] ids){
         for(String id : ids){
-            ${config.lowerCaseName}Service.removeById(id);
+            ${config.lowerCaseName}Service.remove(id);
         }
-        return "删除成功";
+         return "删除成功！";
     }
-
 }

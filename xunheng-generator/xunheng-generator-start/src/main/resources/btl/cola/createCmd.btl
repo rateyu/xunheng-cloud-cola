@@ -1,0 +1,31 @@
+package ${config.servicePackage}.client.dto;
+
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+
+@Data
+public class ${config.name}CreateCmd {
+
+     <%
+       for(item in config.fieldList){
+     %>
+     <%if(item.notNull == 1){ %>
+    @Not${item.type == 'String' ? 'Blank' : 'Null'}(message = "${item.description}不能为空")
+     <%}%>
+     <%if(item.type == 'Date'){ %>
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+     <%}%>
+     <%if(item.type == 'DateTime'){ %>
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+     <%}%>
+    @ApiModelProperty(value = "${item.description}")
+    private ${item.type == 'DateTime' ? 'Date':item.type } ${item.fieldName};
+
+     <%
+       }
+     %>
+}

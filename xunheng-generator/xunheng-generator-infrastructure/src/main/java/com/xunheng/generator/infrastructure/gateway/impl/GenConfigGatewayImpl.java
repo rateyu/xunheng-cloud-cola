@@ -1,11 +1,12 @@
-package com.xunheng.infrastructure.gateway.impl;
+package com.xunheng.generator.infrastructure.gateway.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.xunheng.generator.domain.genConfig.gateway.GenConfigGateway;
 import com.xunheng.generator.domain.genConfig.model.GenConfigEntity;
-import com.xunheng.infrastructure.DO.GenConfig;
-import com.xunheng.infrastructure.convertor.GenConfigConvertor;
-import com.xunheng.infrastructure.mapper.GenConfigMapper;
+import com.xunheng.generator.infrastructure.DO.GenConfig;
+import com.xunheng.generator.infrastructure.convertor.GenConfigConvertor;
+import com.xunheng.generator.infrastructure.mapper.GenConfigMapper;
+import io.seata.common.util.StringUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -30,6 +31,7 @@ public class GenConfigGatewayImpl implements GenConfigGateway {
 
     @Override
     public void save(GenConfigEntity saveEntity) {
-
+        GenConfig genConfig = GenConfigConvertor.toDO(saveEntity);
+        int count = StringUtils.isNullOrEmpty(saveEntity.getId()) ? genConfigMapper.insert(genConfig) : genConfigMapper.updateById(genConfig);
     }
 }

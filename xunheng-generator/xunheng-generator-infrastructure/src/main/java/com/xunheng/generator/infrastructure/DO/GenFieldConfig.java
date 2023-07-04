@@ -1,4 +1,4 @@
-package com.xunheng.infrastructure.DO;
+package com.xunheng.generator.infrastructure.DO;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.tangzc.mpe.actable.annotation.Table;
@@ -24,5 +24,11 @@ public class GenFieldConfig extends BaseNoneLogicDO {
 
     @ApiModelProperty(value = "默认值")
     private String defaultVal;
+
+    @ApiModelProperty(value = "是否索引 0:否 1:是")
+    private Integer cindex;
+
+    @ApiModelProperty(value = "是否不能为空 0:否 1:是")
+    private Integer notNull;
 
 }

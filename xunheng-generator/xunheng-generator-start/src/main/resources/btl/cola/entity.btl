@@ -1,0 +1,24 @@
+package ${config.servicePackage}.domain.${config.domainName}.model;
+
+import com.alibaba.cola.domain.Entity;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
+import java.util.Date;
+
+@Data
+@Entity
+public class ${config.name}Entity {
+
+    @ApiModelProperty(value = "id")
+    private String id;
+
+     <%
+       for(item in config.fieldList){
+     %>
+    @ApiModelProperty(value = "${item.description}")
+    private ${item.type == 'DateTime' ? 'Date':item.type } ${item.fieldName};
+
+     <%
+       }
+     %>
+}

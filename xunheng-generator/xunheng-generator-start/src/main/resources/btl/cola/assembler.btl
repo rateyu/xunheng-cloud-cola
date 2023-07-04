@@ -1,0 +1,56 @@
+package ${config.servicePackage}.app.assembler;
+
+import ${config.servicePackage}.client.dto.${config.name}CreateCmd;
+import ${config.servicePackage}.client.dto.${config.name}UpdateCmd;
+import ${config.servicePackage}.client.dto.VO.${config.name}VO;
+import ${config.servicePackage}.domain.${config.domainName}.model.${config.name}Entity;
+
+/**
+ * @program: xunheng-cloud-cola
+ * @description: ${config.description}dto转换
+ * @author: ${config.author}
+ * @date: ${date(),"yyyy/MM/dd HH:mm:ss"}
+ */
+public class ${config.name}Assembler {
+
+    public static ${config.name}Entity toCreateEntity(${config.name}CreateCmd cmd) {
+        if(cmd == null)return null;
+        ${config.name}Entity entity = new ${config.name}Entity();
+        <%
+          for(item in config.fieldList){
+        %>
+        entity.set${item.fieldUpperCaseName}(cmd.get${item.fieldUpperCaseName}());
+        <%
+          }
+        %>
+        return entity;
+    }
+
+    public static ${config.name}Entity toUpdateEntity(${config.name}UpdateCmd cmd) {
+        if(cmd == null)return null;
+        ${config.name}Entity entity = new ${config.name}Entity();
+        entity.setId(cmd.getId());
+        <%
+          for(item in config.fieldList){
+        %>
+        entity.set${item.fieldUpperCaseName}(cmd.get${item.fieldUpperCaseName}());
+        <%
+          }
+        %>
+        return entity;
+    }
+
+    public static ${config.name}VO toVo(${config.name}Entity entity) {
+        if(entity == null)return null;
+        ${config.name}VO vo = new ${config.name}VO();
+        vo.setId(entity.getId());
+        <%
+          for(item in config.fieldList){
+        %>
+        vo.set${item.fieldUpperCaseName}(entity.get${item.fieldUpperCaseName}());
+        <%
+          }
+        %>
+        return vo;
+    }
+}

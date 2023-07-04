@@ -4,8 +4,10 @@ import com.xunheng.generator.client.dto.GenConfigSaveAndGenCmd;
 import com.xunheng.generator.client.dto.GenConfigSaveCmd;
 import com.xunheng.generator.client.dto.VO.GenConfigVO;
 import com.xunheng.generator.domain.genConfig.model.GenConfigEntity;
+import com.xunheng.generator.domain.genConfig.model.GenType;
 import io.seata.common.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 
@@ -20,7 +22,9 @@ public class GenConfigAssembler {
     public static GenConfigEntity toSaveEntity(GenConfigSaveCmd cmd){
         GenConfigEntity entity = new GenConfigEntity();
         entity.setId(cmd.getId());
+        entity.setType(GenType.valueOf(cmd.getType()));
         entity.setName(cmd.getName());
+        entity.setDomainName(cmd.getDomainName());
         entity.setDescription(cmd.getDescription());
         entity.setAuthor(cmd.getAuthor());
         entity.setTablePrefix(cmd.getTablePrefix());
@@ -33,7 +37,9 @@ public class GenConfigAssembler {
     public static GenConfigEntity toSaveAndGenEntity(GenConfigSaveAndGenCmd cmd){
         GenConfigEntity entity = new GenConfigEntity();
         entity.setId(cmd.getId());
+        entity.setType(GenType.valueOf(cmd.getType()));
         entity.setName(cmd.getName());
+        entity.setDomainName(cmd.getDomainName());
         entity.setDescription(cmd.getDescription());
         entity.setAuthor(cmd.getAuthor());
         entity.setTablePrefix(cmd.getTablePrefix());
@@ -51,13 +57,16 @@ public class GenConfigAssembler {
         if(entity == null)return null;
         GenConfigVO vo = new GenConfigVO();
         vo.setId(entity.getId());
+        vo.setType(entity.getType().name());
         vo.setName(entity.getName());
+        vo.setDomainName(entity.getDomainName());
         vo.setDescription(entity.getDescription());
         vo.setAuthor(entity.getAuthor());
         vo.setTablePrefix(entity.getTablePrefix());
         vo.setTableAlias(entity.getTableAlias());
         vo.setServiceName(entity.getServiceName());
         if(CollectionUtils.isNotEmpty(entity.getFieldList()))vo.setFieldList(entity.getFieldList().stream().map(GenFieldConfigAssembler::toVO).collect(Collectors.toList()));
+        else vo.setFieldList(new ArrayList<>());
         return vo;
     }
 }

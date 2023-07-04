@@ -1,0 +1,27 @@
+package ${config.servicePackage}.app.executor;
+
+import ${config.servicePackage}.app.assembler.${config.name}Assembler;
+import ${config.servicePackage}.client.dto.${config.name}CreateCmd;
+import ${config.servicePackage}.client.dto.VO.${config.name}VO;
+import ${config.servicePackage}.domain.${config.domainName}.gateway.${config.name}Gateway;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.Resource;
+
+/**
+ * @program: xunheng-cloud-cola
+ * @description: ${config.description}创建处理器
+ * @author: ${config.author}
+ * @date: ${date(),"yyyy/MM/dd HH:mm:ss"}
+ */
+@Component
+public class ${config.name}CreateCmdExe {
+
+    @Resource
+    private ${config.name}Gateway ${config.lowerCaseName}Gateway;
+
+    public ${config.name}VO execute(${config.name}CreateCmd cmd) {
+        return ${config.name}Assembler.toVo(${config.lowerCaseName}Gateway.create(${config.name}Assembler.toCreateEntity(cmd)));
+    }
+
+}
