@@ -132,6 +132,7 @@ public class LoginGatewayImpl implements LoginGateway {
         log.setTenantTitle(user.getTenantTitle());
         log.setOperUrl("/login");
         log.setOperIp(cmd.getIp());
+        cmd.setPassword(null);//清除密码
         log.setOperParam(JSON.toJSONString(cmd));
         log.setStatus(0);
         log.setErrorMsg("");
