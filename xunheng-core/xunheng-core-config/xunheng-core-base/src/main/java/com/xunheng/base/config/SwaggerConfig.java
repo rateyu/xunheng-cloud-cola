@@ -21,7 +21,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  */
 @Configuration
 @EnableSwagger2
-@ComponentScan(basePackages = "com.xunheng.*.adapter.web")
+@ComponentScan(basePackages = {"com.xunheng.*.adapter.web","com.xunheng.*.controller",})
 public class SwaggerConfig {
 
     @Bean

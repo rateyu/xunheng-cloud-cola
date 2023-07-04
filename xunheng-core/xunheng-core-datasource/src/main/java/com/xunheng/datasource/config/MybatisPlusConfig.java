@@ -18,7 +18,7 @@ import javax.annotation.Resource;
  * @date: 2023/6/29 17:09
  */
 @Configuration
-@MapperScan("com.xunheng.*.infrastructure.mapper")
+@MapperScan({"com.xunheng.*.infrastructure.mapper","com.xunheng.*.dao.mapper"})
 public class MybatisPlusConfig {
 
     @Resource
