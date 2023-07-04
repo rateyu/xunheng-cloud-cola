@@ -16,8 +16,14 @@ public class GenConfigEntity {
     @ApiModelProperty(value = "id")
     private String id;
 
+    @ApiModelProperty(value = "类型")
+    private GenType type;
+
     @ApiModelProperty(value = "实体名")
     private String name;
+
+    @ApiModelProperty(value = "领域名称")
+    private String domainName;
 
     @ApiModelProperty(value = "描述")
     private String description;
@@ -37,9 +43,6 @@ public class GenConfigEntity {
     @ApiModelProperty(value = "服务根路径")
     private String servicePackage;
 
-    @ApiModelProperty(value = "包路径")
-    private String packageName;
-
     @ApiModelProperty(value = "表名")
     private String tableName;
 
@@ -50,19 +53,80 @@ public class GenConfigEntity {
     @ApiModelProperty(value = "表字段")
     private List<GenFieldConfigEntity> fieldList;
 
-    public String getSysPath(String nodeName){
-        return System.getProperty("user.dir") +"/xunheng-"+serviceName+"/src/main/"+nodeName+"/";
+    public String getSysPath(String nodeName,GenType type,String templateName,String moduleName){
+        if(type.equals(GenType.MVC)){
+            String prefixDir = System.getProperty("user.dir") +"/xunheng-"+serviceName+"/src/main/"+nodeName;
+            String endDir = "/com/xunheng/"+serviceName+"/"+templateName+"/";
+            switch (templateName) {
+                case "mapperXml":
+                    return prefixDir + "/mapper/";
+                case "mapper":
+                    endDir = "/com/xunheng/" + serviceName + "/dao/mapper/";
+                    break;
+                case "serviceImpl":
+                    endDir = "/com/xunheng/" + serviceName + "/service/impl/";
+                    break;
+            }
+            return prefixDir+endDir;
+        }else if(type.equals(GenType.COLA)){
+            String prefixDir = System.getProperty("user.dir") +"/xunheng-"+serviceName+"/xunheng-"+serviceName+"-"+moduleName+"/src/main/"+nodeName;
+            String endDir = "/com/xunheng/"+serviceName+"/"+moduleName+"/"+templateName+"/";
+            switch (templateName) {
+                case "mapperXml":
+                    return prefixDir + "/mapper/";
+                case "controller":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/web/";
+                    break;
+                case "service":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/api/";
+                    break;
+                case "updateCmd":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/dto/";
+                    break;
+                case "createCmd":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/dto/";
+                    break;
+                case "pageQuery":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/dto/query/";
+                    break;
+                case "VO":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/dto/VO/";
+                    break;
+                case "serviceImpl":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/";
+                    break;
+                case "createCmdExe":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/executor/";
+                    break;
+                case "updateCmdExe":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/executor/";
+                    break;
+                case "removeCmdExe":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/executor/";
+                    break;
+                case "pageQueryExe":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/executor/query/";
+                    break;
+                case "detailQueryExe":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/executor/query/";
+                    break;
+                case "entity":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/"+domainName+"/model/";
+                    break;
+                case "gateway":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/"+domainName+"/gateway/";
+                    break;
+                case "gatewayImpl":
+                    endDir = "/com/xunheng/" + serviceName + "/"+moduleName+"/gateway/impl/";
+                    break;
+            }
+            return prefixDir+endDir;
+        }
+        return null;
     }
 
     public String getServicePackage(){
         return "com.xunheng." + serviceName;
-    }
-
-    public String getPackage(String name){
-        if(name.equals("mapper"))name = "dao.mapper";
-        else if(name.equals("serviceImpl"))name = "service.impl";
-        else if(name.equals("mapperXml"))return "mapper";
-        return getServicePackage() + "."+name;
     }
 
     public void setTableName(String tablePrefix,String name){

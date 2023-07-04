@@ -1,0 +1,51 @@
+package ${config.servicePackage}.client.api;
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import ${config.servicePackage}.client.dto.VO.${config.name}VO;
+import ${config.servicePackage}.client.dto.query.${config.name}PageQuery;
+import ${config.servicePackage}.client.dto.${config.name}CreateCmd;
+import ${config.servicePackage}.client.dto.${config.name}UpdateCmd;
+
+/**
+ * @program: xunheng-cloud-cola
+ * @description: ${config.description}service
+ * @author: ${config.author}
+ * @date: ${date(),"yyyy/MM/dd HH:mm:ss"}
+ */
+public interface ${config.name}Service{
+
+    /**
+     * ${config.description}分页列表
+     * @param query 分页查询dto
+     * @return 分页信息
+     */
+    IPage<${config.name}VO> pageList(${config.name}PageQuery query);
+
+    /**
+     * 根据id获取单个详情
+     * @param id ${config.description}id
+     * @return ${config.description}信息
+     */
+    ${config.name}VO getDetail(String id);
+
+    /**
+     * 创建${config.description}信息
+     * @param cmd 创建操作cmd
+     * @return ${config.description}信息
+     */
+    ${config.name}VO create(${config.name}CreateCmd cmd);
+
+    /**
+     * 更新${config.description}信息
+     * @param cmd 更新操作cmd
+     * @return ${config.description}信息
+     */
+    ${config.name}VO update(${config.name}UpdateCmd cmd);
+
+    /**
+     * 根据id删除${config.description}
+     * @param id ${config.description}id
+     */
+    void remove(String id);
+
+}

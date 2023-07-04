@@ -1,0 +1,72 @@
+package ${config.servicePackage}.infrastructure.gateway.impl;
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import ${config.servicePackage}.infrastructure.DO.${config.name};
+import ${config.servicePackage}.infrastructure.convertor.${config.name}Convertor;
+import ${config.servicePackage}.client.dto.query.${config.name}PageQuery;
+import ${config.servicePackage}.domain.${config.domainName}.gateway.${config.name}Gateway;
+import ${config.servicePackage}.infrastructure.mapper.${config.name}Mapper;
+import ${config.servicePackage}.domain.${config.domainName}.model.${config.name}Entity;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import javax.annotation.Resource;
+import com.xunheng.base.exception.GlobalException;
+import com.mysql.cj.util.StringUtils;
+
+/**
+ * @program: xunheng-cloud-cola
+ * @description: ${config.description}网关实现类
+ * @author: ${config.author}
+ * @date: ${date(),"yyyy/MM/dd HH:mm:ss"}
+ */
+@Slf4j
+@Component
+public class ${config.name}GatewayImpl implements ${config.name}Gateway {
+
+    @Resource
+    ${config.name}Mapper ${config.lowerCaseName}Mapper;
+
+    @Override
+    public IPage<${config.name}Entity> pageList(${config.name}PageQuery query) {
+        IPage<${config.name}> page = ${config.lowerCaseName}Mapper.pageList(new Page<${config.name}>(query.getPage(), query.getPageSize()), query);
+        return page.convert(${config.name}Convertor::toEntity);
+    }
+
+    @Override
+    public ${config.name}Entity getOneById(String id) {
+        ${config.name} ${config.lowerCaseName} = ${config.lowerCaseName}Mapper.selectById(id);
+        return ${config.name}Convertor.toEntity(${config.lowerCaseName});
+    }
+
+    @Override
+    public ${config.name}Entity saveOrUpdate(${config.name}Entity entity) {
+        ${config.name} ${config.lowerCaseName} = ${config.name}Convertor.toDO(entity);
+        int count = StringUtils.isNullOrEmpty(${config.lowerCaseName}.getId()) ? ${config.lowerCaseName}Mapper.insert(${config.lowerCaseName}) : ${config.lowerCaseName}Mapper.updateById(${config.lowerCaseName});
+        if(count < 1)throw new GlobalException("Gateway保存或更新数据失败");
+        return ${config.name}Convertor.toEntity(${config.lowerCaseName});
+    }
+
+    @Override
+    public ${config.name}Entity create(${config.name}Entity entity) {
+        ${config.name} ${config.lowerCaseName} = ${config.name}Convertor.toDO(entity);
+        int count = ${config.lowerCaseName}Mapper.insert(${config.lowerCaseName});
+        if(count < 1)throw new GlobalException("Gateway创建数据失败");
+        return ${config.name}Convertor.toEntity(${config.lowerCaseName});
+    }
+
+    @Override
+    public ${config.name}Entity update(${config.name}Entity entity) {
+        ${config.name} ${config.lowerCaseName} = ${config.name}Convertor.toDO(entity);
+        int count = ${config.lowerCaseName}Mapper.updateById(${config.lowerCaseName});
+        if(count < 1)throw new GlobalException("Gateway更新数据失败");
+        return ${config.name}Convertor.toEntity(${config.lowerCaseName});
+    }
+
+    @Override
+    public void remove(String id) {
+        ${config.lowerCaseName}Mapper.deleteById(id);
+    }
+
+
+}

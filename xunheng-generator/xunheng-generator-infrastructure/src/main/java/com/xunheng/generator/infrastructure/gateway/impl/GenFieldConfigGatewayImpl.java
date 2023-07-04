@@ -1,11 +1,11 @@
-package com.xunheng.infrastructure.gateway.impl;
+package com.xunheng.generator.infrastructure.gateway.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.xunheng.generator.domain.genConfig.gateway.GenFieldConfigGateway;
 import com.xunheng.generator.domain.genConfig.model.GenFieldConfigEntity;
-import com.xunheng.infrastructure.DO.GenFieldConfig;
-import com.xunheng.infrastructure.convertor.GenFieldConfigConvertor;
-import com.xunheng.infrastructure.mapper.GenFieldConfigMapper;
+import com.xunheng.generator.infrastructure.DO.GenFieldConfig;
+import com.xunheng.generator.infrastructure.convertor.GenFieldConfigConvertor;
+import com.xunheng.generator.infrastructure.mapper.GenFieldConfigMapper;
 import io.seata.common.util.CollectionUtils;
 import org.springframework.stereotype.Component;
 

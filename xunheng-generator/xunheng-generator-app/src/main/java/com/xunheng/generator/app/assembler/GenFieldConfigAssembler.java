@@ -14,10 +14,13 @@ public class GenFieldConfigAssembler {
     public static GenFieldConfigEntity toEntity(GenConfigFieldVO vo){
         if(vo == null)return null;
         GenFieldConfigEntity entity = new GenFieldConfigEntity();
-        entity.setFieldName(entity.getFieldName());
-        entity.setDescription(entity.getDescription());
-        entity.setType(entity.getType());
-        entity.setDefaultVal(entity.getDefaultVal());
+        entity.setFieldName(vo.getFieldName());
+        entity.setDescription(vo.getDescription());
+        entity.setType(vo.getType());
+        entity.setDefaultVal(vo.getDefaultVal());
+        entity.setCindex(vo.getCindex());
+        entity.setNotNull(vo.getNotNull());
+        entity.setFieldUpperCaseName(entity.name(entity.getFieldName(),true));
         return entity;
     }
 
@@ -29,6 +32,8 @@ public class GenFieldConfigAssembler {
         vo.setDescription(entity.getDescription());
         vo.setType(entity.getType());
         vo.setDefaultVal(entity.getDefaultVal());
+        vo.setCindex(entity.getCindex());
+        vo.setNotNull(entity.getNotNull());
         return vo;
     }
 }

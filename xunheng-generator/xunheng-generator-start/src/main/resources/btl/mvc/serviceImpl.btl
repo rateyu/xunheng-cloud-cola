@@ -1,5 +1,4 @@
-<% var date = date(); %>
-package ${config.packageName};
+package ${config.servicePackage}.service.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -13,9 +12,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * ${config.description}service实现类
- * @author ${config.author}
- * @date ${date,"yyyy-MM-dd HH:mm:ss"}
+ * @program: xunheng-cloud-cola
+ * @description: ${config.description}service实现类
+ * @author: ${config.author}
+ * @date: ${date(),"yyyy/MM/dd HH:mm:ss"}
  */
 @Slf4j
 @Service

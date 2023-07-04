@@ -1,5 +1,4 @@
-<% var date = date(); %>
-package ${config.packageName};
+package ${config.servicePackage}.dao.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -9,13 +8,14 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
- * ${config.description}数据处理层
- * @author ${config.author}
- * @date ${date,"yyyy-MM-dd HH:mm:ss"}
+ * @program: xunheng-cloud-cola
+ * @description: ${config.description}数据层
+ * @author: ${config.author}
+ * @date: ${date(),"yyyy/MM/dd HH:mm:ss"}
  */
 @Repository
 public interface ${config.name}Mapper extends BaseMapper<${config.name}> {
 
-    IPage<${config.name}> pageList(Page<${config.name}> page, @Param("vo")${config.name} entity);
+    IPage<${config.name}> pageList(Page<${config.name}> page, @Param("qry")${config.name} entity);
 
 }

@@ -12,8 +12,14 @@ public class GenConfigSaveAndGenCmd {
     @ApiModelProperty(value = "id")
     private String id;
 
+    @ApiModelProperty(value = "类型")
+    private String type;
+
     @ApiModelProperty(value = "实体名")
     private String name;
+
+    @ApiModelProperty(value = "领域名称")
+    private String domainName;
 
     @ApiModelProperty(value = "描述")
     private String description;

@@ -1,7 +1,7 @@
-package com.xunheng.infrastructure.mapper;
+package com.xunheng.generator.infrastructure.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xunheng.infrastructure.DO.GenFieldConfig;
+import com.xunheng.generator.infrastructure.DO.GenFieldConfig;
 import org.springframework.stereotype.Repository;
 
 /**

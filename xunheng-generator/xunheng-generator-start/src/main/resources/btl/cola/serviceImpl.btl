@@ -1,0 +1,68 @@
+package ${config.servicePackage}.app;
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import ${config.servicePackage}.client.api.${config.name}Service;
+import ${config.servicePackage}.client.dto.query.${config.name}PageQuery;
+import ${config.servicePackage}.client.dto.${config.name}CreateCmd;
+import ${config.servicePackage}.client.dto.${config.name}UpdateCmd;
+import ${config.servicePackage}.client.dto.VO.${config.name}VO;
+import ${config.servicePackage}.app.executor.${config.name}RemoveCmdExe;
+import ${config.servicePackage}.app.executor.${config.name}CreateCmdExe;
+import ${config.servicePackage}.app.executor.${config.name}UpdateCmdExe;
+import ${config.servicePackage}.app.executor.query.${config.name}PageQueryExe;
+import ${config.servicePackage}.app.executor.query.${config.name}DetailQueryExe;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import javax.annotation.Resource;
+
+/**
+ * @program: xunheng-cloud-cola
+ * @description: ${config.description}service实现类
+ * @author: ${config.author}
+ * @date: ${date(),"yyyy/MM/dd HH:mm:ss"}
+ */
+@Service
+@Transactional
+public class ${config.name}ServiceImpl implements ${config.name}Service {
+
+    @Resource
+    private ${config.name}PageQueryExe ${config.lowerCaseName}PageQueryExe;
+
+    @Resource
+    private ${config.name}DetailQueryExe ${config.lowerCaseName}DetailQueryExe;
+
+    @Resource
+    private ${config.name}CreateCmdExe ${config.lowerCaseName}CreateCmdExe;
+    
+    @Resource
+    private ${config.name}UpdateCmdExe ${config.lowerCaseName}UpdateCmdExe;
+
+    @Resource
+    private ${config.name}RemoveCmdExe ${config.lowerCaseName}RemoveCmdExe;
+
+    @Override
+    public IPage<${config.name}VO> pageList(${config.name}PageQuery query){
+        return ${config.lowerCaseName}PageQueryExe.execute(query);
+    }
+
+    @Override
+    public ${config.name}VO getDetail(String id) {
+        return ${config.lowerCaseName}DetailQueryExe.execute(id);
+    }
+
+    @Override
+    public ${config.name}VO create(${config.name}CreateCmd cmd) {
+        return ${config.lowerCaseName}CreateCmdExe.execute(cmd);
+    }
+
+    @Override
+    public ${config.name}VO update(${config.name}UpdateCmd cmd) {
+        return ${config.lowerCaseName}UpdateCmdExe.execute(cmd);
+    }
+
+    @Override
+    public void remove(String id) {
+        ${config.lowerCaseName}RemoveCmdExe.execute(id);
+    }
+
+}

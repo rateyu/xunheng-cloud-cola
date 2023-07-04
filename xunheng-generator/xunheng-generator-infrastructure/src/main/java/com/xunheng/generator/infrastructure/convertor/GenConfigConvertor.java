@@ -1,7 +1,8 @@
-package com.xunheng.infrastructure.convertor;
+package com.xunheng.generator.infrastructure.convertor;
 
 import com.xunheng.generator.domain.genConfig.model.GenConfigEntity;
-import com.xunheng.infrastructure.DO.GenConfig;
+import com.xunheng.generator.domain.genConfig.model.GenType;
+import com.xunheng.generator.infrastructure.DO.GenConfig;
 
 /**
  * @program: xunheng-cloud-cola
@@ -15,7 +16,9 @@ public class GenConfigConvertor {
         if(entity == null)return null;
         GenConfig db = new GenConfig();
         db.setId(entity.getId());
+        db.setType(entity.getType().name());
         db.setName(entity.getName());
+        db.setDomainName(entity.getDomainName());
         db.setDescription(entity.getDescription());
         db.setAuthor(entity.getAuthor());
         db.setTablePrefix(entity.getTablePrefix());
@@ -28,7 +31,9 @@ public class GenConfigConvertor {
         if(db == null)return null;
         GenConfigEntity entity = new GenConfigEntity();
         entity.setId(db.getId());
+        entity.setType(GenType.valueOf(db.getType()));
         entity.setName(db.getName());
+        entity.setDomainName(db.getDomainName());
         entity.setDescription(db.getDescription());
         entity.setAuthor(db.getAuthor());
         entity.setTablePrefix(db.getTablePrefix());

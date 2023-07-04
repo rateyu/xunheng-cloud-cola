@@ -1,0 +1,56 @@
+package ${config.servicePackage}.domain.${config.domainName}.gateway;
+
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import ${config.servicePackage}.domain.${config.domainName}.model.${config.name}Entity;
+import ${config.servicePackage}.client.dto.query.${config.name}PageQuery;
+
+/**
+ * @program: xunheng-cloud-cola
+ * @description: ${config.name}网关
+ * @author: ${config.author}
+ * @date: ${date(),"yyyy/MM/dd HH:mm:ss"}
+ */
+public interface ${config.name}Gateway {
+
+    /**
+     * ${config.description}分页列表
+     * @param query 分页查询dto
+     * @return 分页信息
+     */
+    IPage<${config.name}Entity> pageList(${config.name}PageQuery query);
+
+    /**
+     * 根据id获取${config.description}信息
+     * @param id ${config.description}id
+     * @return ${config.description}实体
+     */
+    ${config.name}Entity getOneById(String id);
+
+    /**
+     * 保存或更新${config.description}实体
+     * @param entity ${config.description}实体
+     * @return ${config.description}实体
+     */
+    ${config.name}Entity saveOrUpdate(${config.name}Entity entity);
+
+    /**
+     * 创建${config.description}实体
+     * @param entity ${config.description}实体
+     * @return ${config.description}实体
+     */
+    ${config.name}Entity create(${config.name}Entity entity);
+
+    /**
+     * 更新${config.description}实体
+     * @param entity ${config.description}实体
+     * @return ${config.description}实体
+     */
+    ${config.name}Entity update(${config.name}Entity entity);
+
+    /**
+     * 根据id删除${config.description}
+     * @param id ${config.description}id
+     */
+    void remove(String id);
+
+}
