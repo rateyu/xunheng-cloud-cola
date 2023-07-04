@@ -1,7 +1,6 @@
 package com.xunheng.system.domain.tenant.model;
 
 import com.alibaba.cola.domain.Entity;
-import com.xunheng.base.constant.CommonConstant;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

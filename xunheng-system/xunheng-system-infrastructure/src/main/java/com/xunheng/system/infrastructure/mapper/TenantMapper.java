@@ -16,5 +16,12 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TenantMapper extends BaseMapper<Tenant> {
-    IPage<Tenant> pageList(Page<Tenant> page, @Param("qry") TenantPageQuery entity);
+
+    /**
+     * 获取租户分页列表
+     * @param page 分页配置
+     * @param query 查询条件
+     * @return 分页信息
+     */
+    IPage<Tenant> pageList(Page<Tenant> page, @Param("qry") TenantPageQuery query);
 }

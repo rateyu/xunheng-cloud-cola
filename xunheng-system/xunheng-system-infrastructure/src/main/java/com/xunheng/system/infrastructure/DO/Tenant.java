@@ -3,7 +3,6 @@ package com.xunheng.system.infrastructure.DO;
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tangzc.mpe.actable.annotation.ColumnType;
 import com.tangzc.mpe.actable.annotation.Table;
 import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
@@ -11,7 +10,6 @@ import com.xunheng.datasource.infrastructure.DO.BaseDO;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -44,8 +42,6 @@ public class Tenant extends BaseDO {
     @ApiModelProperty(value = "联系电话")
     private String contact;
 
-    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @TableField(updateStrategy = FieldStrategy.IGNORED)
     @ColumnType(MySqlTypeConstant.DATE)
     @ApiModelProperty(value = "授权到期日")
