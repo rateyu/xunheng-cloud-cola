@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
+    <springProperty name="appName" scope="context" source="spring.application.name"/>
     <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
     <conversionRule conversionWord="wex"
                     converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
@@ -23,7 +24,7 @@
     <!-- 输出到文件 -->
     <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <FileNamePattern>logs/xunheng_log.log.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <FileNamePattern>logs/${appName}.log.%d{yyyy-MM-dd}.log</FileNamePattern>
             <MaxHistory>3</MaxHistory>
         </rollingPolicy>
         <encoder>

@@ -11,6 +11,7 @@
     <module>xunheng-quartz</module>
     <module>xunheng-log</module>
     <module>xunheng-generator</module>
+    <module>xunheng-cloud-cola-archetype</module>
   </modules>
     
   <groupId>com.xunheng</groupId>

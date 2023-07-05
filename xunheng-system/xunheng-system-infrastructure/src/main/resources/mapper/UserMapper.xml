@@ -17,7 +17,7 @@
     </select>
 
     <sql id="userSelect">
-        select us.id,us.create_time as createTime,us.username,us.password,us.nick_name as nickName,us.mobile,us.email,us.address,us.street,us.sex,us.superior,sr.username as superiorUsername,
+        select us.id,us.create_time as createTime,us.username,us.nick_name as nickName,us.mobile,us.email,us.address,us.street,us.sex,us.superior,sr.username as superiorUsername,
         us.birth,us.about,us.avatar,us.type,us.status,tenant.name as tenantTitle,org.title as departmentTitle,org.id as organizationId,us.tenant_id as tenantId,us.sub_company_id as subCompanyId
         from sys_user us
         left join sys_user sr on sr.id = us.superior
