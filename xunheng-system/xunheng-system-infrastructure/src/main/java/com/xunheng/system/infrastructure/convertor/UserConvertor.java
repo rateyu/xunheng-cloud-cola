@@ -1,5 +1,6 @@
 package com.xunheng.system.infrastructure.convertor;
 
+import com.alibaba.nacos.common.utils.StringUtils;
 import com.xunheng.system.infrastructure.DO.User;
 import com.xunheng.system.domain.user.model.PassWord;
 import com.xunheng.system.domain.user.model.UserEntity;
@@ -42,7 +43,7 @@ public class UserConvertor {
         entity.setDepartmentId(db.getDepartmentId());
         entity.setSubCompanyId(db.getSubCompanyId());
         entity.setUsername(db.getUsername());
-        entity.setPassword(new PassWord(new PassWord.EncryptionPassWord(db.getPassword())));
+        if(StringUtils.isNotBlank(db.getPassword()))entity.setPassword(new PassWord(new PassWord.EncryptionPassWord(db.getPassword())));
         entity.setNickName(db.getNickName());
         entity.setMobile(db.getMobile());
         entity.setEmail(db.getEmail());
