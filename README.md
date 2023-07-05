@@ -13,7 +13,7 @@
 
 使用COLA会让项目更加清晰，符合高内聚低耦合的思想，但COLA也存在缺点，比如由于层数增多，在架构中会增加很多实体的转换，dto的数量相较MVC模式会大大增加，但在现在各种工具的帮助下都可以简化操作。还比如有的业务代码考虑在哪一层实现会感觉比较模糊，需要通过不断的实践获得更深的认知。
 
-对于代码量增多的问题，项目已经集成了cola架构的maven archetype骨架还有mvc与cola两种架构的代码生成器，简化开发。
+**对于代码量增多的问题，项目已经集成了cola架构的maven archetype骨架还有mvc与cola两种架构的代码生成器，简化开发。**
 
 ### 基本框架对应的版本
 
@@ -56,6 +56,7 @@
 ![输入图片说明](pic/%E6%97%A5%E5%BF%97.png)
 11. 会话监控
 12. 后端代码生成器
+![输入图片说明](pic/WX20230705-163846@2x.png)
 
 ### 前端项目
 前端项目请访问另一个仓库[xunheng-cloud-cola-front](https://gitee.com/hhqkkr/xunheng-cloud-cola-front).基于scui开发，使用的elementplus+vue3
