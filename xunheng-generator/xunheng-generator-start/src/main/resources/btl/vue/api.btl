@@ -1,0 +1,37 @@
+tenant: {
+		pageList: {
+			url: config.API_URL+'/xunheng-${config.serviceName}/${config.lowerCaseName}/getPageList',
+			name: "获取${config.description}分页列表",
+			get: async function(params){
+				return await http.get(this.url, params);
+			}
+		},
+		detail:{
+            url: config.API_URL+'/xunheng-${config.serviceName}/${config.lowerCaseName}/getDetail/',
+            name: "${config.description}详情",
+            get: async function(id){
+                return await http.get(this.url+id);
+            }
+        },
+		save:{
+			url: config.API_URL+'/xunheng-${config.serviceName}/${config.lowerCaseName}/save',
+			name: "${config.description}新增",
+			post: async function(params){
+				return await http.post(this.url, params);
+			}
+		},
+		edit:{
+			url: config.API_URL+'/xunheng-${config.serviceName}/${config.lowerCaseName}/edit',
+			name: "${config.description}修改",
+			post: async function(params){
+				return await http.post(this.url, params);
+			}
+		},
+		delete:{
+			url: config.API_URL+'/xunheng-${config.serviceName}/${config.lowerCaseName}/delByIds/',
+			name: "${config.description}批量删除",
+			delete: async function(ids){
+				return await http.delete(this.url+ids);
+			}
+		}
+	},

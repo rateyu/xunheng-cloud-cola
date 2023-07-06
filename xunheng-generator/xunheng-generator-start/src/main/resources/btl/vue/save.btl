@@ -1,0 +1,147 @@
+<template>
+	<el-dialog :title="titleMap[mode]" v-model="visible" :width="600" destroy-on-close @closed="$emit('closed')">
+		<el-form :model="form" :rules="rules" :disabled="mode=='show'" ref="dialogForm" label-width="110px" label-position="left">
+            <%
+               for(item in config.frontFieldList){
+            %>
+            <el-form-item label="${item.description}" prop="${item.fieldName}">
+                 <%
+            	 if(item.type=="text"){
+                 %>
+                 <el-input type="text" v-model="form.${item.fieldName}" placeholder="${item.description}" clearable></el-input>
+                 <%
+                 }
+                 %>
+                 <%
+                 if(item.type=="number"){
+                 %>
+                 <el-input type="number" v-model="form.${item.fieldName}" placeholder="${item.description}" clearable></el-input>
+                 <%
+                 }
+                 %>
+                 <%
+                 if(item.type=="select"){
+                 %>
+                 <el-select v-model="form.${item.fieldName}" placeholder="请选择${item.description}" clearable >
+                    <el-option value="0">请自行添加选项</el-option>
+                 </el-select>
+                 <%
+                 }
+                 %>
+                 <%
+                 if(item.type=="date"){
+                 %>
+                 <el-date-picker v-model="form.${item.fieldName}" type="date" value-format="YYYY-MM-DD" :placeholder="请选择${item.description}" ></el-date-picker>
+                 <%
+                 }
+                 %>
+                 <%
+                 if(item.type=="daterange"){
+                 %>
+                 <el-date-picker v-model="form.${item.fieldName}" type="daterange" value-format="YYYY-MM-DD"  start-placeholder="开始日期" end-placeholder="结束日期" ></el-date-picker>
+                 <%
+                 }
+                 %>
+                 <%
+                 if(item.type=="dict"){
+                 %>
+                 <sc-select v-model="form.${item.fieldName}" :dic="${item.dictType}" :placeholder="请选择${item.description}" clearable filterable ></sc-select>
+                 <%
+                 }
+                 %>
+                 <%
+                 if(item.type=="customList"){
+                 %>
+                 <sc-select v-model="form.${item.fieldName}" :apiObj="$API.${item.api}" :placeholder="请选择${item.description}" clearable filterable ></sc-select>
+                 <%
+                 }
+                 %>
+            </el-form-item>
+            <%
+            }
+            %>
+		</el-form>
+		<template #footer>
+			<el-button @click="visible=false" >取 消</el-button>
+			<el-button v-if="mode!='show'" type="primary" :loading="isSaving" @click="submit()">保 存</el-button>
+		</template>
+	</el-dialog>
+</template>
+
+<script>
+	export default {
+		emits: ['success', 'closed'],
+		data() {
+			return {
+				mode: "add",
+				titleMap: {
+					add: '新增',
+					edit: '编辑',
+					show: '查看'
+				},
+				visible: false,
+				isSaving: false,
+				//表单数据
+				form: {
+                <%
+                for(item in frontFieldList){
+                %>
+                <%if(item.type=="number"){ %>
+                ${item.fieldName}: 0,
+                <% }else{ %>
+                ${item.fieldName}: "",
+                <% } %>
+                <%
+                }
+                %>
+                },
+				//验证规则
+				rules: {
+				    <%
+                    for(item in frontFieldList){
+                    %>
+                    ${item.fieldName}: [
+                        {required: true, message: '请输入${item.description}'}
+                    ],
+                    <%
+                    }
+                    %>
+				},
+			}
+		},
+		mounted() {
+		},
+		methods: {
+			//显示
+			open(mode='add'){
+				this.mode = mode;
+				this.visible = true;
+				return this
+			},
+			//表单提交方法
+			submit(){
+				this.$refs.dialogForm.validate(async (valid) => {
+					if (valid) {
+						this.isSaving = true;
+						let res;
+						if(this.mode == 'edit')res = await this.$API.${config.serviceName}.${config.lowerCaseName}.edit.post(this.form)
+						else if(this.mode == 'add')res = await this.$API.${config.serviceName}.${config.lowerCaseName}.save.post(this.form)
+						this.isSaving = false;
+						if(res.success){
+							this.$emit('success', this.form, this.mode)
+							this.visible = false;
+							this.$message.success("操作成功")
+						}
+					}
+				})
+			},
+			//表单注入数据
+			setData(data){
+			    Object.assign(this.form, data)
+			}
+		}
+	}
+</script>
+
+<style>
+</style>

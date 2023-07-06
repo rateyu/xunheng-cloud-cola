@@ -1,6 +1,7 @@
 package com.xunheng.generator.client.dto;
 
 import com.xunheng.generator.client.dto.VO.GenConfigFieldVO;
+import com.xunheng.generator.client.dto.VO.GenFrontConfigFieldVO;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -39,4 +40,6 @@ public class GenConfigSaveCmd {
     @ApiModelProperty(value = "表字段")
     private List<GenConfigFieldVO> fieldList;
 
+    @ApiModelProperty(value = "前端展示字段")
+    private List<GenFrontConfigFieldVO> frontFieldList;
 }

@@ -53,6 +53,10 @@ public class GenConfigEntity {
     @ApiModelProperty(value = "表字段")
     private List<GenFieldConfigEntity> fieldList;
 
+    @TableField(exist = false)
+    @ApiModelProperty(value = "前端字段")
+    private List<GenFrontFieldConfigEntity> frontFieldList;
+
     public String getSysPath(String nodeName,GenType type,String templateName,String moduleName){
         if(type.equals(GenType.MVC)){
             String prefixDir = System.getProperty("user.dir") +"/xunheng-"+serviceName+"/src/main/"+nodeName;

@@ -4,6 +4,7 @@ import com.xunheng.base.exception.GlobalException;
 import com.xunheng.base.utils.FileUtil;
 import com.xunheng.generator.domain.genConfig.gateway.GenConfigGateway;
 import com.xunheng.generator.domain.genConfig.gateway.GenFieldConfigGateway;
+import com.xunheng.generator.domain.genConfig.gateway.GenFrontFieldConfigGateway;
 import com.xunheng.generator.domain.genConfig.model.GenConfigEntity;
 import com.xunheng.generator.domain.genConfig.model.GenType;
 import org.beetl.core.Configuration;
@@ -34,6 +35,9 @@ public class GenConfigDomainServiceImpl implements GenConfigDomainService{
 
     @Resource
     GenFieldConfigGateway genFieldConfigGateway;
+
+    @Resource
+    GenFrontFieldConfigGateway genFrontFieldConfigGateway;
 
     @Override
     public void saveAndGen(GenConfigEntity entity)  {
@@ -73,8 +77,12 @@ public class GenConfigDomainServiceImpl implements GenConfigDomainService{
     public void save(GenConfigEntity entity) {
         /*先删除原来的字段配置*/
         genFieldConfigGateway.removeAllFields();
+        /*删除原来的前端字段配置*/
+        genFrontFieldConfigGateway.removeAllFields();
         /*保存字段信息*/
         genFieldConfigGateway.batchCreate(entity.getFieldList());
+        /*保存前端字段信息*/
+        genFrontFieldConfigGateway.batchCreate(entity.getFrontFieldList());
         /*保存基础配置*/
         genConfigGateway.save(entity);
     }
