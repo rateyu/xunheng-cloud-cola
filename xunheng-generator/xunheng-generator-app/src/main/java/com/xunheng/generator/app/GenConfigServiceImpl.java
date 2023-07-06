@@ -1,11 +1,13 @@
 package com.xunheng.generator.app;
 
 import com.xunheng.generator.app.executor.GenConfigSaveAndGenCmdExe;
+import com.xunheng.generator.app.executor.GenConfigSaveAndGenFrontCmdExe;
 import com.xunheng.generator.app.executor.GenConfigSaveCmdExe;
 import com.xunheng.generator.app.executor.query.GenConfigQueryCmdExe;
 import com.xunheng.generator.client.api.GenConfigService;
 import com.xunheng.generator.client.dto.GenConfigSaveAndGenCmd;
 import com.xunheng.generator.client.dto.GenConfigSaveCmd;
+import com.xunheng.generator.client.dto.VO.FrontCodeVO;
 import com.xunheng.generator.client.dto.VO.GenConfigVO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +31,9 @@ public class GenConfigServiceImpl implements GenConfigService {
     GenConfigSaveAndGenCmdExe genConfigSaveAndGenCmdExe;
 
     @Resource
+    GenConfigSaveAndGenFrontCmdExe genConfigSaveAndGenFrontCmdExe;
+
+    @Resource
     GenConfigQueryCmdExe genConfigQueryCmdExe;
 
     @Override
@@ -39,6 +44,11 @@ public class GenConfigServiceImpl implements GenConfigService {
     @Override
     public void saveAndGenConfig(GenConfigSaveAndGenCmd cmd) {
         genConfigSaveAndGenCmdExe.execute(cmd);
+    }
+
+    @Override
+    public FrontCodeVO saveAndGenConfigFront(GenConfigSaveAndGenCmd cmd) {
+        return genConfigSaveAndGenFrontCmdExe.execute(cmd);
     }
 
     @Override

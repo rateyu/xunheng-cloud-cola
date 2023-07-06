@@ -4,59 +4,52 @@
             <%
                for(item in config.frontFieldList){
             %>
-            <el-form-item label="${item.description}" prop="${item.fieldName}">
-                 <%
-            	 if(item.type=="text"){
-                 %>
-                 <el-input type="text" v-model="form.${item.fieldName}" placeholder="${item.description}" clearable></el-input>
-                 <%
-                 }
-                 %>
-                 <%
-                 if(item.type=="number"){
-                 %>
-                 <el-input type="number" v-model="form.${item.fieldName}" placeholder="${item.description}" clearable></el-input>
-                 <%
-                 }
-                 %>
-                 <%
-                 if(item.type=="select"){
-                 %>
-                 <el-select v-model="form.${item.fieldName}" placeholder="请选择${item.description}" clearable >
-                    <el-option value="0">请自行添加选项</el-option>
-                 </el-select>
-                 <%
-                 }
-                 %>
-                 <%
-                 if(item.type=="date"){
-                 %>
-                 <el-date-picker v-model="form.${item.fieldName}" type="date" value-format="YYYY-MM-DD" :placeholder="请选择${item.description}" ></el-date-picker>
-                 <%
-                 }
-                 %>
-                 <%
-                 if(item.type=="daterange"){
-                 %>
-                 <el-date-picker v-model="form.${item.fieldName}" type="daterange" value-format="YYYY-MM-DD"  start-placeholder="开始日期" end-placeholder="结束日期" ></el-date-picker>
-                 <%
-                 }
-                 %>
-                 <%
-                 if(item.type=="dict"){
-                 %>
-                 <sc-select v-model="form.${item.fieldName}" :dic="${item.dictType}" :placeholder="请选择${item.description}" clearable filterable ></sc-select>
-                 <%
-                 }
-                 %>
-                 <%
-                 if(item.type=="customList"){
-                 %>
-                 <sc-select v-model="form.${item.fieldName}" :apiObj="$API.${item.api}" :placeholder="请选择${item.description}" clearable filterable ></sc-select>
-                 <%
-                 }
-                 %>
-            </el-form-item>
+                    <el-form-item label="${item.description}" prop="${item.fieldName}">
+                         <%
+                         if(item.type=="text"){
+                         %>
+                         <el-input type="text" v-model="form.${item.fieldName}" placeholder="${item.description}" clearable></el-input>
+                         <%
+                         }
+                         %>
+                         <%
+                         if(item.type=="number"){
+                         %>
+                         <el-input type="number" v-model="form.${item.fieldName}" placeholder="${item.description}" clearable></el-input>
+                         <%
+                         }
+                         %>
+                         <%
+                         if(item.type=="select"){
+                         %>
+                         <el-select v-model="form.${item.fieldName}" placeholder="请选择${item.description}" clearable >
+                            <el-option value="0">请自行添加选项</el-option>
+                         </el-select>
+                         <%
+                         }
+                         %>
+                         <%
+                         if(item.type=="date"){
+                         %>
+                         <el-date-picker v-model="form.${item.fieldName}" type="date" value-format="YYYY-MM-DD" placeholder="请选择${item.description}" ></el-date-picker>
+                         <%
+                         }
+                         %>
+                         <%
+                         if(item.type=="dict"){
+                         %>
+                         <sc-select v-model="form.${item.fieldName}" dic="${item.dictType}" placeholder="请选择${item.description}" clearable filterable ></sc-select>
+                         <%
+                         }
+                         %>
+                         <%
+                         if(item.type=="api"){
+                         %>
+                         <sc-select v-model="form.${item.fieldName}" :apiObj="$API.${item.api}" placeholder="请选择${item.description}" clearable filterable ></sc-select>
+                         <%
+                         }
+                         %>
+                    </el-form-item>
             <%
             }
             %>
@@ -82,32 +75,32 @@
 				visible: false,
 				isSaving: false,
 				//表单数据
-				form: {
+                form: {
+                  <%
+                  for(item in config.frontFieldList){
+                  %>
+                  <%if(item.type=="number"){ %>
+                  ${item.fieldName}: 0,
+                      <% }else{ %>
+                  ${item.fieldName}: "",
+                      <% } %>
+                  <%
+                  }
+                  %>
+                  },
+              //验证规则
+              rules: {
                 <%
-                for(item in frontFieldList){
+                for(item in config.frontFieldList){
                 %>
-                <%if(item.type=="number"){ %>
-                ${item.fieldName}: 0,
-                <% }else{ %>
-                ${item.fieldName}: "",
-                <% } %>
+                ${item.fieldName}: [
+                  {required: true, message: '请输入${item.description}'}
+                ],
                 <%
                 }
                 %>
                 },
-				//验证规则
-				rules: {
-				    <%
-                    for(item in frontFieldList){
-                    %>
-                    ${item.fieldName}: [
-                        {required: true, message: '请输入${item.description}'}
-                    ],
-                    <%
-                    }
-                    %>
-				},
-			}
+                }
 		},
 		mounted() {
 		},
@@ -124,8 +117,8 @@
 					if (valid) {
 						this.isSaving = true;
 						let res;
-						if(this.mode == 'edit')res = await this.$API.${config.serviceName}.${config.lowerCaseName}.edit.post(this.form)
-						else if(this.mode == 'add')res = await this.$API.${config.serviceName}.${config.lowerCaseName}.save.post(this.form)
+						if(this.mode === 'edit')res = await this.$API.${config.serviceName}.${config.lowerCaseName}.edit.post(this.form)
+						else if(this.mode === 'add')res = await this.$API.${config.serviceName}.${config.lowerCaseName}.save.post(this.form)
 						this.isSaving = false;
 						if(res.success){
 							this.$emit('success', this.form, this.mode)

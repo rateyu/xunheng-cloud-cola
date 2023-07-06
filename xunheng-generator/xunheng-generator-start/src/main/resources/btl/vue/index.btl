@@ -7,68 +7,68 @@
 			</div>
 			<div class="right-panel">
 				<div class="right-panel-search">
-                    <%
-                       for(item in config.frontFieldList){
-                     %>
-                     <%if(item.searchable == 1){ %>
-                     <%
-                     if(item.searchType=="text"){
-                     %>
-                     <el-input type="text" v-model="search.${item.fieldName}" placeholder="${item.description}" clearable></el-input>
-                     <%
-                     }
-                     %>
-                     <%
-                     if(item.searchType=="number"){
-                     %>
-                     <el-input type="number" v-model="search.${item.fieldName}" placeholder="${item.description}" clearable></el-input>
-                     <%
-                     }
-                     %>
-                     <%
-                     if(item.searchType=="select"){
-                     %>
-                     <el-select v-model="search.${item.fieldName}" placeholder="请选择${item.description}" clearable >
-                        <el-option value="0">请自行添加选项</el-option>
-                     </el-select>
-                     <%
-                     }
-                     %>
-                     <%
-                     if(item.searchType=="date"){
-                     %>
-                     <el-date-picker v-model="search.${item.fieldName}" type="date" value-format="YYYY-MM-DD" :placeholder="请选择${item.description}" ></el-date-picker>
-                     <%
-                     }
-                     %>
-                     <%
-                     if(item.searchType=="daterange"){
-                     %>
-                     <el-date-picker v-model="search.${item.fieldName}" type="daterange" value-format="YYYY-MM-DD"  start-placeholder="开始日期" end-placeholder="结束日期" ></el-date-picker>
-                     <%
-                     }
-                     %>
-                     <%
-                     if(item.searchType=="dict"){
-                     %>
-                     <sc-select v-model="search.${item.fieldName}" :dic="${item.dictType}" :placeholder="请选择${item.description}" clearable filterable ></sc-select>
-                     <%
-                     }
-                     %>
-                     <%
-                     if(item.searchType=="customList"){
-                     %>
-                     <sc-select v-model="search.${item.fieldName}" :apiObj="$API.${item.api}" :placeholder="请选择${item.description}" clearable filterable ></sc-select>
-                     <%
-                     }
-                     %>
-                     <%
-                     }
-                     %>
-                     <%
-                     }
-                     %>
-					<el-button type="primary" icon="el-icon-search" @click="upSearch"></el-button>
+                                    <%
+                                       for(item in config.frontFieldList){
+                                     %>
+                                     <%if(item.searchable == 1){ %>
+                                     <%
+                                     if(item.searchType=="text"){
+                                     %>
+                                     <el-input type="text" v-model="search.${item.fieldName}" placeholder="${item.description}" clearable></el-input>
+                                     <%
+                                     }
+                                     %>
+                                     <%
+                                     if(item.searchType=="number"){
+                                     %>
+                                     <el-input type="number" v-model="search.${item.fieldName}" placeholder="${item.description}" clearable></el-input>
+                                     <%
+                                     }
+                                     %>
+                                     <%
+                                     if(item.searchType=="select"){
+                                     %>
+                                     <el-select v-model="search.${item.fieldName}" placeholder="请选择${item.description}" clearable >
+                                        <el-option value="0">请自行添加选项</el-option>
+                                     </el-select>
+                                     <%
+                                     }
+                                     %>
+                                     <%
+                                     if(item.searchType=="date"){
+                                     %>
+                                     <el-date-picker v-model="search.${item.fieldName}" type="date" value-format="YYYY-MM-DD" placeholder="请选择${item.description}" ></el-date-picker>
+                                     <%
+                                     }
+                                     %>
+                                     <%
+                                     if(item.searchType=="daterange"){
+                                     %>
+                                     <el-date-picker v-model="search.${item.fieldName}" type="daterange" value-format="YYYY-MM-DD"  start-placeholder="开始日期" end-placeholder="结束日期" ></el-date-picker>
+                                     <%
+                                     }
+                                     %>
+                                     <%
+                                     if(item.searchType=="dict"){
+                                     %>
+                                     <sc-select v-model="search.${item.fieldName}" dic="${item.dictType}" placeholder="请选择${item.description}" clearable filterable ></sc-select>
+                                     <%
+                                     }
+                                     %>
+                                     <%
+                                     if(item.searchType=="api"){
+                                     %>
+                                     <sc-select v-model="search.${item.fieldName}" :apiObj="$API.${item.api}" placeholder="请选择${item.description}" clearable filterable ></sc-select>
+                                     <%
+                                     }
+                                     %>
+                                     <%
+                                     }
+                                     %>
+                                     <%
+                                     }
+                                     %>
+				     <el-button type="primary" icon="el-icon-search" @click="upSearch"></el-button>
 				</div>
 			</div>
 		</el-header>
@@ -76,13 +76,13 @@
 			<scTable ref="table" :apiObj="apiObj" row-key="id" @selection-change="selectionChange" stripe>
 				<el-table-column type="selection" width="50"></el-table-column>
 				<el-table-column label="#" type="index" width="50"></el-table-column>
-				<%
-                  for(item in config.frontFieldList){
-                %>
-                <el-table-column label="${item.description}" prop="${item.fieldName}" width="${item.colWidth}"></el-table-column>
-                <%
-                  }
-                %>
+                                <%
+                                  for(item in config.frontFieldList){
+                                %>
+                                <el-table-column label="${item.description}" prop="${item.fieldName}" width="${item.colWidth}"></el-table-column>
+                                <%
+                                  }
+                                %>
 				<el-table-column label="操作" fixed="right" align="right" width="160">
 					<template #default="scope">
 						<el-button-group>
@@ -119,17 +119,17 @@
 				selection: [],
 				apiObj: this.$API.${config.serviceName}.${config.lowerCaseName}.pageList,
 				search: {
-                <%
-                for(item in frontFieldList){
-                %>
-                <%if(item.searchable == 1){ %>
-                ${item.fieldName}: null,
-                <%
-                }
-                %>
-                <%
-                }
-                %>
+                                    <%
+                                    for(item in config.frontFieldList){
+                                    %>
+                                    <%if(item.searchable == 1){ %>
+                                    ${item.fieldName}: null,
+                                    <%
+                                    }
+                                    %>
+                                    <%
+                                    }
+                                    %>
 				}
 			}
 		},
@@ -142,28 +142,28 @@
 				})
 			},
 			//编辑
-            async table_edit(row){
-                const loading = this.$loading();
-                let res = await this.$API.${config.serviceName}.${config.lowerCaseName}.detail.get(row.id);
-                if(res.success){
-                  this.dialog.save = true
-                  this.$nextTick(() => {
-                    this.$refs.saveDialog.open('edit').setData(row)
-                  })
-                }
-                loading.close();
-			},
-            //查看
-            async table_show(row){
-                const loading = this.$loading();
-                let res = await this.$API.${config.serviceName}.${config.lowerCaseName}.detail.get(row.id);
-                if(res.success){
-                  this.dialog.save = true
-                  this.$nextTick(() => {
-                    this.$refs.saveDialog.open('show').setData(row)
-                  })
-                }
-                loading.close();
+                        async table_edit(row){
+                            const loading = this.$loading();
+                            let res = await this.$API.${config.serviceName}.${config.lowerCaseName}.detail.get(row.id);
+                            if(res.success){
+                              this.dialog.save = true
+                              this.$nextTick(() => {
+                                this.$refs.saveDialog.open('edit').setData(row)
+                              })
+                            }
+                            loading.close();
+                        },
+                        //查看
+                        async table_show(row){
+                            const loading = this.$loading();
+                            let res = await this.$API.${config.serviceName}.${config.lowerCaseName}.detail.get(row.id);
+                            if(res.success){
+                              this.dialog.save = true
+                              this.$nextTick(() => {
+                                this.$refs.saveDialog.open('show').setData(row)
+                              })
+                            }
+                            loading.close();
 			},
 			//删除
 			async table_del(row){
@@ -175,7 +175,7 @@
 			},
 			//批量删除
 			async batch_del(){
-				this.$confirm(`确定删除选中的 ${this.selection.length} 项吗？`, '提示', {
+				this.$confirm('确定删除选中的'+this.selection.length+'项吗？', '提示', {
 					type: 'warning'
 				}).then(async() => {
 					const loading = this.$loading();
@@ -199,7 +199,7 @@
 				this.selection = selection;
 			},
 			//搜索
-            upSearch(){
+                        upSearch(){
 				this.$refs.table.upData(this.search)
 			},
 			//本地更新数据

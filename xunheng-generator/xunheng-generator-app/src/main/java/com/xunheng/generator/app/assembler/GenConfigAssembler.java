@@ -31,6 +31,7 @@ public class GenConfigAssembler {
         entity.setTableAlias(cmd.getTableAlias());
         entity.setServiceName(cmd.getServiceName());
         if(CollectionUtils.isNotEmpty(cmd.getFieldList()))entity.setFieldList(cmd.getFieldList().stream().map(GenFieldConfigAssembler::toEntity).collect(Collectors.toList()));
+        if(CollectionUtils.isNotEmpty(cmd.getFrontFieldList()))entity.setFrontFieldList(cmd.getFrontFieldList().stream().map(GenFrontFieldConfigAssembler::toEntity).collect(Collectors.toList()));
         return entity;
     }
 
@@ -46,6 +47,7 @@ public class GenConfigAssembler {
         entity.setTableAlias(cmd.getTableAlias());
         entity.setServiceName(cmd.getServiceName());
         if(CollectionUtils.isNotEmpty(cmd.getFieldList()))entity.setFieldList(cmd.getFieldList().stream().map(GenFieldConfigAssembler::toEntity).collect(Collectors.toList()));
+        if(CollectionUtils.isNotEmpty(cmd.getFrontFieldList()))entity.setFrontFieldList(cmd.getFrontFieldList().stream().map(GenFrontFieldConfigAssembler::toEntity).collect(Collectors.toList()));
         /*配置一些需要生成的参数*/
         entity.setServicePackage(entity.getServicePackage());
         entity.setTableName(cmd.getTablePrefix(), cmd.getName());
@@ -67,6 +69,8 @@ public class GenConfigAssembler {
         vo.setServiceName(entity.getServiceName());
         if(CollectionUtils.isNotEmpty(entity.getFieldList()))vo.setFieldList(entity.getFieldList().stream().map(GenFieldConfigAssembler::toVO).collect(Collectors.toList()));
         else vo.setFieldList(new ArrayList<>());
+        if(CollectionUtils.isNotEmpty(entity.getFrontFieldList()))vo.setFrontFieldList(entity.getFrontFieldList().stream().map(GenFrontFieldConfigAssembler::toVO).collect(Collectors.toList()));
+        else vo.setFrontFieldList(new ArrayList<>());
         return vo;
     }
 }

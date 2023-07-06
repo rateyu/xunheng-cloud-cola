@@ -1,4 +1,4 @@
-tenant: {
+${config.lowerCaseName}: {
 		pageList: {
 			url: config.API_URL+'/xunheng-${config.serviceName}/${config.lowerCaseName}/getPageList',
 			name: "获取${config.description}分页列表",
@@ -7,12 +7,12 @@ tenant: {
 			}
 		},
 		detail:{
-            url: config.API_URL+'/xunheng-${config.serviceName}/${config.lowerCaseName}/getDetail/',
-            name: "${config.description}详情",
-            get: async function(id){
-                return await http.get(this.url+id);
-            }
-        },
+			url: config.API_URL+'/xunheng-${config.serviceName}/${config.lowerCaseName}/getDetail/',
+			name: "${config.description}详情",
+			get: async function(id){
+				return await http.get(this.url+id);
+			}
+		},
 		save:{
 			url: config.API_URL+'/xunheng-${config.serviceName}/${config.lowerCaseName}/save',
 			name: "${config.description}新增",

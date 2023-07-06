@@ -37,4 +37,7 @@ public class GenConfigVO {
 
     @ApiModelProperty(value = "表字段")
     private List<GenConfigFieldVO> fieldList;
+
+    @ApiModelProperty(value = "前端展示字段")
+    private List<GenFrontConfigFieldVO> frontFieldList;
 }

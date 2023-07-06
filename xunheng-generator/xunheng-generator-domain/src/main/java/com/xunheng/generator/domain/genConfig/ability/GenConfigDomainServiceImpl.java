@@ -5,6 +5,7 @@ import com.xunheng.base.utils.FileUtil;
 import com.xunheng.generator.domain.genConfig.gateway.GenConfigGateway;
 import com.xunheng.generator.domain.genConfig.gateway.GenFieldConfigGateway;
 import com.xunheng.generator.domain.genConfig.gateway.GenFrontFieldConfigGateway;
+import com.xunheng.generator.domain.genConfig.model.FrontCodeEntity;
 import com.xunheng.generator.domain.genConfig.model.GenConfigEntity;
 import com.xunheng.generator.domain.genConfig.model.GenType;
 import org.beetl.core.Configuration;
@@ -55,6 +56,21 @@ public class GenConfigDomainServiceImpl implements GenConfigDomainService{
         }
     }
 
+    @Override
+    public FrontCodeEntity saveAndGenFront(GenConfigEntity entity) {
+        try {
+            /*先进行保存*/
+            this.save(entity);
+            /*根据架构类型加载对应的模版配置*/
+            GroupTemplate groupTemplate = initConfig(GenType.VUE);
+            /*生成代码*/
+            return executeFront(groupTemplate, entity);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
     /**
      * 校验类型是否选择正确
      * @param entity 参数
@@ -75,11 +91,11 @@ public class GenConfigDomainServiceImpl implements GenConfigDomainService{
 
     @Override
     public void save(GenConfigEntity entity) {
-        /*先删除原来的字段配置*/
+        /*删除原来的后端字段配置*/
         genFieldConfigGateway.removeAllFields();
         /*删除原来的前端字段配置*/
         genFrontFieldConfigGateway.removeAllFields();
-        /*保存字段信息*/
+        /*保存后端字段信息*/
         genFieldConfigGateway.batchCreate(entity.getFieldList());
         /*保存前端字段信息*/
         genFrontFieldConfigGateway.batchCreate(entity.getFrontFieldList());
@@ -92,7 +108,18 @@ public class GenConfigDomainServiceImpl implements GenConfigDomainService{
      * @return 模版组
      */
     private GroupTemplate initConfig(GenType type) throws IOException {
-        String root = type.equals(GenType.COLA)? "/btl/cola/" : "/btl/mvc/";
+        String root = "";
+        switch (type) {
+            case VUE:
+                root = "/btl/vue/";
+                break;
+            case COLA:
+                root = "/btl/cola/";
+                break;
+            case MVC:
+                root = "/btl/mvc/";
+                break;
+        }
         ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader(root);
         Configuration cfg = Configuration.defaultConfiguration();
         return new GroupTemplate(resourceLoader, cfg);
@@ -158,6 +185,27 @@ public class GenConfigDomainServiceImpl implements GenConfigDomainService{
         generateFile(t,"mapperXml",null,entity,"Mapper.xml");
     }
 
+    /**
+     * 生成前端vue对应的代码
+     * @param t 模版组
+     * @param entity 配置实体
+     */
+    private FrontCodeEntity executeFront(GroupTemplate t,GenConfigEntity entity) throws IOException{
+        String codeApi = generateFrontCode(t, "api", entity);
+        String codeIndex = generateFrontCode(t, "index", entity);
+        String codeSave = generateFrontCode(t, "save", entity);
+        return new FrontCodeEntity(codeApi,codeSave,codeIndex);
+    }
+
+    /**
+     * 生成后端代码 并直接生成文件
+     * @param groupTemplate 模板组
+     * @param templateName 模板名称
+     * @param moduleName 服务内的模组名称 mvc模式为空
+     * @param entity 数据源
+     * @param suffix 文件后缀
+     * @throws IOException 异常
+     */
     private void generateFile(GroupTemplate groupTemplate,String templateName,String moduleName,GenConfigEntity entity,String suffix) throws IOException {
         OutputStream out = null;
         /*加载模版组中对应的模版*/
@@ -183,5 +231,22 @@ public class GenConfigDomainServiceImpl implements GenConfigDomainService{
             out.close();
         }
     }
+
+    /**
+     * 生成前端代码 已文本方式反回
+     * @param groupTemplate 模板组
+     * @param templateName 模板名称
+     * @param entity 数据源
+     * @return 代码文本
+     * @throws IOException io异常
+     */
+    private String generateFrontCode(GroupTemplate groupTemplate,String templateName,GenConfigEntity entity) throws IOException {
+        /*加载模版组中对应的模版*/
+        Template entityTemplate = groupTemplate.getTemplate(templateName+".btl");
+        /*配置模版的数据源*/
+        entityTemplate.binding("config", entity);
+        return entityTemplate.render();
+    }
+
 
 }

@@ -14,5 +14,9 @@ public enum GenType {
     /*
       COLA架构
     */
-    COLA
+    COLA,
+    /*
+      前端vue
+    */
+    VUE
 }

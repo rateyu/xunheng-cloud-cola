@@ -2,6 +2,7 @@ package com.xunheng.generator.client.api;
 
 import com.xunheng.generator.client.dto.GenConfigSaveAndGenCmd;
 import com.xunheng.generator.client.dto.GenConfigSaveCmd;
+import com.xunheng.generator.client.dto.VO.FrontCodeVO;
 import com.xunheng.generator.client.dto.VO.GenConfigVO;
 
 /**
@@ -25,10 +26,17 @@ public interface GenConfigService {
     void saveAndGenConfig(GenConfigSaveAndGenCmd cmd);
 
     /**
+     * 保存配置表格并生成前端代码
+     * @param cmd 表格保存并生成前端代码操作dto
+     */
+    FrontCodeVO saveAndGenConfigFront(GenConfigSaveAndGenCmd cmd);
+
+    /**
      * 获取生成代码表格配置
      * @return 配置VO
      */
     GenConfigVO getConfig();
+
 
 
 }

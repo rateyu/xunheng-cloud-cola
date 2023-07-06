@@ -3,6 +3,7 @@ package com.xunheng.generator.adapter.web;
 import com.xunheng.generator.client.api.GenConfigService;
 import com.xunheng.generator.client.dto.GenConfigSaveAndGenCmd;
 import com.xunheng.generator.client.dto.GenConfigSaveCmd;
+import com.xunheng.generator.client.dto.VO.FrontCodeVO;
 import com.xunheng.generator.client.dto.VO.GenConfigVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -34,6 +35,12 @@ public class GenConfigController {
     public String saveAndGen(@RequestBody GenConfigSaveAndGenCmd cmd){
         genConfigService.saveAndGenConfig(cmd);
         return "生成成功";
+    }
+
+    @RequestMapping(value = "/saveAndGenFront",method = RequestMethod.POST)
+    @ApiOperation(value = "前端代码生成设置保存并生成")
+    public FrontCodeVO saveAndGenFront(@RequestBody GenConfigSaveAndGenCmd cmd){
+        return genConfigService.saveAndGenConfigFront(cmd);
     }
 
     @RequestMapping(value = "/getConfig",method = RequestMethod.GET)
