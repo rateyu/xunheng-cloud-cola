@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.file.infrastructure.mapper.FileMapper">
+
+    <sql id="filterSql">
+        <where>
+            fi.del_flag = 0
+            <if test="qry.catalogueId != null and qry.catalogueId != '' "> and fi.catalogue_id = #{qry.catalogueId} </if>
+        </where>
+    </sql>
+
+    <select id="pageList" parameterType="com.xunheng.file.client.dto.query.FilePageQuery" resultType="com.xunheng.file.infrastructure.DO.File">
+       select fi.id,fi.name,fi.f_key as fKey,fi.size,fi.type,fi.url,fi.main_id as mainId,fus.location
+              from f_file fi
+       left join f_upload_setting fus on fus.id = fi.setting_id
+        <include refid="filterSql"/>
+        order by fi.create_time desc
+    </select>
+
+</mapper>

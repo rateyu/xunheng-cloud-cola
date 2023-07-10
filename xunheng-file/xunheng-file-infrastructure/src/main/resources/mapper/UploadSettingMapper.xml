@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhq.xunheng.file.dao.mapper.UploadSettingMapper">
+
+    <sql id="filterSql">
+        <where>
+            fus.del_flag = 0
+            <if test="vo.title != null and vo.title != ''"> and fus.title like concat('%',#{vo.title},'%') </if>
+        </where>
+    </sql>
+
+    <select id="pageList" parameterType="com.xunheng.file.client.dto.query.UploadSettingPageQuery" resultType="com.hhq.xunheng.file.entity.UploadSetting">
+       select fus.id,fus.title,fus.code,fus.catalogue_id as catalogueId,fus.location,fus.max_size as maxSize,cat.title as catalogueTitle
+              from f_upload_setting fus
+       left join f_catalogue cat on cat.id = fus.catalogue_id
+        <include refid="filterSql"/>
+        order by fus.create_time desc
+    </select>
+
+</mapper>
