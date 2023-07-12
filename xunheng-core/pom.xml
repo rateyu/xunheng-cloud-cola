@@ -16,6 +16,7 @@
         <module>xunheng-core-datasource</module>
         <module>xunheng-core-log</module>
         <module>xunheng-core-security</module>
+        <module>xunheng-core-websocket</module>
     </modules>
 
 

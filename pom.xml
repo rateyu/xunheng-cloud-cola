@@ -12,7 +12,8 @@
     <module>xunheng-log</module>
     <module>xunheng-generator</module>
     <module>xunheng-cloud-cola-archetype</module>
-      <module>xunheng-file</module>
+    <module>xunheng-file</module>
+    <module>xunheng-chatgpt</module>
   </modules>
     
   <groupId>com.xunheng</groupId>
