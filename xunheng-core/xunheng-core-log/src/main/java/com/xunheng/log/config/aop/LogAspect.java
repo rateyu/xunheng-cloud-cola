@@ -2,6 +2,9 @@ package com.xunheng.log.config.aop;
 
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+import com.alibaba.fastjson.support.spring.PropertyPreFilters;
 import com.xunheng.base.enums.BusinessStatus;
 import com.xunheng.base.utils.IpUtils;
 import com.xunheng.base.utils.ServletUtils;
@@ -132,8 +135,13 @@ public class LogAspect
         if (paramsArray != null){
             for (Object o : paramsArray){
                 if (o != null && !isFilterObject(o)){
-                    Object jsonObj = JSON.toJSON(o);
-                    params.append(jsonObj.toString()).append(" ");
+                    String[] excludeProperties = {"file"};//排除掉file
+                    PropertyPreFilters filters = new PropertyPreFilters();
+                    PropertyPreFilters.MySimplePropertyPreFilter excludefilter = filters.addFilter();
+                    // 指定排除属性过滤器：转换成JSON字符串时，排除哪些属性
+                    excludefilter.addExcludes(excludeProperties);
+                    String paramJsonString = JSONObject.toJSONString(o, excludefilter, SerializerFeature.PrettyFormat);
+                    params.append(paramJsonString).append(" ");
                 }
             }
         }
