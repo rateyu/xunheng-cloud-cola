@@ -3,7 +3,7 @@
 // (powered by FernFlower decompiler)
 //
 
-package com.tangzc.mpe.asctable.manager.system;
+package com.tangzc.mpe.actable.manager.system;
 
 import com.google.common.collect.Sets;
 import com.tangzc.mpe.actable.annotation.*;
