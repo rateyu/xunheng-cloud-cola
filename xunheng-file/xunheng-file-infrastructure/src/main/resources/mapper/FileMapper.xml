@@ -6,6 +6,7 @@
         <where>
             fi.del_flag = 0
             <if test="qry.catalogueId != null and qry.catalogueId != '' "> and fi.catalogue_id = #{qry.catalogueId} </if>
+            <if test="qry.keyword != null and qry.keyword != '' "> and (fi.name like concat('%',#{qry.keyword},'%') or fi.f_key like concat('%',#{qry.keyword},'%'))</if>
         </where>
     </sql>
 

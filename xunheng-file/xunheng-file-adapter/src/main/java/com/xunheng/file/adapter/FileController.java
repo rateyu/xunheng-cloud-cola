@@ -48,46 +48,8 @@ public class FileController {
     @Log(module = "文件",title = "文件上传", businessType = BusinessType.ADD)
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ApiOperation(value = "文件上传")
-    public FileUploadVO upload(@RequestBody @Validated FileUploadCmd cmd) {
+    public FileUploadVO upload(@Validated FileUploadCmd cmd) {
         return fileService.upload(cmd);
-       /* UploadSetting setting = uploadSettingService.getByCode(code);
-        if(setting == null){
-            return ResultUtil.error("找不到文件上传配置，请重试。");
-        }
-        if(StringUtils.isEmpty(mainId) && !setting.getCode().equals("file:file:other")){
-            return ResultUtil.error("缺少参数表单id");
-        }
-        Integer maxSize = setting.getMaxSize();
-        if (file.getSize() > maxSize * 1024 * 1024) {
-            return ResultUtil.error("文件大小过大，不能超过" + maxSize + "MB");
-        }
-        if (StrUtil.isNotBlank(base64)) {
-            // base64上传
-            file = Base64DecodeMultipartFile.base64Convert(base64);
-        }
-        String url = "";
-        String fKey = UploadUtil.renameFile(file.getOriginalFilename());
-        File f = new File();
-        try {
-            InputStream inputStream = file.getInputStream();
-            // 根据配置上传到指定地方
-            url = fileManageFactory.getFileManage(setting.getLocation()).inputStreamUpload(inputStream, fKey, file,setting);
-            // 保存数据信息至数据库
-            f.setSettingId(setting.getId()).setName(file.getOriginalFilename()).setSize(file.getSize())
-                    .setType(file.getContentType()).setFKey(fKey).setUrl(url).setMainId(mainId).setCatalogueId(setting.getCatalogueId());
-            fileService.save(f);
-        } catch (Exception e) {
-            log.error(e.toString());
-            return ResultUtil.error(e.toString());
-        }
-        if(setting.getLocation().equals(CommonConstant.FILE_UPLOAD_LOCATION_LOCAL)){
-            url = "/api/xunheng-file/file/view/"+f.getId()+"/"+f.getFKey();
-        }
-        JSONObject fileResult = new JSONObject();
-        fileResult.put("url",url);
-        fileResult.put("id",f.getId());
-        fileResult.put("fKey",f.getFKey());
-        return ResultUtil.data(fileResult);*/
     }
 
 
@@ -97,20 +59,6 @@ public class FileController {
     @ApiOperation(value = "文件本地查看")
     public void view(@PathVariable String id,HttpServletResponse response){
         fileService.view(id,response);
-     /*   File file = fileService.getById(id);
-        if (file == null) {
-            throw new GlobalException("文件ID：" + id + "不存在");
-        }
-        String filename = file.getFKey();
-        response.addHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(filename, "UTF-8"));
-        response.setContentLengthLong(file.getSize());
-        response.setContentType(file.getType() + ";charset=UTF-8");
-        response.addHeader("Accept-Ranges", "bytes");
-        if (file.getSize() != null && file.getSize() > 0) {
-            response.addHeader("Content-Range", "bytes " + 0 + "-" + (file.getSize() - 1) + "/" + file.getSize());
-        }
-        response.setBufferSize(10 * 1024 * 1024);
-        LocalFileManage.view(file.getUrl(), response);*/
     }
 
 }

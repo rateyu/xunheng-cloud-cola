@@ -27,8 +27,8 @@ public class FileViewCmdExe {
         try {
             FileEntity file = fileGateway.getOne(id);
             if (file == null)throw new GlobalException("文件ID：" + id + "不存在");
-            String fkey = file.getFKey();
-            response.addHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(fkey, "UTF-8"));
+            String fKey = file.getFKey();
+            response.addHeader("Content-Disposition", "attachment; filename=" + URLEncoder.encode(fKey, "UTF-8"));
             response.setContentLengthLong(file.getSize());
             response.setContentType(file.getType() + ";charset=UTF-8");
             response.addHeader("Accept-Ranges", "bytes");

@@ -12,4 +12,7 @@ public class FilePageQuery extends PageDto {
 
     @ApiModelProperty(value = "目录id")
     private String catalogueId;
+
+    @ApiModelProperty(value = "关键词")
+    private String keyword;
 }

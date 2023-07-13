@@ -14,6 +14,9 @@ public class FileUploadVO {
     @ApiModelProperty(value = "url")
     private String url;
 
+    @ApiModelProperty(value = "原文件名")
+    private String name;
+
     @ApiModelProperty(value = "fKey")
     private String fKey;
 

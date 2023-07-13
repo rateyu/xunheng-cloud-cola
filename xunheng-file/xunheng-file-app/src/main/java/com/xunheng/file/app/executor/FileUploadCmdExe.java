@@ -75,9 +75,9 @@ public class FileUploadCmdExe {
         }
         /*如果上传方式是保存到本地的 url则改为文件查看地址返回到前端 前端才可以通过查看的api进行查看*/
         if(setting.getLocation().equals(CommonConstant.FILE_UPLOAD_LOCATION_LOCAL)){
-            url = "/api/xunheng-file/file/view/"+entity.getId();
+            url = "/api/xunheng-file/file/view/"+entity.getId()+"/"+entity.getFKey();
         }
         /*组装VO返回*/
-        return new FileUploadVO(entity.getId(), entity.getFKey(),url);
+        return new FileUploadVO(entity.getId(),url,entity.getName(),entity.getFKey());
     }
 }

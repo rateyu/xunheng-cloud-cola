@@ -35,7 +35,7 @@ public class FileConvertor {
         entity.setFKey(db.getFKey());
         entity.setSize(db.getSize());
         entity.setType(db.getType());
-        entity.setUrl(db.getLocation());
+        entity.setUrl(db.getUrl());
         entity.setCatalogueId(db.getCatalogueId());
         entity.setSettingId(db.getSettingId());
         entity.setMainId(db.getMainId());

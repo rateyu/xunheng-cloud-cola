@@ -36,7 +36,7 @@ public class FilePageQueryExe {
         for (FileEntity entity : page.getRecords()) {
             /*如果是本地存储的文件，查看的地址要更改为查看接口的地址*/
             if(entity.getLocation().equals(CommonConstant.FILE_UPLOAD_LOCATION_LOCAL)){
-                entity.setUrl("/api/xunheng-file/file/view/"+entity.getId());
+                entity.setUrl("/api/xunheng-file/file/view/"+entity.getId()+"/"+entity.getFKey());
             }
         }
         return page.convert(FileAssembler::toVO);
