@@ -9,7 +9,7 @@ import ${config.servicePackage}.service.${config.name}Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 /**
  * @program: xunheng-cloud-cola
@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Slf4j
 @Service
-@Transactional
+@GlobalTransactional
 public class ${config.name}ServiceImpl extends ServiceImpl<${config.name}Mapper, ${config.name}> implements ${config.name}Service {
 
     @Autowired

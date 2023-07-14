@@ -12,7 +12,7 @@ import ${config.servicePackage}.app.executor.${config.name}UpdateCmdExe;
 import ${config.servicePackage}.app.executor.query.${config.name}PageQueryExe;
 import ${config.servicePackage}.app.executor.query.${config.name}DetailQueryExe;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 import javax.annotation.Resource;
 
 /**
@@ -22,7 +22,7 @@ import javax.annotation.Resource;
  * @date: ${date(),"yyyy/MM/dd HH:mm:ss"}
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class ${config.name}ServiceImpl implements ${config.name}Service {
 
     @Resource
