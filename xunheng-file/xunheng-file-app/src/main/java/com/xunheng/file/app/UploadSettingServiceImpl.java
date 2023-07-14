@@ -9,7 +9,7 @@ import com.xunheng.file.client.dto.UploadSettingSaveCmd;
 import com.xunheng.file.client.dto.VO.UploadSettingVO;
 import com.xunheng.file.client.dto.query.UploadSettingPageQuery;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 import javax.annotation.Resource;
 
@@ -20,7 +20,7 @@ import javax.annotation.Resource;
  * @date: 2023/7/10 13:11
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class UploadSettingServiceImpl implements UploadSettingService {
 
     @Resource

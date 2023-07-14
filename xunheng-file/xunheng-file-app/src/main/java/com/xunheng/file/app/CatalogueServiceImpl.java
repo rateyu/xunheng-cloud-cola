@@ -8,7 +8,7 @@ import com.xunheng.file.client.dto.CatalogueSaveCmd;
 import com.xunheng.file.client.dto.VO.CatalogueVO;
 import lombok.Data;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.List;
  * @date: 2023/7/10 12:35
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class CatalogueServiceImpl implements CatalogueService {
 
     @Resource

@@ -6,7 +6,7 @@ import com.xunheng.system.client.dto.VO.MatrixVO;
 import com.xunheng.system.app.executor.MatrixColumnSaveCmdExe;
 import com.xunheng.system.app.executor.query.MatrixColumnListQueryExe;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 import javax.annotation.Resource;
 
@@ -17,7 +17,7 @@ import javax.annotation.Resource;
  * @date: 2023/6/29 23:37
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class MatrixColumnServiceImpl implements MatrixColumnService {
 
     @Resource

@@ -8,7 +8,7 @@ import com.xunheng.system.app.executor.MatrixDataSaveCmdExe;
 import com.xunheng.system.app.executor.query.MatrixDataListQueryExe;
 import com.xunheng.system.client.dto.query.MatrixResultByConditionQuery;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -20,7 +20,7 @@ import java.util.List;
  * @date: 2023/6/29 23:37
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class MatrixDataServiceImpl implements MatrixDataService {
 
     @Resource

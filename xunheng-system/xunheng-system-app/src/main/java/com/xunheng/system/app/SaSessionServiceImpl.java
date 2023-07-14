@@ -6,7 +6,7 @@ import com.xunheng.system.app.executor.SaSessionChangeCmdExe;
 import com.xunheng.system.app.executor.SaSessionKickOutCmdExe;
 import com.xunheng.system.app.executor.query.SaSessionListQueryExe;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,7 +18,7 @@ import java.util.List;
  * @date: 2023/6/29 23:37
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class SaSessionServiceImpl implements SaSessionService {
 
     @Resource
