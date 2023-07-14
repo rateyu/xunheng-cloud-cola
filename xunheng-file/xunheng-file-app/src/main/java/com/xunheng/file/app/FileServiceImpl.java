@@ -10,6 +10,7 @@ import com.xunheng.file.client.dto.FileUploadCmd;
 import com.xunheng.file.client.dto.VO.FileUploadVO;
 import com.xunheng.file.client.dto.VO.FileVO;
 import com.xunheng.file.client.dto.query.FilePageQuery;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date: 2023/7/10 15:39
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class FileServiceImpl implements FileService {
 
     @Resource

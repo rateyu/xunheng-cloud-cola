@@ -16,7 +16,7 @@ spring:
           - data-id: xunheng-common.yml #公共共享配置
             refresh: true
             group: xunheng-cloud-cola
-          - data-id: xunheng-seata.yml #seata配置
+          - data-id: xunheng-datasource.yml #数据源共享配置
             refresh: true
             group: xunheng-cloud-cola
 
