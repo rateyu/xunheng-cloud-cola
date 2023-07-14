@@ -12,7 +12,7 @@ import com.xunheng.system.app.executor.RoleEditPermCmdExe;
 import com.xunheng.system.app.executor.RoleRemoveCmdExe;
 import com.xunheng.system.app.executor.RoleSaveCmdExe;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -24,7 +24,7 @@ import java.util.List;
  * @date: 2023/6/29 23:37
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class RoleServiceImpl implements RoleService {
 
     @Resource

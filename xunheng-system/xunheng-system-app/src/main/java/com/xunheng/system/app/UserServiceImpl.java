@@ -12,8 +12,8 @@ import com.xunheng.system.client.dto.UserSystemCreateCmd;
 import com.xunheng.system.client.dto.UserSystemUpdateCmd;
 import com.xunheng.system.client.dto.UserUpdateCmd;
 import com.xunheng.system.client.dto.query.UserPageQuery;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -25,7 +25,7 @@ import java.util.List;
  * @date: 2023/6/29 23:37
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class UserServiceImpl implements UserService {
 
     @Resource

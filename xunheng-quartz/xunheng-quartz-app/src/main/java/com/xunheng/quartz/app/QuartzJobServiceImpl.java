@@ -7,7 +7,7 @@ import com.xunheng.quartz.client.dto.QuartzJobCreateCmd;
 import com.xunheng.quartz.client.dto.QuartzJobUpdateCmd;
 import com.xunheng.quartz.client.dto.VO.QuartzJobVO;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.List;
  * @date: 2023/6/29 18:09
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class QuartzJobServiceImpl implements QuartzJobService {
 
     @Resource

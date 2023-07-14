@@ -3,7 +3,7 @@ package com.xunheng.quartz.client.api;
 import com.xunheng.quartz.client.dto.QuartzJobCreateCmd;
 import com.xunheng.quartz.client.dto.QuartzJobUpdateCmd;
 import com.xunheng.quartz.client.dto.VO.QuartzJobVO;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 import java.util.List;
 

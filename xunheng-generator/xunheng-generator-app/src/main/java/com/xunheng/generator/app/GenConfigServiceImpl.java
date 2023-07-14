@@ -10,7 +10,7 @@ import com.xunheng.generator.client.dto.GenConfigSaveCmd;
 import com.xunheng.generator.client.dto.VO.FrontCodeVO;
 import com.xunheng.generator.client.dto.VO.GenConfigVO;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 import javax.annotation.Resource;
 
@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  * @date: 2023/7/3 16:56
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class GenConfigServiceImpl implements GenConfigService {
 
     @Resource

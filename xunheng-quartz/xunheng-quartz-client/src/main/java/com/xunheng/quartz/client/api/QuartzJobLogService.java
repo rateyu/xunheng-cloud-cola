@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xunheng.quartz.client.dto.QuartzJobLogCreateCmd;
 import com.xunheng.quartz.client.dto.VO.QuartzJobLogVO;
 import com.xunheng.quartz.client.dto.query.QuartzJobLogPageQuery;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 /**
  * @program: xunheng-cloud-cola

@@ -19,7 +19,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.annotation.AnnotatedElementUtils;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.PostConstruct;
@@ -35,7 +35,7 @@ import java.util.stream.Collectors;
  * @author: hhqkkr
  * @date: 2023/6/29 17:00
  */
-@Transactional
+@GlobalTransactional
 public class SysMysqlCreateTableManager {
     private static final Logger log = LoggerFactory.getLogger(SysMysqlCreateTableManager.class);
     @Resource

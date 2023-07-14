@@ -9,7 +9,7 @@ import com.xunheng.system.app.executor.PersonalConfigSaveCmdExe;
 import com.xunheng.system.app.executor.CustomConfigRemoveCmdExe;
 import com.xunheng.system.app.executor.query.SystemConfigListQueryExe;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.List;
  * @date: 2023/6/29 23:37
  */
 @Service
-@Transactional
+@GlobalTransactional
 public class CustomConfigServiceImpl implements CustomConfigService {
 
     @Resource

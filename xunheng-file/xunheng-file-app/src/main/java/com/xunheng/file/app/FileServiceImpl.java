@@ -12,7 +12,7 @@ import com.xunheng.file.client.dto.VO.FileVO;
 import com.xunheng.file.client.dto.query.FilePageQuery;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import io.seata.spring.annotation.GlobalTransactional;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
