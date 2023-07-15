@@ -20,7 +20,9 @@ spring:
         min-idle: 0
   # swagger启用      
   swagger:
-    enabled: true      
+    enabled: true
+
+
 
 # Sa-Token配置        
 sa-token:
@@ -59,5 +61,15 @@ feign:
   sentinel:
     enabled: true    
 
+# 日志配置地址
 logging:
   config: classpath:logConfig/logback-spring.xml
+
+#plumelog公共配置
+plumelog:
+  appName: ${spring.application.name}
+  redisHost: ${spring.redis.host}
+  redisAuth: ${spring.redis.password}
+  redisDb: 3 
+
+

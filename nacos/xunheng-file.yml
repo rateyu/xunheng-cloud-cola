@@ -1,0 +1,16 @@
+server:
+  port: 8015
+
+#文件上传配置
+file:
+  upload:
+    #本地上传基础路径
+    rootLocalPath: /Users/hhqkkr/xunheng/file
+
+# 数据源配置
+spring:
+  # 数据源
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/xhcc-file?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456

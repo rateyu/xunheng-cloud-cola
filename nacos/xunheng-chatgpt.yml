@@ -1,0 +1,7 @@
+server:
+  port: 8017
+
+chatgpt:
+  apiHost: https://api.openai.com/
+  #输入你自己的key
+  apiKey: sk-*****
