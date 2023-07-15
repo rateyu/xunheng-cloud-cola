@@ -70,6 +70,6 @@ plumelog:
   appName: ${spring.application.name}
   redisHost: ${spring.redis.host}
   redisAuth: ${spring.redis.password}
-  redisDb: 3 
+  redisDb: ${spring.redis.database} 
 
 
