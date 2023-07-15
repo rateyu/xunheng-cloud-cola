@@ -31,6 +31,24 @@ spring:
             - Path=/xunheng-generator/**
           filters:
             - StripPrefix=1     
+        - id: file-route
+          uri: lb://xunheng-file
+          predicates:
+            - Path=/xunheng-file/**
+          filters:
+            - StripPrefix=1  
+        - id: chatgpt-route
+          uri: lb://xunheng-chatgpt
+          predicates:
+            - Path=/xunheng-chatgpt/**
+          filters:
+            - StripPrefix=1  
+        - id: chatgpt-ws
+          uri: lb:ws://xunheng-chatgpt
+          predicates: 
+            - Path=/xunheng-chatgpt/websocket/**
+          filters:
+            - StripPrefix=1   
 #忽略鉴权URL
 ignored:
   urls:
@@ -51,10 +69,3 @@ ignored:
     - /**/*.css
     - /**/*.png
     - /**/*.ico            
-
-#日志追踪
-plumelog:
-  appName: xunheng-auth
-  redisHost: 192.168.3.100:6379
-  redisAuth: 123456
-  redisDb: 3

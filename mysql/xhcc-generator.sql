@@ -11,7 +11,7 @@
  Target Server Version : 50730
  File Encoding         : 65001
 
- Date: 06/07/2023 18:06:08
+ Date: 15/07/2023 22:23:29
 */
 
 SET NAMES utf8mb4;
@@ -121,15 +121,18 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `undo_log`;
 CREATE TABLE `undo_log` (
-  `branch_id` bigint(20) NOT NULL COMMENT 'branch transaction id',
-  `xid` varchar(100) NOT NULL COMMENT 'global transaction id',
-  `context` varchar(128) NOT NULL COMMENT 'undo_log context,such as serialization',
-  `rollback_info` longblob NOT NULL COMMENT 'rollback info',
-  `log_status` int(11) NOT NULL COMMENT '0:normal status,1:defense status',
-  `log_created` datetime(6) NOT NULL COMMENT 'create datetime',
-  `log_modified` datetime(6) NOT NULL COMMENT 'modify datetime',
-  UNIQUE KEY `ux_undo_log` (`xid`,`branch_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='AT transaction mode undo table';
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `branch_id` bigint(20) NOT NULL,
+  `xid` varchar(100) NOT NULL,
+  `context` varchar(128) NOT NULL,
+  `rollback_info` longblob NOT NULL,
+  `log_status` int(11) NOT NULL,
+  `log_created` datetime NOT NULL,
+  `log_modified` datetime NOT NULL,
+  `ext` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ux_undo_log` (`xid`,`branch_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of undo_log
