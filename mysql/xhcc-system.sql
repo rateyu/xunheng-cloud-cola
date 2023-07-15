@@ -11,7 +11,7 @@
  Target Server Version : 50730
  File Encoding         : 65001
 
- Date: 06/07/2023 18:04:20
+ Date: 15/07/2023 22:23:56
 */
 
 SET NAMES utf8mb4;
@@ -22,23 +22,23 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_custom_config`;
 CREATE TABLE `sys_custom_config` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `user_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `config_key` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `config_value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `user_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `config_key` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `config_value` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `personal` int(11) DEFAULT NULL,
-  `config_type` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `config_title` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `config_type` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `config_title` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_custom_config
@@ -52,21 +52,21 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict`;
 CREATE TABLE `sys_dict` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `sort_order` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_dict
@@ -87,23 +87,23 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_dict_data`;
 CREATE TABLE `sys_dict_data` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `value` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `value` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `sort_order` decimal(10,2) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `dict_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `dict_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_dict_data
@@ -137,18 +137,18 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_feedback`;
 CREATE TABLE `sys_feedback` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `content` text COLLATE utf8_bin,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `content` mediumtext COLLATE utf8mb4_bin,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_feedback
@@ -161,19 +161,19 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_matrix`;
 CREATE TABLE `sys_matrix` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_matrix
@@ -190,21 +190,21 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_matrix_column`;
 CREATE TABLE `sys_matrix_column` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `matrix_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `matrix_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `sort_order` decimal(10,2) DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `tag` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `tag` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_matrix_column
@@ -220,20 +220,20 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_matrix_data`;
 CREATE TABLE `sys_matrix_data` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `data` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `row_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `matrix_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `column_tag` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `data` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `row_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `matrix_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `column_tag` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_matrix_data
@@ -256,23 +256,23 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_notice`;
 CREATE TABLE `sys_notice` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `user_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `content` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `user_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `content` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `is_pub` int(11) DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_notice
@@ -286,19 +286,19 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_notice_read`;
 CREATE TABLE `sys_notice_read` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `notice_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `user_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `notice_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `user_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_notice_read
@@ -312,22 +312,22 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_organization`;
 CREATE TABLE `sys_organization` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `parent_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `parent_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `sort_order` decimal(10,2) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_organization
@@ -353,27 +353,27 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_permission`;
 CREATE TABLE `sys_permission` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `path` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `component` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `icon` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `parent_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `type` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `path` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `component` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `parent_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `sort_order` decimal(10,2) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `fullpage` bit(1) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_permission
@@ -413,6 +413,16 @@ INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `up
 INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1674706953103224834', '682265633886208', '2023-06-30 17:10:27', '682265633886208', '2023-06-30 17:11:25', 0, '999', '999', '999', 'system-dictdata-basic', 'actionGroup', '字典数据基础维护', '', '', '', '1476975283020156929', 2.00, 0, NULL);
 INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1674707781801226242', '682265633886208', '2023-06-30 17:13:45', '682265633886208', '2023-06-30 17:14:29', 0, '999', '999', '999', 'system-tenant-basic', 'actionGroup', '基础维护', '', '', '', '1472867171975741441', 1.00, 0, NULL);
 INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1674707998801932289', '682265633886208', '2023-06-30 17:14:36', '682265633886208', '2023-06-30 17:15:09', 0, '999', '999', '999', 'system-tenantAuthRecord-basic', 'actionGroup', '基础维护', '', '', '', '1472972566912245761', 1.00, 0, NULL);
+INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1679342989702197249', '682265633886208', '2023-07-13 12:12:24', '682265633886208', '2023-07-13 12:38:26', 0, '999', '999', '999', 'file-center', 'menu', '资源中心', '/file-center', '', 'el-icon-folder', '', 1.00, 0, b'0');
+INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1679350746933227522', '682265633886208', '2023-07-13 12:43:14', '682265633886208', '2023-07-13 12:44:22', 0, '999', '999', '999', 'file-setting', 'menu', '资源配置', '/file-center/setting', '', 'el-icon-tools', '1679342989702197249', 0.00, 0, NULL);
+INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1679351041771827202', '682265633886208', '2023-07-13 12:44:24', '682265633886208', '2023-07-13 12:44:52', 0, '999', '999', '999', 'resource-lib', 'menu', '资源库', '/file-center/resource-lib', '', 'el-icon-box', '1679342989702197249', 1.00, 0, NULL);
+INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1679351234684645378', '682265633886208', '2023-07-13 12:45:10', '682265633886208', '2023-07-13 12:51:36', 0, '999', '999', '999', 'catalogue-manage', 'menu', '目录管理', '/file-center/setting/catalogue-manage', 'file-center/setting/catalogue-manage', 'el-icon-document-copy', '1679350746933227522', 0.00, 0, NULL);
+INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1679351539254030338', '682265633886208', '2023-07-13 12:46:22', '682265633886208', '2023-07-13 12:52:59', 0, '999', '999', '999', 'upload-setting', 'menu', '上传设置', '/file-center/setting/upload-setting', 'file-center/setting/upload-setting', 'el-icon-help-filled', '1679350746933227522', 1.00, 0, b'0');
+INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1679351675912843265', '682265633886208', '2023-07-13 12:46:55', '682265633886208', '2023-07-13 13:14:13', 0, '999', '999', '999', 'file-library', 'menu', '文件库', '/file-center/resource-lib/file-library', 'file-center/resource-lib/file-library', 'el-icon-folder', '1679351041771827202', 0.00, 0, b'0');
+INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1679352067258183682', '682265633886208', '2023-07-13 12:48:28', '682265633886208', '2023-07-13 13:04:29', 0, '999', '999', '999', 'file-catalogue-basic', 'actionGroup', '基础维护', '', '', '', '1679351234684645378', 0.00, 0, NULL);
+INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1679352190247759874', '682265633886208', '2023-07-13 12:48:58', '682265633886208', '2023-07-13 12:50:05', 0, '999', '999', '999', 'file-uploadSetting-basic', 'actionGroup', '基础维护', '', '', '', '1679351539254030338', 0.00, 0, NULL);
+INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1679360479656275970', '682265633886208', '2023-07-13 13:21:54', '682265633886208', '2023-07-13 15:32:58', 0, '999', '999', '999', 'file-file-upload', 'actionGroup', '本地上传', '', '', '', '1679351675912843265', 1.00, 0, NULL);
+INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('1679393255549956097', '682265633886208', '2023-07-13 15:32:08', '682265633886208', '2023-07-13 15:32:48', 0, '999', '999', '999', 'file-file-view', 'actionGroup', '文件查看', '', '', '', '1679351675912843265', 1.00, 0, NULL);
 INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('2', '496138616573952', '2021-12-18 13:47:52', '682265633886208', '2021-12-21 00:51:09', 0, NULL, NULL, NULL, 'system-setting', 'menu', '系统设置', '/system/setting', NULL, 'el-icon-grid', '1', 0.00, 0, NULL);
 INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('3', '496138616573952', '2021-12-18 13:47:52', '682265633886208', '2023-06-30 17:04:42', 0, NULL, NULL, NULL, 'menu-manage', 'menu', '菜单权限管理', '/system/setting/menu-manage', 'system/setting/menu-manage', 'el-icon-fold', '2', 3.00, 0, NULL);
 INSERT INTO `sys_permission` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `department_id`, `sub_company_id`, `name`, `type`, `title`, `path`, `component`, `icon`, `parent_id`, `sort_order`, `status`, `fullpage`) VALUES ('4', '496138616573952', '2021-12-18 21:45:05', '682265633886208', '2023-06-30 17:04:27', 0, NULL, NULL, NULL, 'role-manage', 'menu', '角色权限管理', '/system/setting/role-manage', 'system/setting/role-manage', 'el-icon-notebook', '2', 2.00, 0, b'0');
@@ -423,21 +433,21 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_permission_action`;
 CREATE TABLE `sys_permission_action` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `permission_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `code` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `permission_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   KEY `actable_idx_permission_id` (`permission_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_permission_action
@@ -494,6 +504,17 @@ INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_b
 INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1674711201719267329', '682265633886208', '2023-06-30 17:27:20', NULL, NULL, '999', '999', '999', '1674703117533851649', 'system.user.adminAdd', 0, '添加');
 INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1674711201937371137', '682265633886208', '2023-06-30 17:27:20', NULL, NULL, '999', '999', '999', '1674703117533851649', 'system.user.adminEdit', 0, '修改');
 INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1674711202096754689', '682265633886208', '2023-06-30 17:27:20', NULL, NULL, '999', '999', '999', '1674703117533851649', 'system.user.deleteBatch', 0, '删除');
+INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1679352474550267905', '682265633886208', '2023-07-13 12:50:05', NULL, NULL, '999', '999', '999', '1679352190247759874', 'file.uploadSetting.add', 0, '新增');
+INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1679352474588016641', '682265633886208', '2023-07-13 12:50:05', NULL, NULL, '999', '999', '999', '1679352190247759874', 'file.uploadSetting.edit', 0, '修改');
+INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1679352474625765378', '682265633886208', '2023-07-13 12:50:05', NULL, NULL, '999', '999', '999', '1679352190247759874', 'file.uploadSetting.deleteBatch', 0, '批量删除');
+INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1679352855716032514', '682265633886208', '2023-07-13 12:51:36', NULL, NULL, '999', '999', '999', '1679351234684645378', 'file.catalogue.tree', 0, '树形列表');
+INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1679353201091801090', '682265633886208', '2023-07-13 12:52:59', NULL, NULL, '999', '999', '999', '1679351539254030338', 'file.uploadSetting.pageList', 0, '分页列表');
+INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1679356095153172481', '682265633886208', '2023-07-13 13:04:29', NULL, NULL, '999', '999', '999', '1679352067258183682', 'file.catalogue.add', 0, '新增');
+INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1679356095186726914', '682265633886208', '2023-07-13 13:04:29', NULL, NULL, '999', '999', '999', '1679352067258183682', 'file.catalogue.deleteBatch', 0, '批量删除');
+INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1679356095232864257', '682265633886208', '2023-07-13 13:04:29', NULL, NULL, '999', '999', '999', '1679352067258183682', 'file.catalogue.edit', 0, '修改');
+INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1679358547780825090', '682265633886208', '2023-07-13 13:14:13', NULL, NULL, '999', '999', '999', '1679351675912843265', 'file.file.pageList', 0, '分页列表');
+INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1679393422202236929', '682265633886208', '2023-07-13 15:32:48', NULL, NULL, '999', '999', '999', '1679393255549956097', 'file.file.view', 0, '查看');
+INSERT INTO `sys_permission_action` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `tenant_id`, `department_id`, `sub_company_id`, `permission_id`, `code`, `status`, `name`) VALUES ('1679393465529397250', '682265633886208', '2023-07-13 15:32:58', NULL, NULL, '999', '999', '999', '1679360479656275970', 'file.file.upload', 0, '上传');
 COMMIT;
 
 -- ----------------------------
@@ -501,19 +522,19 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_permission_code`;
 CREATE TABLE `sys_permission_code` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `permission_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `url` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `code` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `permission_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `url` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_permission_code
@@ -526,23 +547,23 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `data_type` int(11) DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `include_low` int(11) DEFAULT NULL,
-  `custom_expression` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `custom_expression` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `data_level` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_role
@@ -558,19 +579,19 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_organization`;
 CREATE TABLE `sys_role_organization` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `role_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `organization_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `role_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `organization_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `is_all_check` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_role_organization
@@ -583,20 +604,20 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_role_permission`;
 CREATE TABLE `sys_role_permission` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `role_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `permission_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `role_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `permission_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `is_all_check` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_role_permission
@@ -609,24 +630,24 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_tenant`;
 CREATE TABLE `sys_tenant` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `code` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `contactor` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `contact` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `contactor` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `contact` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `end_date` date DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_tenant
@@ -642,19 +663,19 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_tenant_auth_record`;
 CREATE TABLE `sys_tenant_auth_record` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `auth_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_tenant_auth_record
@@ -670,33 +691,33 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
   `del_flag` int(11) DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `organization_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `organization_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `birth` date DEFAULT NULL,
-  `about` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `superior` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sex` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `username` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `nick_name` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `mobile` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `street` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `avatar` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `about` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `superior` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sex` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `username` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `nick_name` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `mobile` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `street` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `avatar` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `type` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user
@@ -707,7 +728,7 @@ INSERT INTO `sys_user` (`id`, `create_by`, `create_time`, `update_by`, `update_t
 INSERT INTO `sys_user` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `organization_id`, `department_id`, `birth`, `about`, `superior`, `sub_company_id`, `sex`, `description`, `username`, `password`, `nick_name`, `mobile`, `email`, `address`, `street`, `avatar`, `type`, `status`) VALUES ('1642855819389222913', '682265633886208', '2023-04-03 11:45:25', '682265633886208', '2023-06-27 12:08:10', 0, '1638392079592890369', '1638399455054151681', '999', NULL, NULL, '', '1638392079592890369', 'man', NULL, '体验账号3', '$2a$10$x1a41TrUdoLM9h/8JupTTO/Fy3l4k6GiqWBxv0uU04pv74rw8W.ii', '体验账号3', '', '', NULL, NULL, NULL, -1, 0);
 INSERT INTO `sys_user` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `organization_id`, `department_id`, `birth`, `about`, `superior`, `sub_company_id`, `sex`, `description`, `username`, `password`, `nick_name`, `mobile`, `email`, `address`, `street`, `avatar`, `type`, `status`) VALUES ('1642855955355975681', '682265633886208', '2023-04-03 11:45:57', '682265633886208', '2023-06-27 17:30:13', 0, '1638391972344537089', '1638392677037940737', '999', NULL, NULL, '1638399837075554306', '1638392079592890369', 'man', NULL, '体验账号4', '$2a$10$Kipyp6XtJYiwD.j7zGU8KeAxwtyp4lZHN3G11waKYZtqeMrVwu4Fe', '体验账号4', '', '', NULL, NULL, NULL, 0, 0);
 INSERT INTO `sys_user` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `organization_id`, `department_id`, `birth`, `about`, `superior`, `sub_company_id`, `sex`, `description`, `username`, `password`, `nick_name`, `mobile`, `email`, `address`, `street`, `avatar`, `type`, `status`) VALUES ('1673628257735004162', '682265633886208', '2023-06-27 17:44:06', '682265633886208', '2023-06-27 17:44:45', 0, '1638391972344537089', '1638392677037940737', '999', '2023-06-13', NULL, '1642855955355975681', '999', 'man', NULL, 'ceshi2', '$2a$10$TRJckQmAV1HypF4pi9t7zO2FVsVlhAawL93u0kJ8gznRSIqZvNSjC', 'ceshi2', '111', '111', NULL, NULL, NULL, 0, 0);
-INSERT INTO `sys_user` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `organization_id`, `department_id`, `birth`, `about`, `superior`, `sub_company_id`, `sex`, `description`, `username`, `password`, `nick_name`, `mobile`, `email`, `address`, `street`, `avatar`, `type`, `status`) VALUES ('682265633886208', NULL, '2021-12-16 00:00:00', '682265633886208', '2023-06-27 13:30:00', 0, '999', NULL, NULL, '1996-04-20', '我有一个小目标123123', NULL, NULL, 'man', NULL, 'admin', '$2a$10$a.ZuGVp06kb96aUBFeB0OeXC9p1RfK/Z5QRboSqRkwPYqiF2lAJtK', '超级管理员', '158173624141', '452794162@qq.com', NULL, NULL, NULL, 3, 0);
+INSERT INTO `sys_user` (`id`, `create_by`, `create_time`, `update_by`, `update_time`, `del_flag`, `tenant_id`, `organization_id`, `department_id`, `birth`, `about`, `superior`, `sub_company_id`, `sex`, `description`, `username`, `password`, `nick_name`, `mobile`, `email`, `address`, `street`, `avatar`, `type`, `status`) VALUES ('682265633886208', NULL, '2021-12-16 00:00:00', '682265633886208', '2023-07-14 21:03:12', 0, '999', NULL, NULL, '1996-04-20', '我有一个小目标123123', NULL, NULL, 'man', NULL, 'admin', '$2a$10$a.ZuGVp06kb96aUBFeB0OeXC9p1RfK/Z5QRboSqRkwPYqiF2lAJtK', '超级管理员', '158173624141', '452794162@qq.com', NULL, NULL, NULL, 3, 0);
 COMMIT;
 
 -- ----------------------------
@@ -715,18 +736,18 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role` (
-  `id` varchar(255) COLLATE utf8_bin NOT NULL,
-  `create_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `id` varchar(255) COLLATE utf8mb4_bin NOT NULL,
+  `create_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `update_by` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `update_by` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,
-  `tenant_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `department_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `sub_company_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `user_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
-  `role_id` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `tenant_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `department_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `sub_company_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `user_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `role_id` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user_role
@@ -745,15 +766,18 @@ COMMIT;
 -- ----------------------------
 DROP TABLE IF EXISTS `undo_log`;
 CREATE TABLE `undo_log` (
-  `branch_id` bigint(20) NOT NULL COMMENT 'branch transaction id',
-  `xid` varchar(100) NOT NULL COMMENT 'global transaction id',
-  `context` varchar(128) NOT NULL COMMENT 'undo_log context,such as serialization',
-  `rollback_info` longblob NOT NULL COMMENT 'rollback info',
-  `log_status` int(11) NOT NULL COMMENT '0:normal status,1:defense status',
-  `log_created` datetime(6) NOT NULL COMMENT 'create datetime',
-  `log_modified` datetime(6) NOT NULL COMMENT 'modify datetime',
-  UNIQUE KEY `ux_undo_log` (`xid`,`branch_id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='AT transaction mode undo table';
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `branch_id` bigint(20) NOT NULL,
+  `xid` varchar(100) NOT NULL,
+  `context` varchar(128) NOT NULL,
+  `rollback_info` longblob NOT NULL,
+  `log_status` int(11) NOT NULL,
+  `log_created` datetime NOT NULL,
+  `log_modified` datetime NOT NULL,
+  `ext` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `ux_undo_log` (`xid`,`branch_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of undo_log
