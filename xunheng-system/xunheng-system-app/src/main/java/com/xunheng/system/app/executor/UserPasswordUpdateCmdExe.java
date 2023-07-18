@@ -28,7 +28,7 @@ public class UserPasswordUpdateCmdExe {
     private UserDomainService userDomainService;
 
     public void execute(UserPasswordUpdateCmd cmd) {
-        UserEntity user = userDomainService.getUserDetailById(StpUtil.getLoginId(""));
+        UserEntity user = userGateway.getOneById(StpUtil.getLoginId(""));
         if(!user.getPassword().isEqual(cmd.getPassword()))throw new GlobalException("旧密码不正确");
         user.setPassword(new PassWord(cmd.getNewPass()));
         userGateway.saveOrUpdate(user);
