@@ -53,7 +53,7 @@
 
 ### 功能截图
 ** chatgpt **
-
+![输入图片说明](pic/chatpgt.png)
 0. 个人中心
 ![输入图片说明](pic/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83.png)
 1. 用户管理
@@ -80,8 +80,9 @@
 12. 前后端代码生成器
 ![输入图片说明](pic/%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90.png)
 13. 文件配置
+![输入图片说明](pic/%E4%B8%8A%E4%BC%A0%E8%AE%BE%E7%BD%AE.png)
 14. 文件库
-
+![输入图片说明](pic/%E6%96%87%E4%BB%B6%E5%BA%93.png)
 
 ### 前端项目
 前端项目请访问另一个仓库[xunheng-cloud-cola-front](https://gitee.com/hhqkkr/xunheng-cloud-cola-front).基于scui开发，使用的elementplus+vue3
