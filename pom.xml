@@ -14,6 +14,7 @@
     <module>xunheng-cloud-cola-archetype</module>
     <module>xunheng-file</module>
     <module>xunheng-chatgpt</module>
+      <module>xunheng-wechat</module>
   </modules>
     
   <groupId>com.xunheng</groupId>

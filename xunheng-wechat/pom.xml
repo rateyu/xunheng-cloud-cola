@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.xunheng</groupId>
+        <artifactId>xunheng-cloud</artifactId>
+        <version>1.0.0</version>
+    </parent>
+    <artifactId>xunheng-wechat</artifactId>
+    <packaging>pom</packaging>
+    <name>xunheng-wechat</name>
+
+    <properties>
+        <cola.components.version>4.3.2</cola.components.version>
+    </properties>
+
+    <modules>
+        <module>xunheng-wechat-client</module>
+        <module>xunheng-wechat-adapter</module>
+        <module>xunheng-wechat-app</module>
+        <module>xunheng-wechat-domain</module>
+        <module>xunheng-wechat-infrastructure</module>
+        <module>xunheng-wechat-start</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--Project modules-->
+            <dependency>
+                <groupId>com.xunheng</groupId>
+                <artifactId>xunheng-wechat-adapter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xunheng</groupId>
+                <artifactId>xunheng-wechat-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xunheng</groupId>
+                <artifactId>xunheng-wechat-app</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xunheng</groupId>
+                <artifactId>xunheng-wechat-domain</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xunheng</groupId>
+                <artifactId>xunheng-wechat-infrastructure</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--Project modules End-->
+            <!-- Cola组件版本管理 根据dependency继承-->
+            <dependency>
+                <groupId>com.alibaba.cola</groupId>
+                <artifactId>cola-components-bom</artifactId>
+                <version>${cola.components.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.xunheng</groupId>
+            <artifactId>xunheng-core-security</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xunheng</groupId>
+            <artifactId>xunheng-core-datasource</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xunheng</groupId>
+            <artifactId>xunheng-core-log</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- WxJava -->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-mp</artifactId>
+            <version>4.5.0</version>
+        </dependency>
+    </dependencies>
+</project>
