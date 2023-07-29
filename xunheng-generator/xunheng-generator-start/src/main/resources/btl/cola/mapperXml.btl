@@ -10,7 +10,7 @@
     </sql>
 
     <select id="pageList" parameterType="${config.servicePackage}.client.dto.query.${config.name}PageQuery" resultType="${config.servicePackage}.infrastructure.DO.${config.name}">
-        select ${config.tableAlias}.id
+        select ${config.tableAlias}.*
         from ${config.tableName} ${config.tableAlias}
         <include refid="filterSql"/>
         order by ${config.tableAlias}.create_time desc
