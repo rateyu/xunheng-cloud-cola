@@ -12,7 +12,7 @@ public interface WoaMsgService {
 
     /**
      * 接入验证
-     * @param appId appid
+     * @param appId appId
      * @param cmd 验证参数
      * @return
      */

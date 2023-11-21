@@ -20,9 +20,9 @@ public class WoaMenuSaveCmdExe {
     @Resource
     WxMpService wxMpService;
 
-    public void execute(String appid, WxMenu wxMenu){
+    public void execute(String appId, WxMenu wxMenu){
         try {
-            wxMpService.switchoverTo(appid);
+            wxMpService.switchoverTo(appId);
             wxMpService.getMenuService().menuCreate(wxMenu);
         } catch (WxErrorException e) {
             e.printStackTrace();

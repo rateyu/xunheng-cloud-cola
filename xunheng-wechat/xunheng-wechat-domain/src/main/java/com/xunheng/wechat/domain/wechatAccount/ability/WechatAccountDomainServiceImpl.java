@@ -43,12 +43,12 @@ public class WechatAccountDomainServiceImpl implements WechatAccountDomainServic
     public void addAccountToRuntime(WechatAccountEntity entity) {
         /*只处理类型是公众号的*/
         if(!entity.getType().equals(AccountType.WOA_FWH) && !entity.getType().equals(AccountType.WOA_DYH))return;
-        String appid = entity.getAppId();
-        if(isAccountInRuntime(appid)){//已有此appid信息，更新
+        String appId = entity.getAppId();
+        if(isAccountInRuntime(appId)){//已有此appId信息，更新
             log.info("更新公众号配置");
-            wxMpService.removeConfigStorage(appid);
+            wxMpService.removeConfigStorage(appId);
             addToConfig(entity);
-        }else {//无此appid信息，新增
+        }else {//无此appId信息，新增
             log.info("新增公众号配置");
             addToConfig(entity);
         }
@@ -79,15 +79,15 @@ public class WechatAccountDomainServiceImpl implements WechatAccountDomainServic
      * 添加账号到当前程序，如首次添加需初始化configStorageMap
      */
     private synchronized void addToConfig(WechatAccountEntity entity){
-        String appid = entity.getAppId();
+        String appId = entity.getAppId();
         WxMpDefaultConfigImpl config = entity.toWxMpConfigStorage();
         try {
-            wxMpService.addConfigStorage(appid,config);
+            wxMpService.addConfigStorage(appId,config);
         }catch (NullPointerException e){
             log.info("需初始化configStorageMap...");
             Map<String, WxMpConfigStorage> configStorages = new HashMap<>(4);
-            configStorages.put(appid,config);
-            wxMpService.setMultiConfigStorages(configStorages,appid);
+            configStorages.put(appId,config);
+            wxMpService.setMultiConfigStorages(configStorages,appId);
         }
     }
 }
