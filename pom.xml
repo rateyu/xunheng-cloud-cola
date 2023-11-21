@@ -15,6 +15,7 @@
     <module>xunheng-file</module>
     <module>xunheng-chatgpt</module>
       <module>xunheng-wechat</module>
+      <module>xunheng-member</module>
   </modules>
     
   <groupId>com.xunheng</groupId>

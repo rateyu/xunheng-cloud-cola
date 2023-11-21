@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.member.infrastructure.mapper.MemberMapper">
+
+    <sql id="filterSql">
+        <where>
+            mb.del_flag = 0
+            <if test="qry.id != null and qry.id != ''"> and mb.id  = #{qry.id} </if>
+        </where>
+    </sql>
+
+    <select id="pageList" parameterType="com.xunheng.member.client.dto.query.MemberPageQuery" resultType="com.xunheng.member.infrastructure.DO.Member">
+        select mb.*
+        from m_member mb
+        <include refid="filterSql"/>
+        order by mb.create_time desc
+    </select>
+
+</mapper>
