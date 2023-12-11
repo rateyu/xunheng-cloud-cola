@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.wechat.infrastructure.mapper.WoaMsgTemplateMapper">
+
+    <sql id="filterSql">
+        <where>
+            woamt.del_flag = 0
+            <if test="qry.id != null and qry.id != ''"> and woamt.id  = #{qry.id} </if>
+            <if test="qry.appId != null and qry.appId != ''"> and woamt.app_id  = #{qry.appId} </if>
+            <if test="qry.title != null and qry.title != ''"> and woamt.title like concat('%',#{title},'%') </if>
+        </where>
+    </sql>
+
+    <select id="pageList" parameterType="com.xunheng.wechat.client.dto.query.WoaMsgTemplatePageQuery" resultType="com.xunheng.wechat.infrastructure.DO.WoaMsgTemplate">
+        select woamt.*
+        from wc_woa_msg_template woamt
+        <include refid="filterSql"/>
+        order by woamt.create_time desc
+    </select>
+
+</mapper>

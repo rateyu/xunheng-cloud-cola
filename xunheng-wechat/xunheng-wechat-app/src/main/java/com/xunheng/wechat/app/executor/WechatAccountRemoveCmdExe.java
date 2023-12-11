@@ -1,7 +1,7 @@
 package com.xunheng.wechat.app.executor;
 
-import com.xunheng.wechat.domain.wechatAccount.ability.WechatAccountDomainService;
-import com.xunheng.wechat.domain.wechatAccount.gateway.WechatAccountGateway;
+import com.xunheng.wechat.domain.account.ability.AccountDomainService;
+import com.xunheng.wechat.domain.account.gateway.WechatAccountGateway;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
@@ -15,13 +15,13 @@ import javax.annotation.Resource;
 public class WechatAccountRemoveCmdExe {
 
     @Resource
-    WechatAccountDomainService wechatAccountDomainService;
+    AccountDomainService accountDomainService;
 
     @Resource
     private WechatAccountGateway wechatAccountGateway;
 
     public void execute(String id) {
-        wechatAccountDomainService.removeConfig(id);
+        accountDomainService.removeConfig(id);
         wechatAccountGateway.remove(id);
     }
 

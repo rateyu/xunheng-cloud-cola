@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xunheng.base.vo.SelectItemVO;
 import com.xunheng.wechat.app.executor.query.WechatAccountSelectItemQueryExe;
 import com.xunheng.wechat.client.api.WechatAccountService;
+import com.xunheng.wechat.client.dto.VO.WxAccountSelectItemVO;
 import com.xunheng.wechat.client.dto.query.WechatAccountPageQuery;
 import com.xunheng.wechat.client.dto.WechatAccountCreateCmd;
 import com.xunheng.wechat.client.dto.WechatAccountUpdateCmd;
@@ -72,7 +73,7 @@ public class WechatAccountServiceImpl implements WechatAccountService {
     }
 
     @Override
-    public List<SelectItemVO> getSelectItem() {
+    public List<WxAccountSelectItemVO> getSelectItem() {
         return wechatAccountSelectItemQueryExe.execute();
     }
 

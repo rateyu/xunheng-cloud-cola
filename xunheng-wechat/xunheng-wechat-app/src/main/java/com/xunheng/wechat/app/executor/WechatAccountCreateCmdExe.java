@@ -1,16 +1,13 @@
 package com.xunheng.wechat.app.executor;
 
-import com.baomidou.mybatisplus.extension.toolkit.SqlHelper;
 import com.xunheng.wechat.app.assembler.WechatAccountAssembler;
 import com.xunheng.wechat.client.dto.WechatAccountCreateCmd;
 import com.xunheng.wechat.client.dto.VO.WechatAccountVO;
-import com.xunheng.wechat.domain.wechatAccount.ability.WechatAccountDomainService;
-import com.xunheng.wechat.domain.wechatAccount.gateway.WechatAccountGateway;
-import com.xunheng.wechat.domain.wechatAccount.model.WechatAccountEntity;
+import com.xunheng.wechat.domain.account.ability.AccountDomainService;
+import com.xunheng.wechat.domain.account.gateway.WechatAccountGateway;
+import com.xunheng.wechat.domain.account.model.WechatAccountEntity;
 import lombok.extern.slf4j.Slf4j;
-import me.chanjar.weixin.mp.api.WxMpService;
 import org.springframework.stereotype.Component;
-import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
 
@@ -28,12 +25,12 @@ public class WechatAccountCreateCmdExe {
     private WechatAccountGateway wechatAccountGateway;
 
     @Resource
-    WechatAccountDomainService wechatAccountDomainService;
+    AccountDomainService accountDomainService;
 
     public WechatAccountVO execute(WechatAccountCreateCmd cmd) {
         WechatAccountEntity entity = WechatAccountAssembler.toCreateEntity(cmd);
         /*配置账户信息*/
-        wechatAccountDomainService.addAccountToRuntime(entity);
+        accountDomainService.addAccountToRuntime(entity);
         /*存储信息*/
         return WechatAccountAssembler.toVo(wechatAccountGateway.create(entity));
     }

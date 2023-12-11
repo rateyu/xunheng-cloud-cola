@@ -1,12 +1,9 @@
 package com.xunheng.wechat.app.executor.query;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xunheng.base.vo.SelectItemVO;
-import com.xunheng.wechat.app.assembler.WechatAccountAssembler;
-import com.xunheng.wechat.client.dto.VO.WechatAccountVO;
-import com.xunheng.wechat.client.dto.query.WechatAccountPageQuery;
-import com.xunheng.wechat.domain.wechatAccount.gateway.WechatAccountGateway;
-import com.xunheng.wechat.domain.wechatAccount.model.WechatAccountEntity;
+import com.xunheng.wechat.client.dto.VO.WxAccountSelectItemVO;
+import com.xunheng.wechat.domain.account.gateway.WechatAccountGateway;
+import com.xunheng.wechat.domain.account.model.WechatAccountEntity;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -25,14 +22,14 @@ public class WechatAccountSelectItemQueryExe {
     @Resource
     WechatAccountGateway wechatAccountGateway;
 
-    public List<SelectItemVO> execute() {
+    public List<WxAccountSelectItemVO> execute() {
         List<WechatAccountEntity> list = wechatAccountGateway.allList();
         return list.stream().
                 map(item ->{
-                    SelectItemVO vo = new SelectItemVO();
-                    vo.setId(item.getAppId());
-                    vo.setTitle(item.getName());
-                    vo.setValue(item.getAppId());
+                    WxAccountSelectItemVO vo = new WxAccountSelectItemVO();
+                    vo.setAppId(item.getAppId());
+                    vo.setName(item.getName());
+                    vo.setType(item.getType().getVal());
                     return vo;
                 }).collect(Collectors.toList());
     }

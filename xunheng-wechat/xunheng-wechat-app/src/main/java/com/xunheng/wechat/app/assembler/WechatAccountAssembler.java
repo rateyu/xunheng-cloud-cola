@@ -4,8 +4,8 @@ import com.xunheng.base.utils.EnumUtil;
 import com.xunheng.wechat.client.dto.WechatAccountCreateCmd;
 import com.xunheng.wechat.client.dto.WechatAccountUpdateCmd;
 import com.xunheng.wechat.client.dto.VO.WechatAccountVO;
-import com.xunheng.wechat.domain.wechatAccount.model.AccountType;
-import com.xunheng.wechat.domain.wechatAccount.model.WechatAccountEntity;
+import com.xunheng.wechat.domain.account.model.AccountType;
+import com.xunheng.wechat.domain.account.model.WechatAccountEntity;
 
 /**
  * @program: xunheng-cloud-cola

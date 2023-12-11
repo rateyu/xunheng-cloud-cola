@@ -2,14 +2,13 @@ package com.xunheng.wechat.infrastructure.gateway.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.conditions.query.QueryChainWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xunheng.wechat.infrastructure.DO.WechatAccount;
 import com.xunheng.wechat.infrastructure.convertor.WechatAccountConvertor;
 import com.xunheng.wechat.client.dto.query.WechatAccountPageQuery;
-import com.xunheng.wechat.domain.wechatAccount.gateway.WechatAccountGateway;
+import com.xunheng.wechat.domain.account.gateway.WechatAccountGateway;
 import com.xunheng.wechat.infrastructure.mapper.WechatAccountMapper;
-import com.xunheng.wechat.domain.wechatAccount.model.WechatAccountEntity;
+import com.xunheng.wechat.domain.account.model.WechatAccountEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;

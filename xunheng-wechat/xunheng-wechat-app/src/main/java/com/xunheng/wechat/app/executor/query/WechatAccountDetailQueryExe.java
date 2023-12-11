@@ -2,7 +2,7 @@ package com.xunheng.wechat.app.executor.query;
 
 import com.xunheng.wechat.app.assembler.WechatAccountAssembler;
 import com.xunheng.wechat.client.dto.VO.WechatAccountVO;
-import com.xunheng.wechat.domain.wechatAccount.gateway.WechatAccountGateway;
+import com.xunheng.wechat.domain.account.gateway.WechatAccountGateway;
 import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 

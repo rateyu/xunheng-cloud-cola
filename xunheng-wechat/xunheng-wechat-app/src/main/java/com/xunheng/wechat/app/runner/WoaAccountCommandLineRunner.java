@@ -1,6 +1,6 @@
 package com.xunheng.wechat.app.runner;
 
-import com.xunheng.wechat.domain.wechatAccount.ability.WechatAccountDomainService;
+import com.xunheng.wechat.domain.account.ability.AccountDomainService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -10,10 +10,10 @@ import javax.annotation.Resource;
 public class WoaAccountCommandLineRunner implements CommandLineRunner {
 
     @Resource
-    WechatAccountDomainService wechatAccountDomainService;
+    AccountDomainService accountDomainService;
 
     @Override
     public void run(String... args)  {
-        wechatAccountDomainService.loadWxMpConfigStorages();
+        accountDomainService.loadWxMpConfigStorages();
     }
 }

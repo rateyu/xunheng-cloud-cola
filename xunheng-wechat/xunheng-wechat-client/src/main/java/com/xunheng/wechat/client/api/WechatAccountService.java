@@ -3,6 +3,7 @@ package com.xunheng.wechat.client.api;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xunheng.base.vo.SelectItemVO;
 import com.xunheng.wechat.client.dto.VO.WechatAccountVO;
+import com.xunheng.wechat.client.dto.VO.WxAccountSelectItemVO;
 import com.xunheng.wechat.client.dto.query.WechatAccountPageQuery;
 import com.xunheng.wechat.client.dto.WechatAccountCreateCmd;
 import com.xunheng.wechat.client.dto.WechatAccountUpdateCmd;
@@ -55,5 +56,5 @@ public interface WechatAccountService{
      * 获取可选择项
      * @return 帐号列表
      */
-    List<SelectItemVO> getSelectItem();
+    List<WxAccountSelectItemVO> getSelectItem();
 }

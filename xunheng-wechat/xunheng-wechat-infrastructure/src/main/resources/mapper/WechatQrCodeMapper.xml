@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.wechat.infrastructure.mapper.WechatQrCodeMapper">
+
+    <sql id="filterSql">
+        <where>
+            wqc.del_flag = 0
+            <if test="qry.id != null and qry.id != ''"> and wqc.id  = #{qry.id} </if>
+            <if test="qry.appId != null and qry.appId != ''"> and wqc.app_id  = #{qry.appId} </if>
+            <if test="qry.sceneStr != null and qry.sceneStr != ''"> and wqc.scene_str like concat('%',#{qry.sceneStr},'%')</if>
+        </where>
+    </sql>
+
+    <select id="pageList" parameterType="com.xunheng.wechat.client.dto.query.WechatQrCodePageQuery" resultType="com.xunheng.wechat.infrastructure.DO.WechatQrCode">
+        select wqc.*
+        from wc_wechat_qr_code wqc
+        <include refid="filterSql"/>
+        order by wqc.create_time desc
+    </select>
+
+</mapper>

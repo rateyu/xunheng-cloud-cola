@@ -7,6 +7,7 @@ import com.xunheng.log.config.annotation.Log;
 import com.xunheng.base.annotation.PermissionCode;
 import com.xunheng.wechat.client.api.WechatAccountService;
 import com.xunheng.wechat.client.dto.VO.WechatAccountVO;
+import com.xunheng.wechat.client.dto.VO.WxAccountSelectItemVO;
 import com.xunheng.wechat.client.dto.query.WechatAccountPageQuery;
 import com.xunheng.wechat.client.dto.WechatAccountCreateCmd;
 import com.xunheng.wechat.client.dto.WechatAccountUpdateCmd;
@@ -71,7 +72,7 @@ public class WechatAccountController {
     @Log(module = "微信开发帐号",title = "微信开发帐号选择项", businessType = BusinessType.LIST)
     @RequestMapping(value = "/getSelectItem",method = RequestMethod.GET)
     @ApiOperation(value = "微信开发帐号选择项")
-    public List<SelectItemVO> getSelectItem(){
+    public List<WxAccountSelectItemVO> getSelectItem(){
         return wechatAccountService.getSelectItem();
     }
 }

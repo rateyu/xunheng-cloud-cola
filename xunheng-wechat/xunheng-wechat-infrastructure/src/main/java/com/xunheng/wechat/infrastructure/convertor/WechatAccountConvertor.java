@@ -1,9 +1,9 @@
 package com.xunheng.wechat.infrastructure.convertor;
 
 import com.xunheng.base.utils.EnumUtil;
-import com.xunheng.wechat.domain.wechatAccount.model.AccountType;
+import com.xunheng.wechat.domain.account.model.AccountType;
 import com.xunheng.wechat.infrastructure.DO.WechatAccount;
-import com.xunheng.wechat.domain.wechatAccount.model.WechatAccountEntity;
+import com.xunheng.wechat.domain.account.model.WechatAccountEntity;
 
 /**
  * @program: xunheng-cloud-cola

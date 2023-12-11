@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.wechat.infrastructure.mapper.WoaReplyRuleMapper">
+
+    <sql id="filterSql">
+        <where>
+            woarr.del_flag = 0
+            <if test="qry.id != null and qry.id != ''"> and woarr.id  = #{qry.id} </if>
+            <if test="qry.appId != null and qry.appId != ''"> and woarr.app_id  = #{qry.appId} </if>
+            <if test="qry.matchValue != null and qry.matchValue != ''"> and woarr.match_value like concat('%',#{qry.matchValue},'%') </if>
+        </where>
+    </sql>
+
+    <select id="pageList" parameterType="com.xunheng.wechat.client.dto.query.WoaReplyRulePageQuery" resultType="com.xunheng.wechat.infrastructure.DO.WoaReplyRule">
+        select woarr.*
+        from wc_woa_reply_rule woarr
+        <include refid="filterSql"/>
+        order by woarr.create_time desc
+    </select>
+
+</mapper>
