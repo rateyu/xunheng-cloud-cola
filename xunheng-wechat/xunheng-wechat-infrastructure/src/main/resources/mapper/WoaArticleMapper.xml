@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.wechat.infrastructure.mapper.WoaArticleMapper">
+
+    <sql id="filterSql">
+        <where>
+            woaac.del_flag = 0
+            <if test="qry.id != null and qry.id != ''"> and woaac.id  = #{qry.id} </if>
+            <if test="qry.type != null and qry.type != ''"> and woaac.id  = #{qry.type} </if>
+            <if test="qry.title != null and qry.title != ''"> and woaac.title like concat('%',#{qry.title},'%')</if>
+        </where>
+    </sql>
+
+    <select id="pageList" parameterType="com.xunheng.wechat.client.dto.query.WoaArticlePageQuery" resultType="com.xunheng.wechat.infrastructure.DO.WoaArticle">
+        select woaac.*
+        from wc_woa_article woaac
+        <include refid="filterSql"/>
+        order by woaac.create_time desc
+    </select>
+
+</mapper>
