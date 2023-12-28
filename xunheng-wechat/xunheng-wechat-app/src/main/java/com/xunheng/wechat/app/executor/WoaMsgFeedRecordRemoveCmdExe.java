@@ -2,7 +2,7 @@ package com.xunheng.wechat.app.executor;
 
 import com.xunheng.wechat.domain.msgFeed.gateway.WoaMsgFeedRecordGateway;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

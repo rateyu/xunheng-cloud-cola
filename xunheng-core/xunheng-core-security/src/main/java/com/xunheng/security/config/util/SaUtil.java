@@ -8,7 +8,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -37,7 +37,7 @@ public class SaUtil{
         return redisTemplate.execute((RedisCallback<Set<String>>) connection -> {
             Set<String> keysTmp = new HashSet<>();
             Cursor<byte[]> cursor = connection.scan(
-                    new ScanOptions.ScanOptionsBuilder().match(
+                    ScanOptions.scanOptions().match(
                             keyWords
                     ).count(10000).build()
             );

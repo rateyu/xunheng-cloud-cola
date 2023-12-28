@@ -3,8 +3,8 @@ package com.xunheng.system.infrastructure.DO;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.tangzc.mpe.actable.annotation.Table;
 import com.xunheng.datasource.infrastructure.DO.BaseDO;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
@@ -14,16 +14,16 @@ import lombok.Data;
  */
 @Data
 @TableName("sys_matrix")
-@ApiModel(value = "矩阵")
+@Schema(description = "矩阵")
 @Table
 public class Matrix extends BaseDO {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "描述")
+    @Schema(description = "描述")
     private String description;
 
 }

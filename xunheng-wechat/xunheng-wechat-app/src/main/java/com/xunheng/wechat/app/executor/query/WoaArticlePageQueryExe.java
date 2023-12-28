@@ -7,7 +7,7 @@ import com.xunheng.wechat.client.dto.VO.WoaArticleVO;
 import com.xunheng.wechat.domain.article.gateway.WoaArticleGateway;
 import com.xunheng.wechat.domain.article.model.WoaArticleEntity;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

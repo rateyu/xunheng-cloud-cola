@@ -7,7 +7,7 @@ import com.xunheng.system.domain.permission.gateway.PermissionActionGateway;
 import com.xunheng.system.domain.user.ability.UserDomainService;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 
 /**

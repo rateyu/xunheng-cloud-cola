@@ -16,7 +16,7 @@ import com.xunheng.system.domain.user.model.UserEntity;
 import io.seata.common.util.StringUtils;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Arrays;
 
 /**

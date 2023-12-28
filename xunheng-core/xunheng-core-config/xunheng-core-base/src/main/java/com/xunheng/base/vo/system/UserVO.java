@@ -1,7 +1,7 @@
 package com.xunheng.base.vo.system;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,92 +23,92 @@ public class UserVO implements Serializable {
     private String id;
 
     @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
-    @ApiModelProperty(value = "加入时间")
+    @Schema(description = "加入时间")
     private Date createTime;
 
-    @ApiModelProperty(value = "用户名")
+    @Schema(description = "用户名")
     private String username;
 
-    @ApiModelProperty(value = "昵称")
+    @Schema(description = "昵称")
     private String nickName;
 
-    @ApiModelProperty(value = "手机")
+    @Schema(description = "手机")
     private String mobile;
 
-    @ApiModelProperty(value = "邮件")
+    @Schema(description = "邮件")
     private String email;
 
-    @ApiModelProperty(value = "省市县地址")
+    @Schema(description = "省市县地址")
     private String address;
 
-    @ApiModelProperty(value = "街道地址")
+    @Schema(description = "街道地址")
     private String street;
 
-    @ApiModelProperty(value = "性别")
+    @Schema(description = "性别")
     private String sex;
 
     @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    @ApiModelProperty(value = "生日")
+    @Schema(description = "生日")
     private Date birth;
 
-    @ApiModelProperty(value = "个性签名")
+    @Schema(description = "个性签名")
     private String about;
 
-    @ApiModelProperty(value = "用户头像")
+    @Schema(description = "用户头像")
     private String avatar;
 
-    @ApiModelProperty(value = "用户级别 0普通用户 1.分公司管理员 2.租户管理员 3.超级管理员")
+    @Schema(description = "用户级别 0普通用户 1.分公司管理员 2.租户管理员 3.超级管理员")
     private Integer type;
 
-    @ApiModelProperty(value = "状态 默认0正常 -1拉黑")
+    @Schema(description = "状态 默认0正常 -1拉黑")
     private Integer status;
 
-    @ApiModelProperty(value = "描述/详情/备注")
+    @Schema(description = "描述/详情/备注")
     private String description;
 
-    @ApiModelProperty(value = "所属组织id")
+    @Schema(description = "所属组织id")
     private String organizationId;
 
-    @ApiModelProperty(value = "租户id")
+    @Schema(description = "租户id")
     private String tenantId;
 
-    @ApiModelProperty(value = "分公司id")
+    @Schema(description = "分公司id")
     private String subCompanyId;
 
-    @ApiModelProperty(value = "直接上级")
+    @Schema(description = "直接上级")
     private String superior;
 
-    @ApiModelProperty(value = "租户名称")
+    @Schema(description = "租户名称")
     private String tenantTitle;
 
-    @ApiModelProperty(value = "分公司名称")
+    @Schema(description = "分公司名称")
     private String subCompanyTitle;
 
-    @ApiModelProperty(value = "部门名称")
+    @Schema(description = "部门名称")
     private String departmentTitle;
 
-    @ApiModelProperty(value = "直接上级用户名")
+    @Schema(description = "直接上级用户名")
     private String superiorUsername;
 
-    @ApiModelProperty(value = "角色集合")
+    @Schema(description = "角色集合")
     private List<UserRoleVO> roles;
 
-    @ApiModelProperty(value = "角色id集合")
+    @Schema(description = "角色id集合")
     private List<String> roleIds;
 
-    @ApiModelProperty(value = "权限集合")
+    @Schema(description = "权限集合")
     private List<PermissionVO> permissions;
 
-    @ApiModelProperty(value = "权限码集合")
+    @Schema(description = "权限码集合")
     private List<String> permissionCodes;
 
-    @ApiModelProperty(value = "个性化设置")
+    @Schema(description = "个性化设置")
     private List<PersonalConfigVO> personalConfigs;
 
-    @ApiModelProperty(value = "下级员工ids(包括自己)")
+    @Schema(description = "下级员工ids(包括自己)")
     private String  userLowIds;
 
-    @ApiModelProperty(value = "下级部门ids(包括自己)")
+    @Schema(description = "下级部门ids(包括自己)")
     private String  departmentLowIds;
 }

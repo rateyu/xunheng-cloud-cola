@@ -10,7 +10,7 @@ import com.xunheng.quartz.domain.gateway.QuartzJobLogGateway;
 import org.quartz.*;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Date;
 
 /**

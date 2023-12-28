@@ -1,7 +1,7 @@
 package com.xunheng.base.vo.system;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,13 +22,13 @@ public class UserLoginVO implements Serializable {
 
     private String id;
 
-    @ApiModelProperty(value = "租户id")
+    @Schema(description = "租户id")
     private String tenantId;
 
-    @ApiModelProperty(value = "用户名")
+    @Schema(description = "用户名")
     private String username;
 
-    @ApiModelProperty(value = "密码")
+    @Schema(description = "密码")
     private String password;
 
 }

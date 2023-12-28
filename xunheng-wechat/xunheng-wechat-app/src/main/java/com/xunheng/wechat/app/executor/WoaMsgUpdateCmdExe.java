@@ -6,7 +6,7 @@ import com.xunheng.wechat.client.dto.VO.WoaMsgVO;
 import com.xunheng.wechat.domain.customerService.gateway.WoaMsgGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

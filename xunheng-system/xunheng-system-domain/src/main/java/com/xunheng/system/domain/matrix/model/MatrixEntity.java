@@ -1,7 +1,7 @@
 package com.xunheng.system.domain.matrix.model;
 
 import com.alibaba.cola.domain.Entity;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.util.List;
@@ -10,16 +10,16 @@ import java.util.List;
 @Entity
 public class MatrixEntity {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "描述")
+    @Schema(description = "描述")
     private String description;
 
-    @ApiModelProperty(value = "矩阵列")
+    @Schema(description = "矩阵列")
     private List<MatrixColumnEntity> matrixColumn;
 
 }

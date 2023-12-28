@@ -13,7 +13,7 @@ import com.xunheng.system.domain.tenant.model.TenantEntity;
 import com.xunheng.system.domain.user.ability.UserDomainService;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 
 @Service

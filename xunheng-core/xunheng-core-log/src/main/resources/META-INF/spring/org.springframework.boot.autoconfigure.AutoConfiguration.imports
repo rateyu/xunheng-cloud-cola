@@ -1,0 +1,3 @@
+com.xunheng.log.app.executor.AsyncLogSaveCmdExe
+com.xunheng.log.config.aop.LogAspect
+com.xunheng.log.config.fallback.LogFallback

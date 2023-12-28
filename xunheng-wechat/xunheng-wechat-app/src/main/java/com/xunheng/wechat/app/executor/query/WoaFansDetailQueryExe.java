@@ -4,7 +4,7 @@ import com.xunheng.wechat.app.assembler.WoaFansAssembler;
 import com.xunheng.wechat.client.dto.VO.WoaFansVO;
 import com.xunheng.wechat.domain.fans.gateway.WoaFansGateway;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

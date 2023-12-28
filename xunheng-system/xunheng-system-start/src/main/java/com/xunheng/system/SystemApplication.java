@@ -3,6 +3,7 @@ package com.xunheng.system;
 import com.tangzc.mpe.actable.EnableAutoTable;
 import com.xunheng.feign.annotation.EnableXhFeignClients;
 import com.xunheng.security.config.annotation.XhMvc;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

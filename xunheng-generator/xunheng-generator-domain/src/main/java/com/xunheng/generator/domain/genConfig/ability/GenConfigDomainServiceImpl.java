@@ -14,7 +14,7 @@ import org.beetl.core.Template;
 import org.beetl.core.resource.ClasspathResourceLoader;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;

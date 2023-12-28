@@ -1,6 +1,6 @@
 package com.xunheng.base.vo.system;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -14,15 +14,15 @@ import java.math.BigDecimal;
 @Data
 public class RolePermissionVO {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "角色id")
+    @Schema(description = "角色id")
     private String roleId;
 
-    @ApiModelProperty(value = "权限id")
+    @Schema(description = "权限id")
     private String permissionId;
 
-    @ApiModelProperty(value = "当前节点是否为半选中 0:halfCheck 1:allCheck")
+    @Schema(description = "当前节点是否为半选中 0:halfCheck 1:allCheck")
     private Integer isAllCheck;
 }

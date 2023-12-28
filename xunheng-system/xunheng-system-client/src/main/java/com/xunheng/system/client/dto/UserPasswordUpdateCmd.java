@@ -1,10 +1,10 @@
 package com.xunheng.system.client.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Data
@@ -14,11 +14,11 @@ public class UserPasswordUpdateCmd implements Serializable {
     private String id;
 
     @NotBlank(message = "原密码不能为空")
-    @ApiModelProperty(value = "原密码")
+    @Schema(description = "原密码")
     private String password;
 
     @NotBlank(message = "新密码不能为空")
-    @ApiModelProperty(value = "新密码")
+    @Schema(description = "新密码")
     private String newPass;
 
 

@@ -6,8 +6,8 @@ import com.tangzc.mpe.actable.annotation.ColumnType;
 import com.tangzc.mpe.actable.annotation.Table;
 import com.tangzc.mpe.actable.annotation.Index;
 import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.format.annotation.DateTimeFormat;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -23,7 +23,7 @@ import com.xunheng.base.constant.CommonConstant;
  */
 @Data
 @TableName("${config.tableName}")
-@ApiModel(value = "${config.description}")
+@Schema(description = "${config.description}")
 @Table
 public class ${config.name} extends BaseDO {
 
@@ -45,7 +45,7 @@ public class ${config.name} extends BaseDO {
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @ColumnType(MySqlTypeConstant.DATETIME)
      <%}%>
-    @ApiModelProperty(value = "${item.description}")
+    @Schema(description = "${item.description}")
     private ${item.type == 'DateTime' ? 'Date':item.type } ${item.fieldName}<%if(item.defaultVal != '' && item.defaultVal != null){ %> = ${item.defaultVal}<%}%>;
 
      <%

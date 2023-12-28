@@ -3,7 +3,7 @@ package com.xunheng.log.domain.log;
 import com.alibaba.cola.domain.Entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.xunheng.base.utils.SnowFlakeUtil;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.DateFormat;
@@ -18,56 +18,56 @@ import java.util.Date;
 public class LogEntity {
 
 
-    @ApiModelProperty(name = "操作id")
+    @Schema(description = "操作id")
     private String id = String.valueOf(SnowFlakeUtil.nextId());
 
-    @ApiModelProperty(name = "功能模块")
+    @Schema(description = "功能模块")
     private String module;
 
-    @ApiModelProperty(name = "操作功能名称")
+    @Schema(description = "操作功能名称")
     private String title;
 
-    @ApiModelProperty(name = "业务类型")
+    @Schema(description = "业务类型")
     private String businessType;
 
     private String[] businessTypes;
 
-    @ApiModelProperty(name = "请求方法")
+    @Schema(description = "请求方法")
     private String method;
 
-    @ApiModelProperty(name = "请求方式")
+    @Schema(description = "请求方式")
     private String requestMethod;
 
-    @ApiModelProperty(name = "操作人员")
+    @Schema(description = "操作人员")
     private String operName;
 
-    @ApiModelProperty(name = "部门名称")
+    @Schema(description = "部门名称")
     private String departmentTitle;
 
-    @ApiModelProperty(name = "租户名称")
+    @Schema(description = "租户名称")
     private String tenantTitle;
 
-    @ApiModelProperty(name = "请求地址")
+    @Schema(description = "请求地址")
     private String operUrl;
 
-    @ApiModelProperty(name = "操作ip")
+    @Schema(description = "操作ip")
     private String operIp;
 
-    @ApiModelProperty(name = "请求参数")
+    @Schema(description = "请求参数")
     private String operParam;
 
-    @ApiModelProperty(name = "返回对象JSONString")
+    @Schema(description = "返回对象JSONString")
     private String resultStr;
 
-    @ApiModelProperty(name = "状态 0正常 1异常")
+    @Schema(description = "状态 0正常 1异常")
     private Integer status;
 
-    @ApiModelProperty(name = "错误消息")
+    @Schema(description = "错误消息")
     private String errorMsg;
 
-    @ApiModelProperty(name = "操作时间")
-    private Date operTime;
+    @Schema(description = "操作时间")
+    private String operTime;
 
-    @ApiModelProperty(value = "时间戳 查询时间范围时使用")
+    @Schema(description = "时间戳 查询时间范围时使用")
     private Long operTimeMillis;
 }

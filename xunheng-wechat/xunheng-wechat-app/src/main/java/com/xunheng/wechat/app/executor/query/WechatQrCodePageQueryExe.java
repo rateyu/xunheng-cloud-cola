@@ -9,7 +9,7 @@ import com.xunheng.wechat.domain.account.gateway.WechatQrCodeGateway;
 import com.xunheng.wechat.domain.account.model.WechatQrCodeEntity;
 import io.seata.common.util.StringUtils;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

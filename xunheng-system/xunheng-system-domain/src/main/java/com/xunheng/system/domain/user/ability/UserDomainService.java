@@ -1,7 +1,6 @@
 package com.xunheng.system.domain.user.ability;
 
 import com.xunheng.system.domain.user.model.UserEntity;
-import org.apache.kafka.common.protocol.types.Field;
 
 /**
  * @program: xunheng-cloud-cola

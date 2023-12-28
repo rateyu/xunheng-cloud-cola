@@ -1,7 +1,11 @@
 package com.xunheng.security.config.annotation;
 
+import com.xunheng.base.config.SwaggerOpenApiConfig;
 import com.xunheng.security.config.CommonSaTokenConfiguration;
+import org.springframework.context.annotation.EnableMBeanExport;
 import org.springframework.context.annotation.Import;
+import org.springframework.jmx.support.RegistrationPolicy;
+
 import java.lang.annotation.*;
 
 /**
@@ -13,7 +17,8 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import(CommonSaTokenConfiguration.class)
+@Import({CommonSaTokenConfiguration.class})
+@EnableMBeanExport(registration = RegistrationPolicy.IGNORE_EXISTING)
 public @interface XhMvc
 {
 }

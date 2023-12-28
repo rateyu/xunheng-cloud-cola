@@ -1,10 +1,10 @@
 package com.xunheng.wechat.client.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.util.Date;
 import java.math.BigDecimal;
 
@@ -12,23 +12,23 @@ import java.math.BigDecimal;
 public class WechatAccountCreateCmd {
 
     @NotBlank(message = "appId不能为空")
-    @ApiModelProperty(value = "appId")
+    @Schema(description = "appId")
     private String appId;
 
     @NotBlank(message = "名称不能为空")
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "appSecret")
+    @Schema(description = "appSecret")
     private String appSecret;
 
-    @ApiModelProperty(value = "token")
+    @Schema(description = "token")
     private String token;
 
-    @ApiModelProperty(value = "aesKey")
+    @Schema(description = "aesKey")
     private String aesKey;
 
-    @ApiModelProperty(value = "类型")
+    @Schema(description = "类型")
     private Integer type;
 
 }

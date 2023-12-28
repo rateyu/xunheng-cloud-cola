@@ -1,6 +1,6 @@
 package com.xunheng.base.vo.system;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -19,18 +19,18 @@ public class UserRoleVO implements Serializable {
 
     private String id;
 
-    @ApiModelProperty(value = "用户唯一id")
+    @Schema(description = "用户唯一id")
     private String userId;
 
-    @ApiModelProperty(value = "角色唯一id")
+    @Schema(description = "角色唯一id")
     private String roleId;
 
-    @ApiModelProperty(value = "角色名")
+    @Schema(description = "角色名")
     private String roleName;
 
-    @ApiModelProperty(value = "角色描述")
+    @Schema(description = "角色描述")
     private String roleDescription;
 
-    @ApiModelProperty(value = "数据权限类型 0全部默认 1自定义")
+    @Schema(description = "数据权限类型 0全部默认 1自定义")
     private Integer dataType ;
 }

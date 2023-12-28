@@ -2,6 +2,7 @@ package com.xunheng.base.handler;
 
 import com.alibaba.fastjson.JSON;
 import com.xunheng.base.annotation.ResponseNotIntercept;
+import com.xunheng.base.annotation.RestResponse;
 import com.xunheng.base.utils.ResultUtil;
 import com.xunheng.base.vo.ResultVO;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
@@ -19,7 +20,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @author: hhqkkr
  * @date: 2023/6/29 14:15
  */
-@RestControllerAdvice
+@RestControllerAdvice(annotations = RestResponse.class)//限定只有这个注解的controller执行这个处理
 @ConditionalOnClass(ResponseBodyAdvice.class)
 public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
     @Override

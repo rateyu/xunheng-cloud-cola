@@ -9,7 +9,7 @@ import com.xunheng.system.domain.user.gateway.UserGateway;
 import com.xunheng.system.domain.user.model.UserEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -5,7 +5,7 @@ import com.xunheng.file.domain.catalogue.model.CatalogueEntity;
 import io.seata.common.util.StringUtils;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

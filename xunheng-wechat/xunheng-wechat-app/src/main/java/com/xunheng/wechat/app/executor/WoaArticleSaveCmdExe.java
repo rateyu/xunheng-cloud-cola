@@ -9,7 +9,7 @@ import com.xunheng.wechat.domain.article.gateway.WoaArticleGateway;
 import com.xunheng.wechat.domain.article.model.WoaArticleEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Date;
 
 /**

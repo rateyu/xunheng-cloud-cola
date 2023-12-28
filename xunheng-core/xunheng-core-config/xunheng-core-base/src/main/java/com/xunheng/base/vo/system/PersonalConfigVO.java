@@ -1,6 +1,6 @@
 package com.xunheng.base.vo.system;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
@@ -12,10 +12,10 @@ import lombok.Data;
 @Data
 public class PersonalConfigVO {
 
-    @ApiModelProperty(value = "设置名称")
+    @Schema(description = "设置名称")
     private String configKey;
 
-    @ApiModelProperty(value = "值")
+    @Schema(description = "值")
     private String configValue;
 
 }

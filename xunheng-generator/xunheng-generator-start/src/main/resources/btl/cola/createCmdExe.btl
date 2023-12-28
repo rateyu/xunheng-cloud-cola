@@ -6,7 +6,7 @@ import ${config.servicePackage}.client.dto.VO.${config.name}VO;
 import ${config.servicePackage}.domain.${config.domainName}.gateway.${config.name}Gateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

@@ -3,7 +3,7 @@ package com.xunheng.file.app.executor;
 import com.xunheng.file.domain.catalogue.gateway.CatalogueGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

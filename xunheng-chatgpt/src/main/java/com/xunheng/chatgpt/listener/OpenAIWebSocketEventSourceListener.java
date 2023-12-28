@@ -11,7 +11,7 @@ import okhttp3.ResponseBody;
 import okhttp3.sse.EventSource;
 import okhttp3.sse.EventSourceListener;
 
-import javax.websocket.Session;
+import jakarta.websocket.Session;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

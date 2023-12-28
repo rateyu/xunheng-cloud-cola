@@ -1,14 +1,14 @@
 package com.xunheng.system.client.dto.query;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 public class TenantAuthRecordPageQuery extends CustomFilterPageQuery {
 
-   @ApiModelProperty(value = "id")
+   @Schema(description = "id")
    private String id;
 
-   @ApiModelProperty(value = "租户名称")
+   @Schema(description = "租户名称")
    private String tenantName;
 }

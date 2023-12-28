@@ -9,7 +9,7 @@ import com.xunheng.quartz.client.dto.VO.QuartzJobVO;
 import org.springframework.stereotype.Service;
 import io.seata.spring.annotation.GlobalTransactional;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 
 /**

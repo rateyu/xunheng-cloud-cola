@@ -1,6 +1,6 @@
 package com.xunheng.wechat.client.dto.VO;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
@@ -9,25 +9,25 @@ import java.math.BigDecimal;
 @Data
 public class WechatAccountVO {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "appId")
+    @Schema(description = "appId")
     private String appId;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "appSecret")
+    @Schema(description = "appSecret")
     private String appSecret;
 
-    @ApiModelProperty(value = "token")
+    @Schema(description = "token")
     private String token;
 
-    @ApiModelProperty(value = "aesKey")
+    @Schema(description = "aesKey")
     private String aesKey;
 
-    @ApiModelProperty(value = "类型")
+    @Schema(description = "类型")
     private Integer type;
 
 }

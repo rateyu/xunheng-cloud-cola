@@ -6,7 +6,7 @@ import com.xunheng.system.domain.user.gateway.UserGateway;
 import com.xunheng.system.domain.user.model.UserEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

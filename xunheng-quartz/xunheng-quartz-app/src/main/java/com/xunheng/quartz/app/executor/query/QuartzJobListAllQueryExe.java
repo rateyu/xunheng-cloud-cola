@@ -6,7 +6,7 @@ import com.xunheng.quartz.domain.model.QuartzJobEntity;
 import com.xunheng.quartz.domain.gateway.QuartzJobGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 

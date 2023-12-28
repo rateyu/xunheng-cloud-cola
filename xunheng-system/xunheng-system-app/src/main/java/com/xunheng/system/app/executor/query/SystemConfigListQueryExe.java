@@ -6,7 +6,7 @@ import com.xunheng.system.domain.customConfig.model.CustomConfigEntity;
 import com.xunheng.system.domain.customConfig.gateway.CustomConfigGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 

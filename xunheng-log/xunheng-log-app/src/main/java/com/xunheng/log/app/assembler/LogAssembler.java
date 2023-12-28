@@ -1,5 +1,6 @@
 package com.xunheng.log.app.assembler;
 
+import com.xunheng.base.utils.DateUtil;
 import com.xunheng.log.client.dto.LogCreateCmd;
 import com.xunheng.log.client.dto.VO.LogVO;
 import com.xunheng.log.domain.log.LogEntity;
@@ -30,7 +31,7 @@ public class LogAssembler {
         entity.setResultStr(cmd.getResultStr());
         entity.setStatus(cmd.getStatus());
         entity.setErrorMsg(cmd.getErrorMsg());
-        entity.setOperTime(cmd.getOperTime());
+        entity.setOperTime(DateUtil.dateFormatToStr(DateUtil.DATE_TIME_FORMAT2,cmd.getOperTime()));
         entity.setOperTimeMillis(cmd.getOperTimeMillis());
         return entity;
     }
@@ -52,7 +53,7 @@ public class LogAssembler {
         vo.setResultStr(entity.getResultStr());
         vo.setStatus(entity.getStatus());
         vo.setErrorMsg(entity.getErrorMsg());
-        vo.setOperTime(entity.getOperTime());
+        vo.setOperTime(DateUtil.dateFormat(DateUtil.DATE_TIME_FORMAT2,entity.getOperTime()));
         vo.setOperTimeMillis(entity.getOperTimeMillis());
         return vo;
     }

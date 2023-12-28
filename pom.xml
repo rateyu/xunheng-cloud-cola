@@ -6,7 +6,6 @@
           
   <modules>
     <module>xunheng-core</module>
-    <module>xunheng-auth</module>
     <module>xunheng-system</module>
     <module>xunheng-quartz</module>
     <module>xunheng-log</module>
@@ -16,6 +15,8 @@
     <module>xunheng-chatgpt</module>
       <module>xunheng-wechat</module>
       <module>xunheng-member</module>
+    <module>xunheng-auth</module>
+    <module>xunheng-core/xunheng-core-openai</module>
   </modules>
     
   <groupId>com.xunheng</groupId>
@@ -25,20 +26,20 @@
   <description>xunheng saas admin</description>
 
   <properties>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <spring-cloud-alibaba.version>2.2.10-RC1</spring-cloud-alibaba.version>
-    <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
-    <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+    <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
+    <spring-boot.version>3.0.2</spring-boot.version>
+    <spring-cloud.version>2022.0.0</spring-cloud.version>
   </properties>
   <dependencies>
     <!-- Lombok -->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
-      <version>1.18.10</version>
+      <version>1.18.28</version>
     </dependency>
   </dependencies>
           
@@ -68,7 +69,13 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-
+      <dependency>
+        <groupId>com.github.xiaoymin</groupId>
+        <artifactId>knife4j-dependencies</artifactId>
+        <version>4.3.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
           

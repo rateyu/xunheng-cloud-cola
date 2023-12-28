@@ -1,15 +1,15 @@
 package com.xunheng.system.client.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 public class FeedbackSaveCmd {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "内容")
+    @Schema(description = "内容")
     private String content;
 
 }

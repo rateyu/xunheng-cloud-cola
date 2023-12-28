@@ -8,7 +8,7 @@ import com.xunheng.system.domain.organization.ability.OrganizationDomainService;
 import com.xunheng.system.domain.organization.model.OrganizationEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

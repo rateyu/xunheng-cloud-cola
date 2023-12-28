@@ -2,7 +2,7 @@ package com.xunheng.system.client.dto;
 
 import com.tangzc.mpe.actable.annotation.ColumnType;
 import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -15,23 +15,23 @@ public class UserUpdateCmd implements Serializable {
 
     private String id;
 
-    @ApiModelProperty(value = "昵称")
+    @Schema(description = "昵称")
     private String nickName;
 
-    @ApiModelProperty(value = "性别")
+    @Schema(description = "性别")
     private String sex;
 
-    @ApiModelProperty(value = "个性签名")
+    @Schema(description = "个性签名")
     private String about;
 
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    @ApiModelProperty(value = "生日")
+    @Schema(description = "生日")
     private Date birth;
 
-    @ApiModelProperty(value = "手机")
+    @Schema(description = "手机")
     private String mobile;
 
-    @ApiModelProperty(value = "邮件")
+    @Schema(description = "邮件")
     private String email;
 
 }

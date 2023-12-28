@@ -1,7 +1,7 @@
 package com.xunheng.wechat.domain.account.model;
 
 public enum AccountType {
-    WOA_FWH(1),WOA_DYH(2),WOA_XCX(3),WOA_YDYY(4);
+    WX_FWH(1),WX_DYH(2),WX_XCX(3),WX_YDYY(4);
 
     public int val;
 

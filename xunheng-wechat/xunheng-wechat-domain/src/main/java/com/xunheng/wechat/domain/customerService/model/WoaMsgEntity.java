@@ -2,7 +2,7 @@ package com.xunheng.wechat.domain.customerService.model;
 
 import com.alibaba.cola.domain.Entity;
 import com.alibaba.fastjson.JSONObject;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
@@ -14,22 +14,22 @@ import java.util.Date;
 @Entity
 public class WoaMsgEntity {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "appId")
+    @Schema(description = "appId")
     private String appId;
 
-    @ApiModelProperty(value = "openId")
+    @Schema(description = "openId")
     private String openId;
 
-    @ApiModelProperty(value = "消息方向")
+    @Schema(description = "消息方向")
     private Integer inOut;
 
-    @ApiModelProperty(value = "消息类型")
+    @Schema(description = "消息类型")
     private String msgType;
 
-    @ApiModelProperty(value = "消息详情")
+    @Schema(description = "消息详情")
     private String detail;
 
     public static class WxMsgInOut{

@@ -14,8 +14,8 @@ import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
 import io.seata.spring.annotation.GlobalTransactional;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * @program: xunheng-cloud-cola

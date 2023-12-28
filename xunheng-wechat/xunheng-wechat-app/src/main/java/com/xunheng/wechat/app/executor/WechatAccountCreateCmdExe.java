@@ -9,7 +9,7 @@ import com.xunheng.wechat.domain.account.model.WechatAccountEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

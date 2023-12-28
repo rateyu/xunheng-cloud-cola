@@ -7,7 +7,7 @@ import com.xunheng.system.app.executor.FeedbackSaveCmdExe;
 import org.springframework.stereotype.Service;
 import io.seata.spring.annotation.GlobalTransactional;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

@@ -1,6 +1,6 @@
 package com.xunheng.file.client.dto.VO;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -8,16 +8,16 @@ import lombok.Data;
 @AllArgsConstructor
 public class FileUploadVO {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "url")
+    @Schema(description = "url")
     private String url;
 
-    @ApiModelProperty(value = "原文件名")
+    @Schema(description = "原文件名")
     private String name;
 
-    @ApiModelProperty(value = "fKey")
+    @Schema(description = "fKey")
     private String fKey;
 
 }

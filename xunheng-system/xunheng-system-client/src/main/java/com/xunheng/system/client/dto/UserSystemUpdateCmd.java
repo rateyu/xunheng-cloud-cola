@@ -1,12 +1,12 @@
 package com.xunheng.system.client.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -17,59 +17,59 @@ public class UserSystemUpdateCmd implements Serializable {
     private String id;
 
     @NotBlank(message = "用户名不能为空")
-    @ApiModelProperty(value = "用户名")
+    @Schema(description = "用户名")
     private String username;
 
-    @ApiModelProperty(value = "昵称")
+    @Schema(description = "昵称")
     private String nickName;
 
-    @ApiModelProperty(value = "手机")
+    @Schema(description = "手机")
     private String mobile;
 
-    @ApiModelProperty(value = "邮件")
+    @Schema(description = "邮件")
     private String email;
 
-    @ApiModelProperty(value = "省市县地址")
+    @Schema(description = "省市县地址")
     private String address;
 
-    @ApiModelProperty(value = "街道地址")
+    @Schema(description = "街道地址")
     private String street;
 
-    @ApiModelProperty(value = "性别")
+    @Schema(description = "性别")
     private String sex;
 
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    @ApiModelProperty(value = "生日")
+    @Schema(description = "生日")
     private Date birth;
 
-    @ApiModelProperty(value = "个性签名")
+    @Schema(description = "个性签名")
     private String about;
 
-    @ApiModelProperty(value = "用户头像")
+    @Schema(description = "用户头像")
     private String avatar;
 
     @NotNull(message = "用户级别不能为空")
-    @ApiModelProperty(value = "用户级别 -1 体验用户 0普通用户 1.分公司管理员 2.租户管理员 3.超级管理员")
+    @Schema(description = "用户级别 -1 体验用户 0普通用户 1.分公司管理员 2.租户管理员 3.超级管理员")
     private Integer type;
 
-    @ApiModelProperty(value = "状态 默认0正常 -1拉黑")
+    @Schema(description = "状态 默认0正常 -1拉黑")
     private Integer status;
 
-    @ApiModelProperty(value = "描述/详情/备注")
+    @Schema(description = "描述/详情/备注")
     private String description;
 
     @NotNull(message = "租户不能为空")
-    @ApiModelProperty(value = "租户")
+    @Schema(description = "租户")
     private TenantObj tenantObj;
 
-    @ApiModelProperty(value = "直接上级")
+    @Schema(description = "直接上级")
     private SuperiorObj superiorObj;
 
     @NotEmpty(message = "所属组织不能为空")
-    @ApiModelProperty(value = "所属组织id")
+    @Schema(description = "所属组织id")
     private String[] organizationId;
 
-    @ApiModelProperty(value = "角色集合")
+    @Schema(description = "角色集合")
     private String[] roleIds;
 
     @Data

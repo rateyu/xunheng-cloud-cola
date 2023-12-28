@@ -8,7 +8,7 @@ import com.xunheng.system.domain.role.ability.RoleDomainService;
 import com.xunheng.system.domain.role.model.RoleEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

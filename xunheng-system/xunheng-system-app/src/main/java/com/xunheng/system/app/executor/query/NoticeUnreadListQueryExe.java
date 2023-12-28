@@ -7,7 +7,7 @@ import com.xunheng.system.domain.notice.gateway.NoticeGateway;
 import com.xunheng.system.domain.notice.model.NoticeEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 

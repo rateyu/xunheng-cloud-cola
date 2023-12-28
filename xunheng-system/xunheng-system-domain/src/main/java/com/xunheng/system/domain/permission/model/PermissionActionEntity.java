@@ -1,7 +1,7 @@
 package com.xunheng.system.domain.permission.model;
 
 import com.alibaba.cola.domain.Entity;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -10,18 +10,18 @@ import java.math.BigDecimal;
 @Entity
 public class PermissionActionEntity {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "菜单id")
+    @Schema(description = "菜单id")
     private  String permissionId;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private  String name;
 
-    @ApiModelProperty(value = "功能码")
+    @Schema(description = "功能码")
     private  String code;
 
-    @ApiModelProperty(value = "是否启用 0启用 -1禁用")
+    @Schema(description = "是否启用 0启用 -1禁用")
     private Integer status;
 }

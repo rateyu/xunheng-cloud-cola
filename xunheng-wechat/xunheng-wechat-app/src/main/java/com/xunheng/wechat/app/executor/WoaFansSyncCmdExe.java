@@ -3,7 +3,7 @@ package com.xunheng.wechat.app.executor;
 import com.xunheng.wechat.domain.fans.ability.FansDomainService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

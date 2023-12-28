@@ -8,7 +8,7 @@ import com.xunheng.system.domain.dict.gateway.DictDataGateway;
 import com.xunheng.system.domain.dict.gateway.DictGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -8,7 +8,7 @@ import com.xunheng.system.domain.role.gateway.RoleGateway;
 import com.xunheng.system.domain.role.model.RoleEntity;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 @Service
 public class RoleDomainServiceImpl implements RoleDomainService {

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.xunheng</groupId>
+        <artifactId>xunheng-core</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>xunheng-core-openai</artifactId>
+
+    <dependencies>
+        <!--公共核心包依赖 base-->
+        <dependency>
+            <groupId>com.xunheng</groupId>
+            <artifactId>xunheng-core-base</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!--openai java sdk-->
+        <dependency>
+            <groupId>com.unfbx</groupId>
+            <artifactId>chatgpt-java</artifactId>
+            <version>1.1.5</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-simple</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+</project>

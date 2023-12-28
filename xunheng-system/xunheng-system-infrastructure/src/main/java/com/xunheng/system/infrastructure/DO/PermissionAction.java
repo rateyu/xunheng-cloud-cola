@@ -5,8 +5,8 @@ import com.tangzc.mpe.actable.annotation.Index;
 import com.tangzc.mpe.actable.annotation.Table;
 import com.xunheng.datasource.infrastructure.DO.BaseDO;
 import com.xunheng.datasource.infrastructure.DO.BaseNoneLogicDO;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
@@ -15,22 +15,22 @@ import lombok.Data;
  */
 @Data
 @TableName("sys_permission_action")
-@ApiModel(value = "菜单接口权限码")
+@Schema(description = "菜单接口权限码")
 @Table
 public class PermissionAction extends BaseNoneLogicDO {
 
     private static final long serialVersionUID = 1L;
 
     @Index
-    @ApiModelProperty(value = "菜单id")
+    @Schema(description = "菜单id")
     private  String permissionId;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private  String name;
 
-    @ApiModelProperty(value = "功能码")
+    @Schema(description = "功能码")
     private  String code;
 
-    @ApiModelProperty(value = "是否启用 0启用 -1禁用")
+    @Schema(description = "是否启用 0启用 -1禁用")
     private Integer status;
 }

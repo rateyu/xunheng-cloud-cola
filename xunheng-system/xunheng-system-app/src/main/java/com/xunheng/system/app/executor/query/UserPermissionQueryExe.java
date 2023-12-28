@@ -8,7 +8,7 @@ import com.xunheng.system.client.dto.VO.UserPermissionVO;
 import com.xunheng.system.domain.permission.ability.PermissionDomainService;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 

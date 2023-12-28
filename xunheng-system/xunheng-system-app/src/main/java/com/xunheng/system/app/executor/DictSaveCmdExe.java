@@ -8,7 +8,7 @@ import com.xunheng.system.client.dto.VO.DictVO;
 import com.xunheng.system.domain.dict.gateway.DictGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

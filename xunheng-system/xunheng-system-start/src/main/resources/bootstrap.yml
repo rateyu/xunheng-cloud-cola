@@ -18,4 +18,3 @@ spring:
           - data-id: xunheng-datasource.yml #数据源共享配置
             refresh: true
             group: xunheng-cloud-cola
-

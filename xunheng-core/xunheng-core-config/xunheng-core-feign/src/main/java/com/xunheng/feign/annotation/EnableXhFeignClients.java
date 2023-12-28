@@ -1,6 +1,8 @@
 package com.xunheng.feign.annotation;
 
 import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.EnableMBeanExport;
+import org.springframework.jmx.support.RegistrationPolicy;
 
 
 import java.lang.annotation.*;

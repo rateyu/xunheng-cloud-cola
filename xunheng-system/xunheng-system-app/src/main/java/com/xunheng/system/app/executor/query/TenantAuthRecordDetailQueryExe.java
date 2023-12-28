@@ -5,7 +5,7 @@ import com.xunheng.system.client.dto.VO.TenantAuthRecordVO;
 import com.xunheng.system.domain.tenant.gateway.TenantAuthRecordGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

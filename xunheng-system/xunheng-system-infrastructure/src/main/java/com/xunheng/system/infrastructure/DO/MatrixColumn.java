@@ -3,8 +3,8 @@ package com.xunheng.system.infrastructure.DO;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.tangzc.mpe.actable.annotation.Table;
 import com.xunheng.datasource.infrastructure.DO.BaseNoneLogicDO;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -16,25 +16,25 @@ import java.math.BigDecimal;
  */
 @Data
 @TableName("sys_matrix_column")
-@ApiModel(value = "矩阵列")
+@Schema(description = "矩阵列")
 @Table
 public class MatrixColumn extends BaseNoneLogicDO {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "矩阵id")
+    @Schema(description = "矩阵id")
     private String matrixId;
 
-    @ApiModelProperty(value = "标识名")
+    @Schema(description = "标识名")
     private String tag;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String title;
 
-    @ApiModelProperty(value = "列类型")
+    @Schema(description = "列类型")
     private String type;
 
-    @ApiModelProperty(value = "排序值")
+    @Schema(description = "排序值")
     private BigDecimal sortOrder;
 
 }

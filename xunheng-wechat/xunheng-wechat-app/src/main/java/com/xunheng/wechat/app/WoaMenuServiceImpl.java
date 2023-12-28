@@ -8,7 +8,7 @@ import me.chanjar.weixin.common.bean.menu.WxMenu;
 import me.chanjar.weixin.mp.bean.menu.WxMpMenu;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

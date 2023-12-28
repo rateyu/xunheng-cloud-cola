@@ -1,28 +1,28 @@
 package com.xunheng.wechat.client.dto.query;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import com.xunheng.base.dto.PageDto;
 
 @Data
 public class WoaFansPageQuery extends PageDto {
 
-   @ApiModelProperty(value = "id")
+   @Schema(description = "id")
    private String id;
 
-   @ApiModelProperty(value = "appId")
+   @Schema(description = "appId")
    private String appId;
 
-   @ApiModelProperty(value = "用户标签")
+   @Schema(description = "用户标签")
    private String tagId;
 
-   @ApiModelProperty(value = "昵称")
+   @Schema(description = "昵称")
    private String nickName;
 
-   @ApiModelProperty(value = "城市")
+   @Schema(description = "城市")
    private String city;
 
-   @ApiModelProperty(value = "关注场景值")
+   @Schema(description = "关注场景值")
    private String subscribeScene;
 
 }

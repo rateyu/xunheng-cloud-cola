@@ -5,7 +5,7 @@ import com.xunheng.system.domain.tenant.gateway.TenantGateway;
 import com.xunheng.system.domain.tenant.model.TenantEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Date;
 
 /**
@@ -21,8 +21,6 @@ public class TenantExpireQueryExe {
     private TenantGateway tenantGateway;
 
     public Boolean execute(String tenantId) {
-        TenantEntity tenant = tenantGateway.getOneById(tenantId);
-        /*判断日期是否小于当前日期*/
-        return DateUtil.compareDate(new Date(), tenant.getEndDate()) > 0;
+       return tenantGateway.isTenantExpire(tenantId);
     }
 }

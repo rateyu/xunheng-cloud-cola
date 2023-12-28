@@ -8,7 +8,7 @@ import com.xunheng.generator.domain.genConfig.gateway.GenFieldConfigGateway;
 import com.xunheng.generator.domain.genConfig.model.GenConfigEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

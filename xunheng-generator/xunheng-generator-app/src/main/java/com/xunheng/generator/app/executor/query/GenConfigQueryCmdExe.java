@@ -9,7 +9,7 @@ import com.xunheng.generator.domain.genConfig.model.GenConfigEntity;
 import com.xunheng.generator.domain.genConfig.model.GenFieldConfigEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 
 /**

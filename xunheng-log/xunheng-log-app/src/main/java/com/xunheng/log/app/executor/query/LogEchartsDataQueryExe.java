@@ -5,7 +5,7 @@ import com.xunheng.log.domain.log.LogEntity;
 import com.xunheng.log.domain.log.LogGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -38,7 +38,7 @@ public class LogEchartsDataQueryExe {
         /*查询日志*/
         List<LogEntity> logs = logGateway.findByOperTimeMillisBetween(startDate.getTime(), endDate.getTime());
         /*根据日期分组*/
-        Map<String, Long> collect = logs.stream().collect(Collectors.groupingBy(r -> DateUtil.dateFormatToStr(r.getOperTime()), Collectors.counting()));
+        Map<String, Long> collect = logs.stream().collect(Collectors.groupingBy(r -> r.getOperTime().split(" ")[0], Collectors.counting()));
         /*计算分组数量*/
         Long[] counts = new Long[30];
         for (int i = 0; i < dateStrs.length; i++) {

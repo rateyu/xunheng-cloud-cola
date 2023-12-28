@@ -4,7 +4,7 @@ import com.xunheng.member.app.assembler.MemberAssembler;
 import com.xunheng.member.client.dto.VO.MemberVO;
 import com.xunheng.member.domain.member.gateway.MemberGateway;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

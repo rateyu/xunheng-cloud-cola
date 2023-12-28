@@ -7,7 +7,7 @@ import com.xunheng.generator.domain.genConfig.ability.GenConfigDomainService;
 import com.xunheng.generator.domain.genConfig.model.FrontCodeEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

@@ -5,7 +5,7 @@ import com.xunheng.base.annotation.FeignAPI;
 import com.xunheng.base.constant.ServiceNameConstant;
 import com.xunheng.base.vo.system.RoleVO;
 import com.xunheng.base.vo.system.UserVO;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

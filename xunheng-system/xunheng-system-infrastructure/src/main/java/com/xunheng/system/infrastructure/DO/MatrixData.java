@@ -3,8 +3,8 @@ package com.xunheng.system.infrastructure.DO;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.tangzc.mpe.actable.annotation.Table;
 import com.xunheng.datasource.infrastructure.DO.BaseNoneLogicDO;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
@@ -14,22 +14,22 @@ import lombok.Data;
  */
 @Data
 @TableName("sys_matrix_data")
-@ApiModel(value = "矩阵数据")
+@Schema(description = "矩阵数据")
 @Table
 public class MatrixData extends BaseNoneLogicDO {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "矩阵id")
+    @Schema(description = "矩阵id")
     private String matrixId;
 
-    @ApiModelProperty(value = "矩阵列标识")
+    @Schema(description = "矩阵列标识")
     private String columnTag;
 
-    @ApiModelProperty(value = "矩阵行id")
+    @Schema(description = "矩阵行id")
     private String rowId;
 
-    @ApiModelProperty(value = "矩阵数据")
+    @Schema(description = "矩阵数据")
     private String data;
 
 }

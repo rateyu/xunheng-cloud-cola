@@ -1,6 +1,6 @@
 package com.xunheng.system.client.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -8,12 +8,12 @@ import java.math.BigDecimal;
 @Data
 public class MatrixSaveCmd {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "描述")
+    @Schema(description = "描述")
     private String description;
 }
