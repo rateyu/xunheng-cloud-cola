@@ -16,7 +16,6 @@
       <module>xunheng-wechat</module>
       <module>xunheng-member</module>
     <module>xunheng-auth</module>
-    <module>xunheng-core/xunheng-core-openai</module>
   </modules>
     
   <groupId>com.xunheng</groupId>
