@@ -1,5 +1,7 @@
 # xunheng-cloud-cola(寻衡微服务COLA架构后台管理框架)
 
+####  :rocket: 2.0版本开发中。。。将于近期更新。 :rocket:
+
 ## 介绍
 寻衡cloud是应用阿里开源的**COLA4.0**架构配合**springcloud-alibaba**+**satoken**+**mybatisplus**+**elasticsearch**+**quartz**+**plumelog**等搭建的后台管理系统框架。并且开发了相关基础服务，还引入了当下热门的**chatgpt**服务
 
