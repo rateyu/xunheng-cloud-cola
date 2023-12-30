@@ -19,9 +19,14 @@ public interface SaSessionConstant {
     String LOGIN_DEVICE_APP = "APP";
 
     /**
-     * 登录设备类型：WXMP
+     * 登录设备类型：微信公众号
      */
-    String LOGIN_DEVICE_WXMP = "WXMP";
+    String LOGIN_DEVICE_WOA = "WOA";
+
+    /**
+     * 登录设备类型：微信小程序
+     */
+    String LOGIN_DEVICE_WMA = "WMA";
 
     /**
      * key userinfo

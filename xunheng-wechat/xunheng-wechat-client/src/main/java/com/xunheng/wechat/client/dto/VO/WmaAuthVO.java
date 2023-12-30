@@ -13,4 +13,7 @@ public class WmaAuthVO {
     @Schema(description = "openId")
     private String openId;
 
+    @Schema(description = "token")
+    private String token;
+
 }

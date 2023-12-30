@@ -26,4 +26,6 @@ public class WmaAuthServiceImpl implements WmaAuthService {
     public WmaAuthVO wmaAuth(WmaAuthCmd cmd) {
         return wmaAuthCmdExe.execute(cmd);
     }
+
+
 }
