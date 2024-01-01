@@ -1,7 +1,7 @@
 package com.xunheng.wechat.app.handler;
 
 import com.xunheng.wechat.domain.customerService.ability.CustomerServiceDomainService;
-import com.xunheng.wechat.domain.fans.ability.FansDomainService;
+import com.xunheng.wechat.domain.wechatUser.ability.WechatUserDomainService;
 import me.chanjar.weixin.common.session.WxSessionManager;
 import me.chanjar.weixin.mp.api.WxMpService;
 import me.chanjar.weixin.mp.bean.message.WxMpXmlMessage;
@@ -15,7 +15,7 @@ import java.util.Map;
 
 /**
  * @program: xunheng-cloud-cola
- * @description: 公众号粉丝关注处理
+ * @description: 微信用户关注处理
  * @author: hhqkkr
  * @date: 2023/11/24 12:16:19
  */
@@ -26,7 +26,7 @@ public class SubscribeHandler extends AbstractHandler {
     CustomerServiceDomainService customerServiceDomainService;
 
     @Resource
-    FansDomainService fansDomainService;
+    WechatUserDomainService wechatUserDomainService;
 
     @Override
     public WxMpXmlOutMessage handle(WxMpXmlMessage wxMessage, Map<String, Object> context, WxMpService wxMpService,
@@ -35,7 +35,7 @@ public class SubscribeHandler extends AbstractHandler {
         this.logger.info("新关注用户 OPENID: " + wxMessage.getFromUser() + "，事件：" + wxMessage.getEventKey());
         String appid = WxMpConfigStorageHolder.get();
         this.logger.info("appid:{}",appid);
-        fansDomainService.refreshFansInfo(wxMessage.getFromUser(),appid);//刷新用户信息
+        wechatUserDomainService.refreshFansInfo(wxMessage.getFromUser(),appid);//刷新用户信息
         customerServiceDomainService.tryAutoReply(appid, 1, wxMessage.getFromUser(), wxMessage.getEvent());//回复关注信息
         if (StringUtils.hasText(wxMessage.getEventKey())) {// 处理特殊事件，如用户扫描带参二维码关注
             customerServiceDomainService.tryAutoReply(appid, 1, wxMessage.getFromUser(), wxMessage.getEventKey());
@@ -50,7 +50,7 @@ public class SubscribeHandler extends AbstractHandler {
         this.logger.info("特殊请求-新关注用户 OPENID: " + wxMessage.getFromUser());
         //对关注事件和扫码事件分别处理
         String appid = WxMpConfigStorageHolder.get();
-        fansDomainService.refreshFansInfo(wxMessage.getFromUser(),appid);
+        wechatUserDomainService.refreshFansInfo(wxMessage.getFromUser(),appid);
         customerServiceDomainService.tryAutoReply(appid, 1, wxMessage.getFromUser(), wxMessage.getEvent());
         if (StringUtils.hasText(wxMessage.getEventKey())) {
             customerServiceDomainService.tryAutoReply(appid, 1, wxMessage.getFromUser(), wxMessage.getEventKey());

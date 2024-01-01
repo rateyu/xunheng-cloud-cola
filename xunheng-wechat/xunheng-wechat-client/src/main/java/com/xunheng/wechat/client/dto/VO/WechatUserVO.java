@@ -1,18 +1,12 @@
-package com.xunheng.wechat.domain.fans.model;
+package com.xunheng.wechat.client.dto.VO;
 
-import com.alibaba.cola.domain.Entity;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import me.chanjar.weixin.mp.bean.result.WxMpUser;
-import org.springframework.util.StringUtils;
-
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 
 @Data
-@Entity
-public class WoaFansEntity {
+public class WechatUserVO {
 
     @Schema(description = "id")
     private String id;
@@ -22,6 +16,9 @@ public class WoaFansEntity {
 
     @Schema(description = "appId")
     private String appId;
+
+    @Schema(description = "类型")
+    private Integer type;
 
     @Schema(description = "手机号")
     private String phone;
@@ -41,6 +38,7 @@ public class WoaFansEntity {
     @Schema(description = "头像url")
     private String headImgUrl;
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Schema(description = "订阅时间")
     private Date subscribeTime;
 
@@ -62,22 +60,4 @@ public class WoaFansEntity {
     @Schema(description = "二维码扫描场景描述")
     private String qrSceneStr;
 
-    public WoaFansEntity(){};
-
-    public WoaFansEntity(WxMpUser wxMpUser, String appId) {
-        this.openId = wxMpUser.getOpenId();
-        this.appId = appId;
-        this.subscribe=wxMpUser.getSubscribe()?1:0;
-        if(wxMpUser.getSubscribe()){
-            this.nickName = wxMpUser.getNickname();
-            this.headImgUrl = wxMpUser.getHeadImgUrl();
-            this.subscribeTime = new Date(wxMpUser.getSubscribeTime()*1000);
-            this.unionId=wxMpUser.getUnionId();
-            this.remark=wxMpUser.getRemark();
-            this.tagIdList= JSONArray.parseArray(JSONObject.toJSONString(wxMpUser.getTagIds())).toString();
-            this.subscribeScene=wxMpUser.getSubscribeScene();
-            String qrScene =  wxMpUser.getQrScene();
-            this.qrSceneStr= !StringUtils.hasText(qrScene) ? wxMpUser.getQrSceneStr() : qrScene;
-        }
-    }
 }

@@ -1,8 +1,5 @@
 package com.xunheng.wechat.app.executor.query;
 
-import com.xunheng.wechat.app.assembler.WoaFansAssembler;
-import com.xunheng.wechat.client.dto.VO.WoaFansVO;
-import com.xunheng.wechat.domain.fans.gateway.WoaFansGateway;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;

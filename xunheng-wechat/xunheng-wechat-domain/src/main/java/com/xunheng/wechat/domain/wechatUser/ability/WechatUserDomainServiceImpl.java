@@ -1,8 +1,10 @@
-package com.xunheng.wechat.domain.fans.ability;
+package com.xunheng.wechat.domain.wechatUser.ability;
 
+import cn.binarywang.wx.miniapp.api.WxMaService;
 import com.xunheng.base.utils.TaskExcutor;
-import com.xunheng.wechat.domain.fans.gateway.WoaFansGateway;
-import com.xunheng.wechat.domain.fans.model.WoaFansEntity;
+import com.xunheng.wechat.domain.wechatUser.gateway.WechatUserGateway;
+import com.xunheng.wechat.domain.wechatUser.model.UserType;
+import com.xunheng.wechat.domain.wechatUser.model.WechatUserEntity;
 import lombok.extern.slf4j.Slf4j;
 import me.chanjar.weixin.common.error.WxErrorException;
 import me.chanjar.weixin.mp.api.WxMpService;
@@ -27,26 +29,30 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Component
-public class FansDomainServiceImpl implements FansDomainService {
+public class WechatUserDomainServiceImpl implements WechatUserDomainService {
 
     @Resource
     WxMpService wxMpService;
 
+
     @Resource
-    WoaFansGateway woaFansGateway;
+    WxMaService wxMaService;
+
+    @Resource
+    WechatUserGateway wechatUserGateway;
 
     @Value("${wx.mp.autoReplyInterval:1000}")
     Long autoReplyInterval;
 
-    private volatile static  boolean syncWxUserTaskRunning=false;
+    private volatile static  boolean syncWoaFansTaskRunning=false;
 
     @Override
     @Async
     public void syncFans(String appId) {
         //同步较慢，防止个多线程重复执行同步任务
-        Assert.isTrue(!syncWxUserTaskRunning,"后台有同步任务正在进行中，请稍后重试");
+        Assert.isTrue(!syncWoaFansTaskRunning,"后台有同步任务正在进行中，请稍后重试");
         wxMpService.switchoverTo(appId);
-        syncWxUserTaskRunning=true;
+        syncWoaFansTaskRunning=true;
         log.info("同步公众号粉丝列表：任务开始");
         wxMpService.switchover(appId);
         boolean hasMore=true;
@@ -63,9 +69,9 @@ public class FansDomainServiceImpl implements FansDomainService {
                 hasMore= StringUtils.hasText(nextOpenid) && wxMpUserList.getCount()>=10000;
             }
         } catch (WxErrorException e) {
-            log.error("同步公众号粉丝出错:",e);
+            log.error("同步公众号粉丝列表出错:",e);
         }finally {
-            syncWxUserTaskRunning=false;
+            syncWoaFansTaskRunning=false;
         }
         log.info("同步公众号粉丝列表：完成");
     }
@@ -92,12 +98,13 @@ public class FansDomainServiceImpl implements FansDomainService {
                     log.error("同步出错，批次：【{}--{}-{}】，错误信息：{}",batch, finalStart, finalEnd,e);
                 }
                 if(wxMpUsers!=null && !wxMpUsers.isEmpty()){
-                    List<WoaFansEntity> fans=wxMpUsers.parallelStream().map(item->new WoaFansEntity(item,appId)).collect(Collectors.toList());
-                    for (WoaFansEntity fan : fans) {
+                    List<WechatUserEntity> fans=wxMpUsers.parallelStream().map(item->WechatUserEntity.createWoaFans(item,appId)).collect(Collectors.toList());
+                    for (WechatUserEntity fan : fans) {
+                        fan.setType(UserType.WX_GZH.getVal());
                         //查询是否已存在
-                        WoaFansEntity one = woaFansGateway.getOneByOpenId(fan.getOpenId());
+                        WechatUserEntity one = wechatUserGateway.getOneByOpenId(appId,fan.getOpenId());
                         if(one != null)fan.setId(one.getId());
-                        woaFansGateway.saveOrUpdate(fan);
+                        wechatUserGateway.saveOrUpdate(fan);
                     }
 
 
@@ -120,19 +127,19 @@ public class FansDomainServiceImpl implements FansDomainService {
                 log.error("获取不到用户信息，无法更新,openid:{}",openId);
                 return;
             }
-            WoaFansEntity fans = new WoaFansEntity(fansWxInfo,appId);
-            woaFansGateway.saveOrUpdate(fans);
+            WechatUserEntity fans = WechatUserEntity.createWoaFans(fansWxInfo,appId);
+            wechatUserGateway.saveOrUpdate(fans);
         } catch (Exception e) {
             log.error("更新用户信息失败,openid:{}",openId);
         }
     }
 
     @Override
-    public void unsubscribe(String openId) {
-        WoaFansEntity fan = woaFansGateway.getOneByOpenId(openId);
+    public void unsubscribe(String appId,String openId) {
+        WechatUserEntity fan = wechatUserGateway.getOneByOpenId(appId,openId);
         if(fan == null)return;
         fan.setSubscribe(0);
-        woaFansGateway.saveOrUpdate(fan);
+        wechatUserGateway.saveOrUpdate(fan);
     }
 
 }

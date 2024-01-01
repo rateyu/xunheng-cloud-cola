@@ -1,21 +1,41 @@
-package com.xunheng.wechat.client.dto.VO;
+package com.xunheng.wechat.infrastructure.DO;
+
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.tangzc.mpe.actable.annotation.ColumnType;
+import com.tangzc.mpe.actable.annotation.Table;
+import com.tangzc.mpe.actable.annotation.Index;
+import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.xunheng.datasource.infrastructure.DO.BaseDO;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
+/**
+ * @program: xunheng-cloud-cola
+ * @description: 微信用户DO
+ * @author: hhqkkr
+ * @date: 2023/11/22 12:16:19
+ */
 @Data
-public class WoaFansVO {
+@TableName("wc_wechat_user")
+@Schema(description = "微信用户")
+@Table
+public class WechatUser extends BaseDO {
 
-    @Schema(description = "id")
-    private String id;
+    private static final long serialVersionUID = 1L;
 
+    @Index
     @Schema(description = "openId")
     private String openId;
 
+    @Index
     @Schema(description = "appId")
     private String appId;
+
+    @Schema(description = "用户类型 小程序/公众号")
+    private Integer type;
 
     @Schema(description = "手机号")
     private String phone;
@@ -35,13 +55,14 @@ public class WoaFansVO {
     @Schema(description = "头像url")
     private String headImgUrl;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
+    @ColumnType(MySqlTypeConstant.DATE)
     @Schema(description = "订阅时间")
     private Date subscribeTime;
 
     @Schema(description = "当前是否订阅")
     private Integer subscribe;
 
+    @Index
     @Schema(description = "unionId")
     private String unionId;
 

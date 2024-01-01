@@ -5,7 +5,6 @@ import com.xunheng.base.annotation.RestResponse;
 import com.xunheng.base.enums.BusinessType;
 import com.xunheng.log.config.annotation.Log;
 import com.xunheng.wechat.client.api.WoaAssetsService;
-import com.xunheng.wechat.client.dto.VO.WoaFansVO;
 import com.xunheng.wechat.client.dto.WoaAssetsImgTextUpdateCmd;
 import com.xunheng.wechat.client.dto.WoaAssetsImgTextUploadCmd;
 import com.xunheng.wechat.client.dto.WoaAssetsMaterialFileRemoveCmd;

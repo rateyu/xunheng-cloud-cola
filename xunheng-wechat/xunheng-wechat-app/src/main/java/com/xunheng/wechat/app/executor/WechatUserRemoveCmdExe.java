@@ -1,23 +1,23 @@
 package com.xunheng.wechat.app.executor;
 
-import com.xunheng.wechat.domain.fans.gateway.WoaFansGateway;
+import com.xunheng.wechat.domain.wechatUser.gateway.WechatUserGateway;
 import org.springframework.stereotype.Component;
 import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola
- * @description: 公众号粉丝删除操作处理器
+ * @description: 微信用户删除操作处理器
  * @author: hhqkkr
  * @date: 2023/11/22 12:16:19
  */
 @Component
-public class WoaFansRemoveCmdExe {
+public class WechatUserRemoveCmdExe {
 
     @Resource
-    private WoaFansGateway woaFansGateway;
+    private WechatUserGateway wechatUserGateway;
 
     public void execute(String id) {
-        woaFansGateway.remove(id);
+        wechatUserGateway.remove(id);
     }
 
 }

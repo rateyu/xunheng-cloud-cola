@@ -5,7 +5,7 @@ import lombok.Data;
 import com.xunheng.base.dto.PageDto;
 
 @Data
-public class WoaFansPageQuery extends PageDto {
+public class WechatUserPageQuery extends PageDto {
 
    @Schema(description = "id")
    private String id;

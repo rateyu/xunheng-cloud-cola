@@ -2,9 +2,9 @@ package com.xunheng.wechat.domain.msgFeed.ability;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xunheng.wechat.client.dto.MsgFeedBatchCreateCmd;
-import com.xunheng.wechat.client.dto.query.WoaFansPageQuery;
-import com.xunheng.wechat.domain.fans.gateway.WoaFansGateway;
-import com.xunheng.wechat.domain.fans.model.WoaFansEntity;
+import com.xunheng.wechat.client.dto.query.WechatUserPageQuery;
+import com.xunheng.wechat.domain.wechatUser.gateway.WechatUserGateway;
+import com.xunheng.wechat.domain.wechatUser.model.WechatUserEntity;
 import com.xunheng.wechat.domain.msgFeed.gateway.WoaMsgFeedRecordGateway;
 import com.xunheng.wechat.domain.msgFeed.gateway.WoaMsgTemplateGateway;
 import com.xunheng.wechat.domain.msgFeed.model.WoaMsgFeedRecordEntity;
@@ -40,7 +40,7 @@ public class MsgFeedDomainServiceImpl implements MsgFeedDomainService {
     private WoaMsgFeedRecordGateway woaMsgFeedRecordGateway;
 
     @Resource
-    private WoaFansGateway woaFansGateway;
+    private WechatUserGateway wechatUserGateway;
 
     @Override
     public void templateSync(String appId) {
@@ -81,13 +81,13 @@ public class MsgFeedDomainServiceImpl implements MsgFeedDomainService {
                 .data(cmd.getData());
         /*最大批次500个一次来发送*/
         Integer currentPage=1,totalPages=Integer.MAX_VALUE;
-        WoaFansPageQuery query = new WoaFansPageQuery();
+        WechatUserPageQuery query = new WechatUserPageQuery();
         query.setAppId(appId);
         query.setPageSize(500);
         while (currentPage<=totalPages){
             query.setPage(currentPage);
             //按条件查询用户
-            IPage<WoaFansEntity> wxFans = woaFansGateway.pageList(query);
+            IPage<WechatUserEntity> wxFans = wechatUserGateway.pageList(query);
             log.info("批量发送模板消息任务,使用查询条件，处理第{}页，总用户数：{}",currentPage,wxFans.getTotal());
             wxFans.getRecords().forEach(user->{
                 WxMpTemplateMessage msg = builder.toUser(user.getOpenId()).build();

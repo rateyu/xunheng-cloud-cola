@@ -1,23 +1,24 @@
 package com.xunheng.wechat.app.assembler;
 
-import com.xunheng.wechat.client.dto.VO.WoaFansVO;
-import com.xunheng.wechat.domain.fans.model.WoaFansEntity;
+import com.xunheng.wechat.client.dto.VO.WechatUserVO;
+import com.xunheng.wechat.domain.wechatUser.model.WechatUserEntity;
 
 /**
  * @program: xunheng-cloud-cola
- * @description: 公众号粉丝dto转换
+ * @description: 微信用户dto转换
  * @author: hhqkkr
  * @date: 2023/11/22 12:16:19
  */
-public class WoaFansAssembler {
+public class WechatUserAssembler {
 
 
-    public static WoaFansVO toVo(WoaFansEntity entity) {
+    public static WechatUserVO toVo(WechatUserEntity entity) {
         if(entity == null)return null;
-        WoaFansVO vo = new WoaFansVO();
+        WechatUserVO vo = new WechatUserVO();
         vo.setId(entity.getId());
         vo.setOpenId(entity.getOpenId());
         vo.setAppId(entity.getAppId());
+        vo.setType(entity.getType());
         vo.setPhone(entity.getPhone());
         vo.setNickName(entity.getNickName());
         vo.setSex(entity.getSex());
