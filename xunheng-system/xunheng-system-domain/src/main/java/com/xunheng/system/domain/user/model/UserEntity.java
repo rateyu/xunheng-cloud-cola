@@ -1,8 +1,8 @@
 package com.xunheng.system.domain.user.model;
 
 import com.alibaba.cola.domain.Entity;
-import com.tangzc.mpe.actable.annotation.ColumnType;
-import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.tangzc.mpe.autotable.annotation.ColumnType;
+import com.tangzc.mpe.autotable.strategy.mysql.data.MysqlTypeConstant;
 import com.xunheng.system.domain.customConfig.model.CustomConfigEntity;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -51,7 +51,7 @@ public class UserEntity {
     @Schema(description = "性别")
     private String sex;
 
-    @ColumnType(MySqlTypeConstant.DATE)
+    @ColumnType(MysqlTypeConstant.DATE)
     @Schema(description = "生日")
     private Date birth;
 

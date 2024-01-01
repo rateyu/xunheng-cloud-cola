@@ -1,10 +1,10 @@
 package com.xunheng.member.infrastructure.DO;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzc.mpe.actable.annotation.ColumnType;
-import com.tangzc.mpe.actable.annotation.Table;
-import com.tangzc.mpe.actable.annotation.Index;
-import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.tangzc.mpe.autotable.annotation.ColumnType;
+import com.tangzc.mpe.autotable.annotation.Table;
+import com.tangzc.mpe.autotable.annotation.Index;
+import com.tangzc.mpe.autotable.strategy.mysql.data.MysqlTypeConstant;
 import com.xunheng.datasource.infrastructure.DO.BaseDO;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -37,7 +37,7 @@ public class Member extends BaseDO {
     private String sex;
 
     @Schema(description = "生日")
-    @ColumnType(MySqlTypeConstant.DATE)
+    @ColumnType(MysqlTypeConstant.DATE)
     private Date birth;
 
     @Schema(description = "头像")

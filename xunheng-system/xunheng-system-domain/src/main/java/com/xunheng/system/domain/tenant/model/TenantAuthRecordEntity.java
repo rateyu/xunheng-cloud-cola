@@ -2,8 +2,8 @@ package com.xunheng.system.domain.tenant.model;
 
 import com.alibaba.cola.domain.Entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.tangzc.mpe.actable.annotation.ColumnType;
-import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.tangzc.mpe.autotable.annotation.ColumnType;
+import com.tangzc.mpe.autotable.strategy.mysql.data.MysqlTypeConstant;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;

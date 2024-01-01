@@ -1,7 +1,7 @@
 package com.xunheng.system.infrastructure.DO;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzc.mpe.actable.annotation.Table;
+import com.tangzc.mpe.autotable.annotation.Table;
 import com.xunheng.datasource.infrastructure.DO.BaseNoneLogicDO;
 
 import io.swagger.v3.oas.annotations.media.Schema;

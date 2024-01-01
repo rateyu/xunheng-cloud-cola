@@ -3,9 +3,9 @@ package com.xunheng.system.infrastructure.DO;
 import com.baomidou.mybatisplus.annotation.FieldStrategy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzc.mpe.actable.annotation.ColumnType;
-import com.tangzc.mpe.actable.annotation.Table;
-import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.tangzc.mpe.autotable.annotation.ColumnType;
+import com.tangzc.mpe.autotable.annotation.Table;
+import com.tangzc.mpe.autotable.strategy.mysql.data.MysqlTypeConstant;
 import com.xunheng.datasource.infrastructure.DO.BaseDO;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -43,7 +43,7 @@ public class Tenant extends BaseDO {
     private String contact;
 
     @TableField(updateStrategy = FieldStrategy.IGNORED)
-    @ColumnType(MySqlTypeConstant.DATE)
+    @ColumnType(MysqlTypeConstant.DATE)
     @Schema(description = "授权到期日")
     private Date endDate;
 }

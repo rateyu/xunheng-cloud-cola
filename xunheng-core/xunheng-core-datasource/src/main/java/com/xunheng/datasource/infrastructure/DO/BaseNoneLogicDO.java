@@ -3,8 +3,8 @@ package com.xunheng.datasource.infrastructure.DO;
 import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.tangzc.mpe.actable.annotation.ColumnType;
-import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.tangzc.mpe.autotable.annotation.ColumnType;
+import com.tangzc.mpe.autotable.strategy.mysql.data.MysqlTypeConstant;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -32,7 +32,7 @@ public abstract class BaseNoneLogicDO implements Serializable{
     private String createBy;
 
     @TableField(value = "create_time",fill = FieldFill.INSERT)
-    @ColumnType(MySqlTypeConstant.DATETIME)
+    @ColumnType(MysqlTypeConstant.DATETIME)
     @Schema(description = "创建时间")
     private Date createTime;
 
@@ -42,7 +42,7 @@ public abstract class BaseNoneLogicDO implements Serializable{
 
     @TableField(value = "update_time",fill = FieldFill.UPDATE)
     @Schema(description = "更新时间")
-    @ColumnType(MySqlTypeConstant.DATETIME)
+    @ColumnType(MysqlTypeConstant.DATETIME)
     private Date updateTime;
 
     @TableField(value = "tenant_id",fill = FieldFill.INSERT)

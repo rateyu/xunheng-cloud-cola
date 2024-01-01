@@ -1,7 +1,7 @@
 package com.xunheng.file.infrastructure.DO;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzc.mpe.actable.annotation.Table;
+import com.tangzc.mpe.autotable.annotation.Table;
 import com.xunheng.base.constant.CommonConstant;
 import com.xunheng.datasource.infrastructure.DO.BaseDO;
 

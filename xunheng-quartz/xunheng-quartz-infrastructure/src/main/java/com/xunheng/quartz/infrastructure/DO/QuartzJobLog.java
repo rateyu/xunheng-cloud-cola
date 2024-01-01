@@ -4,9 +4,9 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.tangzc.mpe.actable.annotation.ColumnType;
-import com.tangzc.mpe.actable.annotation.Table;
-import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.tangzc.mpe.autotable.annotation.ColumnType;
+import com.tangzc.mpe.autotable.annotation.Table;
+import com.tangzc.mpe.autotable.strategy.mysql.data.MysqlTypeConstant;
 import com.xunheng.datasource.infrastructure.DO.BaseNoneLogicDO;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -29,7 +29,7 @@ public class QuartzJobLog extends BaseNoneLogicDO {
     @Schema(description = "日志信息")
     private String jobMessage;
 
-    @ColumnType(MySqlTypeConstant.TEXT)
+    @ColumnType(MysqlTypeConstant.TEXT)
     @Schema(description = "异常信息")
     private String exceptionInfo;
 

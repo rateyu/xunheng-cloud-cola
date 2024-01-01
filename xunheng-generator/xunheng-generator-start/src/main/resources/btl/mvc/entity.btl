@@ -2,10 +2,10 @@ package ${config.servicePackage}.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.xunheng.datasource.infrastructure.DO.BaseDO;
-import com.tangzc.mpe.actable.annotation.ColumnType;
-import com.tangzc.mpe.actable.annotation.Table;
-import com.tangzc.mpe.actable.annotation.Index;
-import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.tangzc.mpe.autotable.annotation.ColumnType;
+import com.tangzc.mpe.autotable.annotation.Table;
+import com.tangzc.mpe.autotable.annotation.Index;
+import com.tangzc.mpe.autotable.strategy.mysql.data.MysqlTypeConstant;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -38,12 +38,12 @@ public class ${config.name} extends BaseDO {
      <%if(item.type == 'Date'){ %>
     @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd")
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    @ColumnType(MySqlTypeConstant.DATE)
+    @ColumnType(MysqlTypeConstant.DATE)
      <%}%>
      <%if(item.type == 'DateTime'){ %>
     @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    @ColumnType(MySqlTypeConstant.DATETIME)
+    @ColumnType(MysqlTypeConstant.DATETIME)
      <%}%>
     @Schema(description = "${item.description}")
     private ${item.type == 'DateTime' ? 'Date':item.type } ${item.fieldName}<%if(item.defaultVal != '' && item.defaultVal != null){ %> = ${item.defaultVal}<%}%>;

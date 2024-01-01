@@ -1,8 +1,8 @@
 package com.xunheng.quartz.client.dto.VO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.tangzc.mpe.actable.annotation.ColumnType;
-import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.tangzc.mpe.autotable.annotation.ColumnType;
+import com.tangzc.mpe.autotable.strategy.mysql.data.MysqlTypeConstant;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
@@ -17,7 +17,7 @@ public class QuartzJobLogVO {
     @Schema(description = "日志信息")
     private String jobMessage;
 
-    @ColumnType(MySqlTypeConstant.TEXT)
+    @ColumnType(MysqlTypeConstant.TEXT)
     @Schema(description = "异常信息")
     private String exceptionInfo;
 

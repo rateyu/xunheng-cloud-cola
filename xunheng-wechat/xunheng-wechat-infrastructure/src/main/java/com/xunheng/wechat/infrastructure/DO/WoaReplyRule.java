@@ -1,10 +1,10 @@
 package com.xunheng.wechat.infrastructure.DO;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzc.mpe.actable.annotation.ColumnType;
-import com.tangzc.mpe.actable.annotation.Table;
-import com.tangzc.mpe.actable.annotation.Index;
-import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.tangzc.mpe.autotable.annotation.ColumnType;
+import com.tangzc.mpe.autotable.annotation.Table;
+import com.tangzc.mpe.autotable.annotation.Index;
+import com.tangzc.mpe.autotable.strategy.mysql.data.MysqlTypeConstant;
 import com.xunheng.datasource.infrastructure.DO.BaseDO;
 
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -50,11 +50,11 @@ public class WoaReplyRule extends BaseDO {
     private Integer status;
 
     @Schema(description = "开始时间")
-    @ColumnType(MySqlTypeConstant.DATETIME)
+    @ColumnType(MysqlTypeConstant.DATETIME)
     private Date startTime;
 
     @Schema(description = "结束时间")
-    @ColumnType(MySqlTypeConstant.DATETIME)
+    @ColumnType(MysqlTypeConstant.DATETIME)
     private Date endTime;
 
     @Schema(description = "优先级")
