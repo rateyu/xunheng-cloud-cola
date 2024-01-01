@@ -95,7 +95,7 @@ public class WechatUserEntity {
         return entity;
     }
 
-    public WechatUserEntity createWmaUser(String appId,String openId,String unionId){
+    public static WechatUserEntity createWmaUser(String appId,String openId,String unionId){
         WechatUserEntity entity  = new WechatUserEntity();
         entity.setType(UserType.WX_XCX.getVal());
         entity.setOpenId(openId);
