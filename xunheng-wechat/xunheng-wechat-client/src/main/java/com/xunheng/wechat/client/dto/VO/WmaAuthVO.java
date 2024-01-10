@@ -16,4 +16,10 @@ public class WmaAuthVO {
     @Schema(description = "token")
     private String token;
 
+    @Schema(description = "头像")
+    private String headImgUrl;
+
+    @Schema(description = "用户名")
+    private String nickName;
+
 }
