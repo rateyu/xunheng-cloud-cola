@@ -10,6 +10,9 @@
 
 4.删除了plumelog变更为tlog
 
+## 单体版本
+单体版本可以访问另一个仓库:[寻衡BOOT](https://gitee.com/hhqkkr/xunheng-boot-cola)
+
 ## 介绍
 寻衡cloud是应用阿里开源的**COLA4.0**架构配合**springcloud-alibaba**+**satoken**+**mybatisplus**+**elasticsearch**+**quartz**+**tlog**等搭建的后台管理系统框架。并且开发了相关基础服务与示例服务(如chatgpt,微信公众号)
 
