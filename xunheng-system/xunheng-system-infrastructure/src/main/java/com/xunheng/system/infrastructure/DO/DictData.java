@@ -2,10 +2,9 @@ package com.xunheng.system.infrastructure.DO;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzc.mpe.actable.annotation.Table;
+import com.tangzc.mpe.autotable.annotation.Table;
 import com.xunheng.datasource.infrastructure.DO.BaseDO;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -15,32 +14,32 @@ import java.math.BigDecimal;
  */
 @Data
 @TableName("sys_dict_data")
-@ApiModel(value = "字典数据")
+@Schema(description = "字典数据")
 @Table
 public class DictData extends BaseDO {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "数据名称")
+    @Schema(description = "数据名称")
     private String title;
 
-    @ApiModelProperty(value = "数据值")
+    @Schema(description = "数据值")
     private String value;
 
-    @ApiModelProperty(value = "排序值")
+    @Schema(description = "排序值")
     private BigDecimal sortOrder;
 
-    @ApiModelProperty(value = "是否启用 0启用 -1禁用")
+    @Schema(description = "是否启用 0启用 -1禁用")
     private Integer status;
 
-    @ApiModelProperty(value = "备注")
+    @Schema(description = "备注")
     private String description;
 
-    @ApiModelProperty(value = "所属字典")
+    @Schema(description = "所属字典")
     private String dictId;
 
     @TableField(exist = false)
-    @ApiModelProperty(value = "所属字典信息")
+    @Schema(description = "所属字典信息")
     private Dict dictInfo;
 
 }

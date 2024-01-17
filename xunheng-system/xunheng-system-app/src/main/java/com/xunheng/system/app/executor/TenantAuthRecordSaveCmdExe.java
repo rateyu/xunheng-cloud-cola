@@ -13,7 +13,7 @@ import com.xunheng.system.domain.tenant.model.TenantAuthRecordEntity;
 import com.xunheng.system.domain.tenant.model.TenantEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

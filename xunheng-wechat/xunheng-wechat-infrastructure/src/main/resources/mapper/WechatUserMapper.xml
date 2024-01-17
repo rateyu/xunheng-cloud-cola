@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xunheng.wechat.infrastructure.mapper.WechatUserMapper">
+
+    <sql id="filterSql">
+        <where>
+            wwu.del_flag = 0
+            <if test="qry.id != null and qry.id != ''"> and wwu.id  = #{qry.id} </if>
+            <if test="qry.appId != null and qry.appId != ''"> and wwu.app_id  = #{qry.appId} </if>
+            <if test="qry.openId != null and qry.openId != ''"> and wwu.open_id  = #{qry.openId} </if>
+            <if test="qry.unionId != null and qry.unionId != ''"> and wwu.union_id  = #{qry.unionId} </if>
+            <if test="qry.nickName != null and qry.nickName != ''"> and wwu.nick_name like concat('%',#{qry.nickName},'%')</if>
+        </where>
+    </sql>
+
+    <select id="pageList" parameterType="com.xunheng.wechat.client.dto.query.WechatUserPageQuery" resultType="com.xunheng.wechat.infrastructure.DO.WechatUser">
+        select wwu.*
+        from wc_wechat_user wwu
+        <include refid="filterSql"/>
+        order by wwu.create_time desc
+    </select>
+
+</mapper>

@@ -1,13 +1,13 @@
 package com.xunheng.wechat.infrastructure.DO;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzc.mpe.actable.annotation.ColumnType;
-import com.tangzc.mpe.actable.annotation.Table;
-import com.tangzc.mpe.actable.annotation.Index;
-import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.tangzc.mpe.autotable.annotation.ColumnType;
+import com.tangzc.mpe.autotable.annotation.Table;
+import com.tangzc.mpe.autotable.annotation.Index;
+import com.tangzc.mpe.autotable.strategy.mysql.data.MysqlTypeConstant;
 import com.xunheng.datasource.infrastructure.DO.BaseDO;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -21,29 +21,29 @@ import com.xunheng.base.constant.CommonConstant;
  */
 @Data
 @TableName("wc_wechat_account")
-@ApiModel(value = "微信开发帐号")
+@Schema(description = "微信开发帐号")
 @Table
 public class WechatAccount extends BaseDO {
 
     private static final long serialVersionUID = 1L;
 
     @Index
-    @ApiModelProperty(value = "appId")
+    @Schema(description = "appId")
     private String appId;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "appSecret")
+    @Schema(description = "appSecret")
     private String appSecret;
 
-    @ApiModelProperty(value = "token")
+    @Schema(description = "token")
     private String token;
 
-    @ApiModelProperty(value = "aesKey")
+    @Schema(description = "aesKey")
     private String aesKey;
 
-    @ApiModelProperty(value = "类型")
+    @Schema(description = "类型")
     private int type;
 
 }

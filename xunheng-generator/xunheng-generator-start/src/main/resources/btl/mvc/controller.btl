@@ -1,5 +1,6 @@
 package ${config.servicePackage}.controller;
 
+import com.xunheng.base.annotation.RestResponse;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xunheng.base.dto.PageDto;
 import com.xunheng.datasource.config.util.PageUtil;
@@ -8,14 +9,14 @@ import com.xunheng.log.config.annotation.Log;
 import com.xunheng.base.annotation.PermissionCode;
 import ${config.servicePackage}.entity.${config.name};
 import ${config.servicePackage}.service.${config.name}Service;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import javax.annotation.Resource;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
+import jakarta.annotation.Resource;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-@Api("${config.description}")
-@RestController
+@Tag(name="${config.description}")
+@RestResponse
 @RequestMapping("/${config.lowerCaseName}")
 public class ${config.name}Controller {
 
@@ -25,7 +26,7 @@ public class ${config.name}Controller {
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.pageList")
     @Log(module = "${config.description}",title = "${config.description}分页列表", businessType = BusinessType.LIST)
     @RequestMapping(value = "/getPageList",method = RequestMethod.GET)
-    @ApiOperation(value = "${config.description}分页列表")
+    @Operation(summary = "${config.description}分页列表")
     public IPage<${config.name}> getPageList(PageDto page, ${config.name} entity){
        return ${config.lowerCaseName}Service.pageList(PageUtil.initMpPage(page),entity);
     }
@@ -33,7 +34,7 @@ public class ${config.name}Controller {
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.add")
     @Log(module = "${config.description}",title = "${config.description}新增", businessType = BusinessType.ADD)
     @RequestMapping(value = "/save",method = RequestMethod.POST)
-    @ApiOperation(value = "${config.description}新增")
+    @Operation(summary = "${config.description}新增")
     public ${config.name} save(@RequestBody @Validated ${config.name} ${config.lowerCaseName}){
         ${config.lowerCaseName}Service.saveOrUpdate(${config.lowerCaseName});
         return ${config.lowerCaseName};
@@ -42,7 +43,7 @@ public class ${config.name}Controller {
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.edit")
     @Log(module = "${config.description}",title = "${config.description}修改", businessType = BusinessType.EDIT)
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
-    @ApiOperation(value = "${config.description}修改")
+    @Operation(summary = "${config.description}修改")
     public ${config.name} edit(@RequestBody @Validated ${config.name} ${config.lowerCaseName}){
         ${config.lowerCaseName}Service.saveOrUpdate(${config.lowerCaseName});
         return ${config.lowerCaseName};
@@ -51,7 +52,7 @@ public class ${config.name}Controller {
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.deleteBatch")
     @Log(module = "${config.description}",title = "${config.description}批量删除", businessType = BusinessType.DELETE)
     @RequestMapping(value = "/delByIds/{ids}",method = RequestMethod.DELETE)
-    @ApiOperation(value = "${config.description}批量删除")
+    @Operation(summary = "${config.description}批量删除")
     public String delByIds(@PathVariable String[] ids){
         for(String id : ids){
             ${config.lowerCaseName}Service.removeById(id);

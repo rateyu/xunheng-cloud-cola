@@ -1,5 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.xunheng.datasource.config.MybatisPlusConfig,\
-  com.xunheng.datasource.config.handler.MyMetaObjectHandler,\
-  com.xunheng.datasource.config.handler.DataPermissionHandler
-

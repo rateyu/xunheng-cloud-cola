@@ -6,7 +6,7 @@ import com.xunheng.system.domain.matrix.gateway.MatrixDataGateway;
 import com.xunheng.system.domain.matrix.gateway.MatrixGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

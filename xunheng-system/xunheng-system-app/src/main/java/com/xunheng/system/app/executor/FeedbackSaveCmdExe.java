@@ -8,7 +8,7 @@ import com.xunheng.system.client.dto.VO.FeedbackVO;
 import com.xunheng.system.domain.Feedback.gateway.FeedbackGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

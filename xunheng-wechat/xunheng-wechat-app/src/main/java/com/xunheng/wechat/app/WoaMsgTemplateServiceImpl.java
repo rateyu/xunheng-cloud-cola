@@ -15,7 +15,7 @@ import com.xunheng.wechat.app.executor.query.WoaMsgTemplateDetailQueryExe;
 import me.chanjar.weixin.common.error.WxErrorException;
 import org.springframework.stereotype.Service;
 import io.seata.spring.annotation.GlobalTransactional;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

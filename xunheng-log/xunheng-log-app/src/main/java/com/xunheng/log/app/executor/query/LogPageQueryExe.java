@@ -1,27 +1,40 @@
 package com.xunheng.log.app.executor.query;
 
+import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.SortOptions;
+import co.elastic.clients.elasticsearch._types.SortOrder;
+import co.elastic.clients.elasticsearch._types.query_dsl.BoolQuery;
+import co.elastic.clients.elasticsearch._types.query_dsl.MultiMatchQuery;
+import co.elastic.clients.elasticsearch._types.query_dsl.RangeQuery;
+import co.elastic.clients.elasticsearch._types.query_dsl.TermQuery;
+import co.elastic.clients.elasticsearch.core.SearchResponse;
+import co.elastic.clients.elasticsearch.core.search.Hit;
+import co.elastic.clients.json.JsonData;
 import com.xunheng.base.utils.DateUtil;
 import com.xunheng.log.app.assembler.LogAssembler;
 import com.xunheng.log.client.dto.VO.LogVO;
 import com.xunheng.log.client.dto.query.LogPageQuery;
 import com.xunheng.log.domain.log.LogEntity;
 import com.xunheng.log.domain.log.LogGateway;
+import com.xunheng.log.infrastructure.DO.EsLogDO;
+import com.xunheng.log.infrastructure.converter.LogConverter;
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.common.Strings;
-import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.search.sort.FieldSortBuilder;
-import org.elasticsearch.search.sort.SortBuilders;
-import org.elasticsearch.search.sort.SortOrder;
+import org.apache.logging.log4j.util.Strings;
+import org.springframework.aop.scope.ScopedObject;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
+import org.springframework.data.elasticsearch.client.elc.NativeQuery;
+import org.springframework.data.elasticsearch.client.elc.NativeQueryBuilder;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
+
+import java.io.IOException;
+import java.text.DateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,45 +52,53 @@ public class LogPageQueryExe {
     @Resource
     private LogGateway logGateway;
 
+    @Resource
+    private ElasticsearchClient client;
+
     public Page<LogVO> execute(LogPageQuery query){
-        /*组装搜索条件*/
-        BoolQueryBuilder bqb =  buildQuerys(query);
-        /*组装排序条件*/
-        FieldSortBuilder fsb = SortBuilders.fieldSort("operTime").order(SortOrder.DESC);
-        /*组装分页条件*/
-        Pageable pageable = initPage(query);
-        /*构建查询*/
-        NativeSearchQuery queryCondition = new NativeSearchQueryBuilder()
-                    .withQuery(bqb)
-                    .withSort(fsb)
-                    .withPageable(pageable)
-                    .build();
-        Page<LogEntity> logEntities = logGateway.pageList(queryCondition);
-        List<LogVO> collect = logEntities.getContent().stream().map(LogAssembler::toVo).collect(Collectors.toList());
-         return new PageImpl<>(collect, logEntities.getPageable(), logEntities.getTotalElements());
+        try {
+            /*组装搜索条件*/
+            BoolQuery.Builder boolQuery =  buildQuerys(query);
+            /*组装排序条件*/
+            SortOptions.Builder sort = new SortOptions.Builder();
+            sort.field(builder -> builder.field("operTime").order(SortOrder.Desc));
+            /*构建查询*/
+            SearchResponse<EsLogDO> resp = client.search(builder ->
+                            builder.index("xhcc_log")
+                                    .query(boolQuery.build()._toQuery())
+                                    .from(query.getPage() - 1 )
+                                    .size(query.getPageSize()).sort(sort.build()),EsLogDO.class);
+            List<LogEntity> collect = resp.hits().hits().stream().map(Hit::source).map(LogConverter::toEntity).toList();
+            return new PageImpl<>(collect.stream().map(LogAssembler::toVo).toList(), createPage(query),resp.hits().total().value());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private BoolQueryBuilder buildQuerys(LogPageQuery query) {
+    private BoolQuery.Builder buildQuerys(LogPageQuery query) {
+        BoolQuery.Builder boolBuilder = new BoolQuery.Builder();
         //检索条件
-        BoolQueryBuilder bqb = QueryBuilders.boolQuery();
-        if (!Strings.isEmpty(query.getBusinessType()))
-            bqb.must(QueryBuilders.matchPhraseQuery("businessType", query.getBusinessType()));
-        if (!Strings.isEmpty(query.getKeyword()))
-            bqb.must(QueryBuilders.multiMatchQuery(query.getKeyword(), "module","title","method","operName","departmentTitle","tenantTitle","operUrl","operIp","operParam","resultStr","errorMsg"));
-        if(!Strings.isEmpty(query.getStartDate()))
-        // 范围查询 from:相当于闭区间; gt:相当于开区间(>) gte:相当于闭区间 (>=) lt:开区间(<) lte:闭区间 (<=)
-        {
+        if (!Strings.isEmpty(query.getBusinessType())){//类型查询
+            MultiMatchQuery multiMatchQuery = MultiMatchQuery.of(builder -> builder.fields("businessType").query(query.getKeyword()));
+            boolBuilder.must(multiMatchQuery._toQuery());
+        }else if(!Strings.isEmpty(query.getKeyword())){//关键词查询
+            MultiMatchQuery multiMatchQuery = MultiMatchQuery.of(builder -> builder.fields("module","title","method","operName","departmentTitle","tenantTitle","operUrl","operIp","operParam","resultStr","errorMsg").query(query.getKeyword()));
+            boolBuilder.must(multiMatchQuery._toQuery());
+        }else if(!Strings.isEmpty(query.getStartDate())){//日期区间查询
             Date dateStart = DateUtil.dateFormat(DateUtil.DATE_TIME_FORMAT2, query.getStartDate());
             Date dateEnd = DateUtil.dateFormat(DateUtil.DATE_TIME_FORMAT2, query.getEndDate());
-            bqb.filter(QueryBuilders.rangeQuery("operTimeMillis").gte(dateStart.getTime()).lte(dateEnd.getTime()));
+            RangeQuery rangeStart = RangeQuery.of(builder -> builder.field("operTimeMillis").gte(JsonData.of(dateStart)));
+            RangeQuery rangeEnd = RangeQuery.of(builder -> builder.field("operTimeMillis").lte(JsonData.of(dateEnd)));
+            boolBuilder.must(rangeStart._toQuery());
+            boolBuilder.must(rangeEnd._toQuery());
         }
-        return bqb;
+        return boolBuilder;
     }
 
     /**
      * 初始化分页信息
      */
-    public static Pageable initPage(LogPageQuery query){
+    public static Pageable createPage(LogPageQuery query){
         Pageable pageable=null;
         int pageNumber=query.getPage();
         int pageSize=query.getPageSize();

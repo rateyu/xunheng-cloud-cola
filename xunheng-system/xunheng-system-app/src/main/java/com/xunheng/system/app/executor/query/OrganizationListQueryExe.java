@@ -7,7 +7,7 @@ import com.xunheng.system.domain.organization.gateway.OrganizationGateway;
 import com.xunheng.system.domain.organization.model.OrganizationEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 import java.util.stream.Collectors;
 

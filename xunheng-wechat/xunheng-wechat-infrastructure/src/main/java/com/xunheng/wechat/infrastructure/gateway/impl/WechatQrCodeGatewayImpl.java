@@ -10,7 +10,7 @@ import com.xunheng.wechat.infrastructure.mapper.WechatQrCodeMapper;
 import com.xunheng.wechat.domain.account.model.WechatQrCodeEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import com.xunheng.base.exception.GlobalException;
 import com.mysql.cj.util.StringUtils;
 

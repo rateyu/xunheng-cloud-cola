@@ -9,7 +9,7 @@ import com.xunheng.system.domain.matrix.model.MatrixColumnEntity;
 import com.xunheng.system.domain.matrix.model.MatrixDataEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;

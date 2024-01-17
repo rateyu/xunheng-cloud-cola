@@ -13,7 +13,7 @@ import com.xunheng.system.app.executor.query.DictDataQueryByDictTypeExe;
 import org.springframework.stereotype.Service;
 import io.seata.spring.annotation.GlobalTransactional;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 
 /**

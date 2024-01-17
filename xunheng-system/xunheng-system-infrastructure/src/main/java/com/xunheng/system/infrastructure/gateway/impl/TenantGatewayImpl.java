@@ -2,6 +2,7 @@ package com.xunheng.system.infrastructure.gateway.impl;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.xunheng.base.utils.DateUtil;
 import com.xunheng.system.infrastructure.DO.Tenant;
 import com.xunheng.system.infrastructure.convertor.TenantConvertor;
 import com.xunheng.system.client.dto.query.TenantPageQuery;
@@ -12,6 +13,8 @@ import io.seata.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 /**
  * @program: xunheng-cloud-cola
@@ -48,6 +51,13 @@ public class TenantGatewayImpl implements TenantGateway {
     @Override
     public void remove(String id) {
         tenantMapper.deleteById(id);
+    }
+
+    @Override
+    public Boolean isTenantExpire(String tenantId) {
+        TenantEntity tenant = getOneById(tenantId);
+        /*判断日期是否小于当前日期*/
+        return DateUtil.compareDate(new Date(), tenant.getEndDate()) > 0;
     }
 
 

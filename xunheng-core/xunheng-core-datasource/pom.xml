@@ -12,10 +12,10 @@
     <artifactId>xunheng-core-datasource</artifactId>
 
     <properties>
-        <mybatis-plus.version>3.4.3.4</mybatis-plus.version>
+        <mybatis-plus.version>3.5.4.1</mybatis-plus.version>
         <druid.version>1.1.18</druid.version>
         <mysql.connector.version>5.1.47</mysql.connector.version>
-        <actable.core.version>1.3.4</actable.core.version>
+        <autotable.core.version>3.5.4-EXT544-boot3</autotable.core.version>
     </properties>
 
 
@@ -70,8 +70,8 @@
         <!-- 自动建表 https://gitee.com/tangzc/mybatis-plus-ext -->
         <dependency>
             <groupId>com.tangzc</groupId>
-            <artifactId>mybatis-plus-ext-actable-core</artifactId>
-            <version>${actable.core.version}</version>
+            <artifactId>mybatis-plus-ext-autotable-core</artifactId>
+            <version>${autotable.core.version}</version>
         </dependency>
 
 

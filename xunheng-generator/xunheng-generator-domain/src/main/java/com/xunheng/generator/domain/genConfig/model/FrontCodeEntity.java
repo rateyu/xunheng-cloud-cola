@@ -1,6 +1,6 @@
 package com.xunheng.generator.domain.genConfig.model;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -14,13 +14,13 @@ import lombok.Data;
 @AllArgsConstructor
 public class FrontCodeEntity {
 
-    @ApiModelProperty(value = "api代码")
+    @Schema(description = "api代码")
     private String codeApi;
 
-    @ApiModelProperty(value = "save代码")
+    @Schema(description = "save代码")
     private String codeSave;
 
-    @ApiModelProperty(value = "index代码")
+    @Schema(description = "index代码")
     private String codeIndex;
 
 }

@@ -6,7 +6,7 @@ import com.xunheng.file.client.dto.VO.FileUploadVO;
 import com.xunheng.file.client.dto.VO.FileVO;
 import com.xunheng.file.client.dto.query.FilePageQuery;
 
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletResponse;
 
 /**
  * @program: xunheng-cloud-cola

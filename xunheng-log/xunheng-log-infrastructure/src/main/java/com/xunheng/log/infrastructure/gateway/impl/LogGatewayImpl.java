@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
-import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
+import org.springframework.data.elasticsearch.client.erhlc.NativeSearchQuery;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,13 +27,6 @@ public class LogGatewayImpl implements LogGateway {
 
     @Autowired(required = false)
     private EsLogDao logDao;
-
-    @Override
-    public Page<LogEntity> pageList(NativeSearchQuery queryCondition) {
-        Page<EsLogDO> page = logDao.search(queryCondition);
-        List<LogEntity> collect = page.getContent().stream().map(LogConverter::toEntity).collect(Collectors.toList());
-        return new PageImpl<>(collect, page.getPageable(), page.getTotalElements());
-    }
 
     @Override
     public List<LogEntity> findByOperTimeMillisBetween(long startTime, long endTime) {

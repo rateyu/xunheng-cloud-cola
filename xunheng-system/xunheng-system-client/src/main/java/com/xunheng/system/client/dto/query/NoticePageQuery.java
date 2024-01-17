@@ -1,15 +1,15 @@
 package com.xunheng.system.client.dto.query;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 public class NoticePageQuery extends CustomFilterPageQuery {
 
-   @ApiModelProperty(value = "id")
+   @Schema(description = "id")
    private String id;
 
-   @ApiModelProperty(value = "用户ID")
+   @Schema(description = "用户ID")
    private String userId;
 
 }

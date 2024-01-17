@@ -13,9 +13,10 @@ public interface AccountDomainService {
     /**
      * 判断当前帐号是否已经放进配置
      * @param appId appId
+     * @param officialAccount 是否是公众号
      * @return 是/否
      */
-    boolean isAccountInRuntime(String appId);
+    boolean isAccountInRuntime(String appId,Boolean officialAccount);
 
     /**
      * 将账户信息添加进配置
@@ -32,7 +33,7 @@ public interface AccountDomainService {
     /**
      * 加载当前存在的帐号添加进配置
      */
-    void loadWxMpConfigStorages();
+    void loadWxAccountConfigStorages();
 
 
 }

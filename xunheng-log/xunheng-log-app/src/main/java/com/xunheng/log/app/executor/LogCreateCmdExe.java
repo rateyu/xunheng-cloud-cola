@@ -7,7 +7,7 @@ import com.xunheng.log.domain.log.LogEntity;
 import com.xunheng.log.domain.log.LogGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

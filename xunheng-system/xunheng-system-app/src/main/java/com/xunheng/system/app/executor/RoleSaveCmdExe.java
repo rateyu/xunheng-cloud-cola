@@ -7,7 +7,7 @@ import com.xunheng.system.client.dto.RoleSaveCmd;
 import com.xunheng.system.domain.role.gateway.RoleGateway;
 import com.xunheng.system.domain.role.model.RoleEntity;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

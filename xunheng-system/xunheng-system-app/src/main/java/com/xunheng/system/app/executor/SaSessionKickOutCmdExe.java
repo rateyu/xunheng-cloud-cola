@@ -4,7 +4,7 @@ package com.xunheng.system.app.executor;
 import cn.dev33.satoken.stp.StpUtil;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

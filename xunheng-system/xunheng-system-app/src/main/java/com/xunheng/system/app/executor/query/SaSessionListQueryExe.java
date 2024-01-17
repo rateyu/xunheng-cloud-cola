@@ -7,7 +7,7 @@ import com.xunheng.system.domain.sasession.gateway.SaSessionGateway;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,7 +29,7 @@ public class SaSessionListQueryExe {
         saSessionGateway.cleanExpiredTokenSession();
         List<SaSessionVO> records = new ArrayList<>();
         /*查询出所有在线的sessionId*/
-        List<String> tokenSessionIds = StpUtil.searchTokenSessionId("", -1, 65535);
+        List<String> tokenSessionIds = StpUtil.searchTokenSessionId("", -1, 65535,true);
         for (String tokenSessionId : tokenSessionIds) {
             records.add(SaSessionAssembler.toVo(tokenSessionId));
         }

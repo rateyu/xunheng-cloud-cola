@@ -1,6 +1,6 @@
 package com.xunheng.${serviceName};
 
-import com.tangzc.mpe.actable.EnableAutoTable;
+import com.tangzc.mpe.autotable.EnableAutoTable;
 import com.xunheng.feign.annotation.EnableXhFeignClients;
 import com.xunheng.security.config.annotation.XhMvc;
 import org.springframework.boot.SpringApplication;

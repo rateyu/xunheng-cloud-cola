@@ -6,8 +6,8 @@ import com.xunheng.file.domain.file.model.FileEntity;
 import com.xunheng.file.domain.manage.impl.LocalFileManage;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 

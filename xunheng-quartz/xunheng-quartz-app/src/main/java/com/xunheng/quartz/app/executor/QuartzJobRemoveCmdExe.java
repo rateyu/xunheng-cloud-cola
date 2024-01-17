@@ -2,7 +2,7 @@ package com.xunheng.quartz.app.executor;
 
 import com.xunheng.quartz.domain.ability.QuartzDomainService;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

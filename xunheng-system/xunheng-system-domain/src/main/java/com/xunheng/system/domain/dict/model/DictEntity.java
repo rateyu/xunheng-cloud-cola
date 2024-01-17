@@ -2,29 +2,29 @@ package com.xunheng.system.domain.dict.model;
 
 import com.alibaba.cola.domain.Entity;
 import com.xunheng.system.domain.dict.gateway.DictGateway;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.math.BigDecimal;
 
 @Data
 @Entity
 public class DictEntity {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "字典名称")
+    @Schema(description = "字典名称")
     private String title;
 
-    @ApiModelProperty(value = "字典类型")
+    @Schema(description = "字典类型")
     private String DictType;
 
-    @ApiModelProperty(value = "备注")
+    @Schema(description = "备注")
     private String description;
 
-    @ApiModelProperty(value = "排序值")
+    @Schema(description = "排序值")
     private BigDecimal sortOrder;
 
     @Resource

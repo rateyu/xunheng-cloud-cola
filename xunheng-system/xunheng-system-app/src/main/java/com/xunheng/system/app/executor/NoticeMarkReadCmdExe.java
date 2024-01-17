@@ -6,7 +6,7 @@ import com.xunheng.system.domain.notice.gateway.NoticeGateway;
 import com.xunheng.system.domain.notice.gateway.NoticeReadGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

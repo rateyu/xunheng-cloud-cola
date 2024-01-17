@@ -11,7 +11,7 @@ import me.chanjar.weixin.mp.bean.material.WxMpMaterialUploadResult;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

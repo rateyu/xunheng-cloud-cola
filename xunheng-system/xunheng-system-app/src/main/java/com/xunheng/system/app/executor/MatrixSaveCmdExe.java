@@ -8,7 +8,7 @@ import com.xunheng.system.domain.matrix.gateway.MatrixGateway;
 import com.xunheng.system.domain.matrix.model.MatrixEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 /**
  * @program: xunheng-cloud-cola
  * @description: 矩阵信息保存操作处理器

@@ -15,7 +15,7 @@ import com.xunheng.system.client.dto.query.UserPageQuery;
 import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 
 /**

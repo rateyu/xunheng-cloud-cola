@@ -13,7 +13,7 @@ import com.xunheng.file.infrastructure.mapper.FileMapper;
 import io.seata.common.util.StringUtils;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

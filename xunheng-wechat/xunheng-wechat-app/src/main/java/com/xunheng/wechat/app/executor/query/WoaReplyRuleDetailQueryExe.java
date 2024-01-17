@@ -4,7 +4,7 @@ import com.xunheng.wechat.app.assembler.WoaReplyRuleAssembler;
 import com.xunheng.wechat.client.dto.VO.WoaReplyRuleVO;
 import com.xunheng.wechat.domain.customerService.gateway.WoaReplyRuleGateway;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

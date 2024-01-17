@@ -7,7 +7,7 @@ import com.xunheng.file.domain.uploadSetting.gateway.UploadSettingGateway;
 import com.xunheng.file.domain.uploadSetting.model.UploadSettingEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

@@ -8,7 +8,7 @@ import com.xunheng.system.domain.permission.gateway.PermissionGateway;
 import com.xunheng.system.domain.permission.model.PermissionEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

@@ -12,7 +12,6 @@
     <artifactId>xunheng-core-websocket</artifactId>
 
     <properties>
-        <plumelog.version>3.5</plumelog.version>
     </properties>
 
     <dependencies>

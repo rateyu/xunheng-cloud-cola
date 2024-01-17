@@ -11,6 +11,9 @@ import com.xunheng.base.utils.ServletUtils;
 import com.xunheng.log.client.dto.LogCreateCmd;
 import com.xunheng.log.config.annotation.Log;
 import com.xunheng.log.app.executor.AsyncLogSaveCmdExe;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -21,9 +24,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Collection;
 import java.util.Map;
 

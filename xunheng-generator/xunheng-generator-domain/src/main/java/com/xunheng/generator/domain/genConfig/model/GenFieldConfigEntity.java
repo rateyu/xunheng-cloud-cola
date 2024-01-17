@@ -3,35 +3,35 @@ package com.xunheng.generator.domain.genConfig.model;
 import com.alibaba.cola.domain.Entity;
 import com.xunheng.base.exception.GlobalException;
 import io.seata.common.util.StringUtils;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 @Entity
 public class GenFieldConfigEntity {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "字段名称")
+    @Schema(description = "字段名称")
     private String fieldName;
 
-    @ApiModelProperty(value = "字段描述")
+    @Schema(description = "字段描述")
     private String description;
 
-    @ApiModelProperty(value = "字段类型")
+    @Schema(description = "字段类型")
     private String type;
 
-    @ApiModelProperty(value = "默认值")
+    @Schema(description = "默认值")
     private String defaultVal;
 
-    @ApiModelProperty(value = "是否索引 0:否 1:是")
+    @Schema(description = "是否索引 0:否 1:是")
     private Integer cindex;
 
-    @ApiModelProperty(value = "是否不能为空 0:否 1:是")
+    @Schema(description = "是否不能为空 0:否 1:是")
     private Integer notNull;
 
-    @ApiModelProperty(value = "字段大写名称")
+    @Schema(description = "字段大写名称")
     private String fieldUpperCaseName;
 
     /**

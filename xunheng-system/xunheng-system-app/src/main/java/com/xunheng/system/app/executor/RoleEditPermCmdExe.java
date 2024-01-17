@@ -11,7 +11,7 @@ import com.xunheng.system.domain.role.model.RoleEntity;
 import com.xunheng.system.domain.role.model.RolePermissionEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Objects;
 
 /**

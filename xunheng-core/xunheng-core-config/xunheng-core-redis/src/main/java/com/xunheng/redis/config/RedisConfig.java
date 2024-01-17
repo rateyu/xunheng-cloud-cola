@@ -1,16 +1,16 @@
 package com.xunheng.redis.config;
 
+import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
-import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.JedisPoolConfig;
 
-import javax.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola
@@ -19,19 +19,10 @@ import javax.annotation.Resource;
  * @date: 2023/6/29 16:37
  */
 @Configuration
+@AutoConfigureBefore(RedisAutoConfiguration.class)
+@EnableRedisRepositories
 public class RedisConfig {
 
-    @Resource
-    JedisConnectionFactory jedisConnectionFactory;
-
-    @Bean
-    public JedisPool jedisPool() {
-        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-        jedisPoolConfig.setMaxTotal(1000);
-        return new JedisPool(jedisPoolConfig,
-                jedisConnectionFactory.getHostName(), jedisConnectionFactory.getPort(),
-                jedisConnectionFactory.getTimeout(), jedisConnectionFactory.getPassword());
-    }
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory connectionFactory) {

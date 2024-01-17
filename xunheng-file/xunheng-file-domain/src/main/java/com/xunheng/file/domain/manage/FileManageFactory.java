@@ -5,7 +5,7 @@ import com.xunheng.base.exception.GlobalException;
 import com.xunheng.file.domain.manage.impl.LocalFileManage;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * 文件上传管理工厂模式

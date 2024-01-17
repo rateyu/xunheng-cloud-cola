@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 
 /**
@@ -30,7 +30,7 @@ public class SaSessionGatewayImpl implements SaSessionGateway {
     @Override
     public void cleanExpiredTokenSession() {
         String activityTimeoutStr = applicationContext.getEnvironment().getProperty("sa-token.activity-timeout");
-        List<String> allTokenSessions = StpUtil.searchTokenSessionId("", -1, 9999); //查询所有tokenSessions
+        List<String> allTokenSessions = StpUtil.searchTokenSessionId("", -1, 9999,true); //查询所有tokenSessions
         for (String tokenSession : allTokenSessions) {
             String keyLastActivityTime =  tokenSession.replace("token-session","last-activity");
             String keytoken =  tokenSession.replace("token-session","token");

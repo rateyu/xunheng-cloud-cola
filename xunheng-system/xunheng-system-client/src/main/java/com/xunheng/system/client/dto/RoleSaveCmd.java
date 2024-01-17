@@ -1,21 +1,21 @@
 package com.xunheng.system.client.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 
 @Data
 public class RoleSaveCmd {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
     @NotBlank(message = "名称不能为空")
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "描述")
+    @Schema(description = "描述")
     private String description;
 }

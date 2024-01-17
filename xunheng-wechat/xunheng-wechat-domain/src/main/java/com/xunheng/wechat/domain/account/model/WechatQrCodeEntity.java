@@ -1,7 +1,7 @@
 package com.xunheng.wechat.domain.account.model;
 
 import com.alibaba.cola.domain.Entity;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import java.util.Date;
 import java.math.BigDecimal;
@@ -10,25 +10,25 @@ import java.math.BigDecimal;
 @Entity
 public class WechatQrCodeEntity {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "appId")
+    @Schema(description = "appId")
     private String appId;
 
-    @ApiModelProperty(value = "二维码类型")
+    @Schema(description = "二维码类型")
     private String type;
 
-    @ApiModelProperty(value = "场景值id")
+    @Schema(description = "场景值id")
     private Integer sceneStr;
 
-    @ApiModelProperty(value = "二维码ticket")
+    @Schema(description = "二维码ticket")
     private String ticket;
 
-    @ApiModelProperty(value = "地址")
+    @Schema(description = "地址")
     private String url;
 
-    @ApiModelProperty(value = "过期时间")
+    @Schema(description = "过期时间")
     private Date expireTime;
 
 }

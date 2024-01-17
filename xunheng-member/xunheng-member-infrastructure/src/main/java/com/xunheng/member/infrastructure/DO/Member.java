@@ -1,13 +1,13 @@
 package com.xunheng.member.infrastructure.DO;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzc.mpe.actable.annotation.ColumnType;
-import com.tangzc.mpe.actable.annotation.Table;
-import com.tangzc.mpe.actable.annotation.Index;
-import com.tangzc.mpe.actable.annotation.constants.MySqlTypeConstant;
+import com.tangzc.mpe.autotable.annotation.ColumnType;
+import com.tangzc.mpe.autotable.annotation.Table;
+import com.tangzc.mpe.autotable.annotation.Index;
+import com.tangzc.mpe.autotable.strategy.mysql.data.MysqlTypeConstant;
 import com.xunheng.datasource.infrastructure.DO.BaseDO;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -21,38 +21,38 @@ import com.xunheng.base.constant.CommonConstant;
  */
 @Data
 @TableName("m_member")
-@ApiModel(value = "会员信息")
+@Schema(description = "会员信息")
 @Table
 public class Member extends BaseDO {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "会员名")
+    @Schema(description = "会员名")
     private String name;
 
-    @ApiModelProperty(value = "手机号")
+    @Schema(description = "手机号")
     private String mobile;
 
-    @ApiModelProperty(value = "性别")
+    @Schema(description = "性别")
     private String sex;
 
-    @ApiModelProperty(value = "生日")
-    @ColumnType(MySqlTypeConstant.DATE)
+    @Schema(description = "生日")
+    @ColumnType(MysqlTypeConstant.DATE)
     private Date birth;
 
-    @ApiModelProperty(value = "头像")
+    @Schema(description = "头像")
     private String avatar;
 
-    @ApiModelProperty(value = "会员等级")
+    @Schema(description = "会员等级")
     private String level;
 
-    @ApiModelProperty(value = "微信openid")
+    @Schema(description = "微信openid")
     private String openid;
 
-    @ApiModelProperty(value = "微信unionid")
+    @Schema(description = "微信unionid")
     private String unionid;
 
-    @ApiModelProperty(value = "应用id")
+    @Schema(description = "应用id")
     private String appId;
 
 }

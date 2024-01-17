@@ -5,7 +5,7 @@ import com.xunheng.quartz.client.dto.QuartzJobLogCreateCmd;
 import com.xunheng.quartz.domain.model.QuartzJobLogEntity;
 import com.xunheng.quartz.domain.gateway.QuartzJobLogGateway;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

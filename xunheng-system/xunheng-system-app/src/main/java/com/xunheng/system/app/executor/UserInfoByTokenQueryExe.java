@@ -6,7 +6,7 @@ import com.xunheng.system.app.assembler.UserAssembler;
 import com.xunheng.system.domain.user.ability.UserDomainService;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

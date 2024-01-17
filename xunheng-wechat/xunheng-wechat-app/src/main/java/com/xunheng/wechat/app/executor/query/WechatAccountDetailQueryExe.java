@@ -4,7 +4,7 @@ import com.xunheng.wechat.app.assembler.WechatAccountAssembler;
 import com.xunheng.wechat.client.dto.VO.WechatAccountVO;
 import com.xunheng.wechat.domain.account.gateway.WechatAccountGateway;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

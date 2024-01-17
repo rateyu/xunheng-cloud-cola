@@ -80,10 +80,16 @@
             <artifactId>xunheng-core-log</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!-- WxJava -->
+        <!-- WxJava mp -->
         <dependency>
             <groupId>com.github.binarywang</groupId>
             <artifactId>weixin-java-mp</artifactId>
+            <version>4.5.0</version>
+        </dependency>
+        <!-- WxJava ma -->
+        <dependency>
+            <groupId>com.github.binarywang</groupId>
+            <artifactId>weixin-java-miniapp</artifactId>
             <version>4.5.0</version>
         </dependency>
     </dependencies>

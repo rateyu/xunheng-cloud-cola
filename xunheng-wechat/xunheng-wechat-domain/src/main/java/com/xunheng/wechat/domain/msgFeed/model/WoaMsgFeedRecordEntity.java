@@ -4,7 +4,7 @@ import com.alibaba.cola.domain.Entity;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import me.chanjar.weixin.mp.bean.template.WxMpTemplateMessage;
 
@@ -15,28 +15,28 @@ import java.math.BigDecimal;
 @Entity
 public class WoaMsgFeedRecordEntity {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "appId")
+    @Schema(description = "appId")
     private String appId;
 
-    @ApiModelProperty(value = "对象openId")
+    @Schema(description = "对象openId")
     private String openId;
 
-    @ApiModelProperty(value = "模板id")
+    @Schema(description = "模板id")
     private String templateId;
 
-    @ApiModelProperty(value = "数据")
+    @Schema(description = "数据")
     private String data;
 
-    @ApiModelProperty(value = "链接地址")
+    @Schema(description = "链接地址")
     private String url;
 
-    @ApiModelProperty(value = "小程序")
+    @Schema(description = "小程序")
     private String miniProgram;
 
-    @ApiModelProperty(value = "推送结果")
+    @Schema(description = "推送结果")
     private String feedResult;
 
     public WoaMsgFeedRecordEntity() {

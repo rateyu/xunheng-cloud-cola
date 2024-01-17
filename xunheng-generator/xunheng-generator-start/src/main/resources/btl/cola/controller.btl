@@ -1,5 +1,6 @@
 package ${config.servicePackage}.adapter.web;
 
+import com.xunheng.base.annotation.RestResponse;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.xunheng.base.enums.BusinessType;
 import com.xunheng.log.config.annotation.Log;
@@ -9,14 +10,14 @@ import ${config.servicePackage}.client.dto.VO.${config.name}VO;
 import ${config.servicePackage}.client.dto.query.${config.name}PageQuery;
 import ${config.servicePackage}.client.dto.${config.name}CreateCmd;
 import ${config.servicePackage}.client.dto.${config.name}UpdateCmd;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
-@Api("${config.description}")
-@RestController
+@Tag(name="${config.description}")
+@RestResponse
 @RequestMapping("/${config.lowerCaseName}")
 public class ${config.name}Controller {
 
@@ -26,7 +27,7 @@ public class ${config.name}Controller {
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.pageList")
     @Log(module = "${config.description}",title = "${config.description}分页列表", businessType = BusinessType.LIST)
     @RequestMapping(value = "/getPageList",method = RequestMethod.GET)
-    @ApiOperation(value = "${config.description}分页列表")
+    @Operation(summary = "${config.description}分页列表")
     public IPage<${config.name}VO> getPageList(${config.name}PageQuery query){
         return ${config.lowerCaseName}Service.pageList(query);
     }
@@ -34,7 +35,7 @@ public class ${config.name}Controller {
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.detail")
     @Log(module = "${config.description}",title = "${config.description}详情", businessType = BusinessType.DETAIL)
     @RequestMapping(value = "/getDetail/{id}",method = RequestMethod.GET)
-    @ApiOperation(value = "${config.description}详情")
+    @Operation(summary = "${config.description}详情")
     public ${config.name}VO getDetail(@PathVariable String id){
         return ${config.lowerCaseName}Service.getDetail(id);
     }
@@ -42,7 +43,7 @@ public class ${config.name}Controller {
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.add")
     @Log(module = "${config.description}",title = "${config.description}新增", businessType = BusinessType.ADD)
     @RequestMapping(value = "/save",method = RequestMethod.POST)
-    @ApiOperation(value = "${config.description}新增")
+    @Operation(summary = "${config.description}新增")
     public ${config.name}VO save(@RequestBody @Validated ${config.name}CreateCmd cmd){
        return ${config.lowerCaseName}Service.create(cmd);
     }
@@ -50,7 +51,7 @@ public class ${config.name}Controller {
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.edit")
     @Log(module = "${config.description}",title = "${config.description}修改", businessType = BusinessType.EDIT)
     @RequestMapping(value = "/edit",method = RequestMethod.POST)
-    @ApiOperation(value = "${config.description}修改")
+    @Operation(summary = "${config.description}修改")
     public ${config.name}VO edit(@RequestBody @Validated ${config.name}UpdateCmd cmd){
         return ${config.lowerCaseName}Service.update(cmd);
     }
@@ -58,7 +59,7 @@ public class ${config.name}Controller {
     @PermissionCode("${config.serviceName}.${config.lowerCaseName}.deleteBatch")
     @Log(module = "${config.description}",title = "${config.description}批量删除", businessType = BusinessType.DELETE)
     @RequestMapping(value = "/delByIds/{ids}",method = RequestMethod.DELETE)
-    @ApiOperation(value = "${config.description}批量删除")
+    @Operation(summary = "${config.description}批量删除")
     public String delByIds(@PathVariable String[] ids){
         for(String id : ids){
             ${config.lowerCaseName}Service.remove(id);

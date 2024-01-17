@@ -10,7 +10,7 @@ import com.xunheng.system.domain.matrix.gateway.MatrixDataGateway;
 import com.xunheng.system.domain.matrix.model.MatrixDataEntity;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.Map;
 
 /**

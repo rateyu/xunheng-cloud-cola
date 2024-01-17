@@ -5,7 +5,7 @@ import com.xunheng.generator.client.dto.GenConfigSaveAndGenCmd;
 import com.xunheng.generator.domain.genConfig.ability.GenConfigDomainService;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

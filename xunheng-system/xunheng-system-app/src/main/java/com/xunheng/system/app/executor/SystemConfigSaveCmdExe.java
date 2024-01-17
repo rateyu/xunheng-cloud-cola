@@ -7,7 +7,7 @@ import com.xunheng.system.client.dto.VO.CustomConfigVO;
 import com.xunheng.system.domain.customConfig.gateway.CustomConfigGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

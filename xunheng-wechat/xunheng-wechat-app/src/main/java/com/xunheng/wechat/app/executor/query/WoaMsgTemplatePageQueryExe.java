@@ -9,7 +9,7 @@ import com.xunheng.wechat.domain.msgFeed.gateway.WoaMsgTemplateGateway;
 import com.xunheng.wechat.domain.msgFeed.model.WoaMsgTemplateEntity;
 import io.seata.common.util.StringUtils;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

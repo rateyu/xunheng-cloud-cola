@@ -6,7 +6,7 @@ import com.xunheng.wechat.client.dto.VO.WechatQrCodeVO;
 import com.xunheng.wechat.domain.account.gateway.WechatQrCodeGateway;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola

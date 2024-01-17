@@ -39,4 +39,11 @@ public interface TenantGateway {
      */
     void remove(String id);
 
+    /**
+     * 租户是否过期
+     * @param tenantId 租户id
+     * @return 是否
+     */
+    Boolean isTenantExpire(String tenantId);
+
 }

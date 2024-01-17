@@ -10,7 +10,7 @@ import ${config.servicePackage}.infrastructure.mapper.${config.name}Mapper;
 import ${config.servicePackage}.domain.${config.domainName}.model.${config.name}Entity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import com.xunheng.base.exception.GlobalException;
 import com.mysql.cj.util.StringUtils;
 

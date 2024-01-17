@@ -1,13 +1,13 @@
 package com.xunheng.wechat.app.executor;
 
-import com.xunheng.wechat.domain.fans.ability.FansDomainService;
+import com.xunheng.wechat.domain.wechatUser.ability.WechatUserDomainService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 /**
  * @program: xunheng-cloud-cola
- * @description: 公众号粉丝同步操作处理器
+ * @description: 微信用户同步操作处理器
  * @author: hhqkkr
  * @date: 2023/11/22 12:16:19
  */
@@ -16,11 +16,11 @@ import javax.annotation.Resource;
 public class WoaFansSyncCmdExe {
 
     @Resource
-    FansDomainService fansDomainService;
+    WechatUserDomainService wechatUserDomainService;
 
 
     public void execute(String appId){
-        fansDomainService.syncFans(appId);
+        wechatUserDomainService.syncFans(appId);
     }
 
 }

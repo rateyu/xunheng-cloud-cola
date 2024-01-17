@@ -4,7 +4,7 @@ import com.alibaba.cola.domain.Entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.xunheng.base.exception.GlobalException;
 import io.seata.common.util.StringUtils;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.util.List;
@@ -13,48 +13,48 @@ import java.util.List;
 @Entity
 public class GenConfigEntity {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "类型")
+    @Schema(description = "类型")
     private GenType type;
 
-    @ApiModelProperty(value = "实体名")
+    @Schema(description = "实体名")
     private String name;
 
-    @ApiModelProperty(value = "领域名称")
+    @Schema(description = "领域名称")
     private String domainName;
 
-    @ApiModelProperty(value = "描述")
+    @Schema(description = "描述")
     private String description;
 
-    @ApiModelProperty(value = "作者")
+    @Schema(description = "作者")
     private String author;
 
-    @ApiModelProperty(value = "表名前缀")
+    @Schema(description = "表名前缀")
     private String tablePrefix;
 
-    @ApiModelProperty(value = "表名简称")
+    @Schema(description = "表名简称")
     private String tableAlias;
 
-    @ApiModelProperty(value = "服务名")
+    @Schema(description = "服务名")
     private String serviceName;
 
-    @ApiModelProperty(value = "服务根路径")
+    @Schema(description = "服务根路径")
     private String servicePackage;
 
-    @ApiModelProperty(value = "表名")
+    @Schema(description = "表名")
     private String tableName;
 
-    @ApiModelProperty(value = "类对象名")
+    @Schema(description = "类对象名")
     private String lowerCaseName;
 
     @TableField(exist = false)
-    @ApiModelProperty(value = "表字段")
+    @Schema(description = "表字段")
     private List<GenFieldConfigEntity> fieldList;
 
     @TableField(exist = false)
-    @ApiModelProperty(value = "前端字段")
+    @Schema(description = "前端字段")
     private List<GenFrontFieldConfigEntity> frontFieldList;
 
     public String getSysPath(String nodeName,GenType type,String templateName,String moduleName){

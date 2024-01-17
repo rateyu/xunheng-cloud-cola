@@ -1,5 +1,8 @@
 package com.xunheng.wechat.domain.account.ability;
 
+import cn.binarywang.wx.miniapp.api.WxMaService;
+import cn.binarywang.wx.miniapp.config.WxMaConfig;
+import cn.binarywang.wx.miniapp.config.impl.WxMaDefaultConfigImpl;
 import com.xunheng.wechat.domain.account.gateway.WechatAccountGateway;
 import com.xunheng.wechat.domain.account.model.AccountType;
 import com.xunheng.wechat.domain.account.model.WechatAccountEntity;
@@ -9,7 +12,7 @@ import me.chanjar.weixin.mp.config.WxMpConfigStorage;
 import me.chanjar.weixin.mp.config.impl.WxMpDefaultConfigImpl;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,10 +33,13 @@ public class AccountDomainServiceImpl implements AccountDomainService {
     @Resource
     WxMpService wxMpService;
 
+    @Resource
+    WxMaService wxMaService;
+
     @Override
-    public boolean isAccountInRuntime(String appId) {
+    public boolean isAccountInRuntime(String appId,Boolean officialAccount) {
         try {
-            return wxMpService.switchover(appId);
+            return officialAccount ? wxMpService.switchover(appId) : wxMaService.switchover(appId);
         }catch (NullPointerException e){
             return false;
         }
@@ -41,45 +47,58 @@ public class AccountDomainServiceImpl implements AccountDomainService {
 
     @Override
     public void addAccountToRuntime(WechatAccountEntity entity) {
-        /*只处理类型是公众号的*/
-        if(!entity.getType().equals(AccountType.WOA_FWH) && !entity.getType().equals(AccountType.WOA_DYH))return;
-        String appId = entity.getAppId();
-        if(isAccountInRuntime(appId)){//已有此appId信息，更新
-            log.info("更新公众号配置");
-            wxMpService.removeConfigStorage(appId);
-            addToConfig(entity);
-        }else {//无此appId信息，新增
-            log.info("新增公众号配置");
-            addToConfig(entity);
+        switch (entity.getType()) {
+            case WX_FWH:
+            case WX_DYH:
+                log.info("更新公众号配置");
+                addToMpConfig(entity);
+                break;
+            case WX_XCX:
+                log.info("更新小程序配置");
+                addToMaConfig(entity);
+                break;
+            default:
+                break;
         }
     }
 
     @Override
     public void removeConfig(String id) {
         WechatAccountEntity entity = wechatAccountGateway.getOneById(id);
-        // 更新wxMpService配置
-        log.info("同步移除公众号配置");
-        wxMpService.removeConfigStorage(entity.getAppId());
+        log.info("同步移除公众号或小程序配置");
+        switch (entity.getType()) {
+            case WX_FWH:
+            case WX_DYH:
+                wxMpService.removeConfigStorage(entity.getAppId());
+                break;
+            case WX_XCX:
+                wxMaService.removeConfig(entity.getAppId());
+                break;
+            default:
+                break;
+        }
+
     }
 
     @Override
-    public void loadWxMpConfigStorages() {
-        log.info("加载公众号配置...");
+    public void loadWxAccountConfigStorages() {
+        log.info("加载公众号与小程序配置...");
         List<WechatAccountEntity> accountList = wechatAccountGateway.allList();
         if (accountList == null || accountList.isEmpty()) {
-            log.info("未读取到公众号配置，请在管理后台添加");
+            log.info("未读取到相关配置，请在管理后台添加");
             return;
         }
-        log.info("加载到{}条公众号配置",accountList.size());
+        log.info("加载到{}条配置",accountList.size());
         accountList.forEach(this::addAccountToRuntime);
-        log.info("公众号配置加载完成");
+        log.info("公众号与小程序配置加载完成");
     }
 
     /**
      * 添加账号到当前程序，如首次添加需初始化configStorageMap
      */
-    private synchronized void addToConfig(WechatAccountEntity entity){
+    private synchronized void addToMpConfig(WechatAccountEntity entity){
         String appId = entity.getAppId();
+        if(isAccountInRuntime(appId,true)) wxMpService.removeConfigStorage(appId);
         WxMpDefaultConfigImpl config = entity.toWxMpConfigStorage();
         try {
             wxMpService.addConfigStorage(appId,config);
@@ -88,6 +107,24 @@ public class AccountDomainServiceImpl implements AccountDomainService {
             Map<String, WxMpConfigStorage> configStorages = new HashMap<>(4);
             configStorages.put(appId,config);
             wxMpService.setMultiConfigStorages(configStorages,appId);
+        }
+    }
+
+
+    /**
+     * 添加小程序账号到当前程序，如首次添加需初始化configStorageMap
+     */
+    private synchronized void addToMaConfig(WechatAccountEntity entity){
+        String appId = entity.getAppId();
+        if(isAccountInRuntime(appId,false)) wxMaService.removeConfig(appId);
+        WxMaDefaultConfigImpl config = entity.toWxMaConfigStorage();
+        try {
+            wxMaService.addConfig(appId,config);
+        }catch (NullPointerException e){
+            log.info("需初始化configStorageMap...");
+            Map<String, WxMaConfig> configStorages = new HashMap<>(4);
+            configStorages.put(appId,config);
+            wxMaService.setMultiConfigs(configStorages,appId);
         }
     }
 }

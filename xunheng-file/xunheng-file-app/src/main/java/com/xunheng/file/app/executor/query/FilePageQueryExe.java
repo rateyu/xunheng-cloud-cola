@@ -16,7 +16,7 @@ import com.xunheng.file.domain.uploadSetting.model.UploadSettingEntity;
 import com.xunheng.file.infrastructure.DO.File;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.util.List;
 
 /**

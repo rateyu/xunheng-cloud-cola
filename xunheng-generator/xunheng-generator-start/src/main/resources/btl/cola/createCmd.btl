@@ -1,10 +1,10 @@
 package ${config.servicePackage}.client.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.util.Date;
 import java.math.BigDecimal;
 
@@ -23,7 +23,7 @@ public class ${config.name}CreateCmd {
      <%if(item.type == 'DateTime'){ %>
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
      <%}%>
-    @ApiModelProperty(value = "${item.description}")
+    @Schema(description = "${item.description}")
     private ${item.type == 'DateTime' ? 'Date':item.type } ${item.fieldName};
 
      <%

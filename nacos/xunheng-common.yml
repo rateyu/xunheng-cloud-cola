@@ -4,32 +4,30 @@ spring:
     sentinel:
       transport:
         dashboard: 192.168.3.100:8858
-      eager: true    
-  # redis
-  redis:
-    database: 3
-    host: 192.168.3.100
-    password: 123456
-    port: 6379
-    timeout: 10s
-    lettuce:
-      pool:
-        max-active: 200
-        max-wait: -1ms
-        max-idle: 10
-        min-idle: 0
-  # swagger启用      
-  swagger:
-    enabled: true
-
-
+      eager: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher   
+  data:     
+    redis:
+      database: 3
+      host: 127.0.0.1
+      password: 123456
+      port: 6379
+      timeout: 10s
+      lettuce:
+        pool:
+          max-active: 200
+          max-wait: -1ms
+          max-idle: 10
+          min-idle: 0
 
 # Sa-Token配置        
 sa-token:
   # token名称 (同时也是cookie名称)
   token-name: xunhengToken
   # token有效期，单位s 默认30天, -1代表永不过期 设置为7天
-  timeout: 2592000
+  timeout: 604800
   # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
   activity-timeout: 18000
   # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录)
@@ -64,12 +62,5 @@ feign:
 # 日志配置地址
 logging:
   config: classpath:logConfig/logback-spring.xml
-
-#plumelog公共配置
-plumelog:
-  appName: ${spring.application.name}
-  redisHost: ${spring.redis.host}
-  redisAuth: ${spring.redis.password}
-  redisDb: ${spring.redis.database} 
 
 

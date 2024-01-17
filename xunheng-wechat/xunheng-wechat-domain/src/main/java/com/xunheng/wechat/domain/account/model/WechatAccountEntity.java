@@ -1,7 +1,8 @@
 package com.xunheng.wechat.domain.account.model;
 
+import cn.binarywang.wx.miniapp.config.impl.WxMaDefaultConfigImpl;
 import com.alibaba.cola.domain.Entity;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import me.chanjar.weixin.mp.config.impl.WxMpDefaultConfigImpl;
 
@@ -9,30 +10,39 @@ import me.chanjar.weixin.mp.config.impl.WxMpDefaultConfigImpl;
 @Entity
 public class WechatAccountEntity {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "appId")
+    @Schema(description = "appId")
     private String appId;
 
-    @ApiModelProperty(value = "名称")
+    @Schema(description = "名称")
     private String name;
 
-    @ApiModelProperty(value = "appSecret")
+    @Schema(description = "appSecret")
     private String appSecret;
 
-    @ApiModelProperty(value = "token")
+    @Schema(description = "token")
     private String token;
 
-    @ApiModelProperty(value = "aesKey")
+    @Schema(description = "aesKey")
     private String aesKey;
 
-    @ApiModelProperty(value = "类型")
+    @Schema(description = "类型")
     private AccountType type;
 
     public WxMpDefaultConfigImpl toWxMpConfigStorage(){
         WxMpDefaultConfigImpl configStorage = new WxMpDefaultConfigImpl();
         configStorage.setAppId(appId);
+        configStorage.setSecret(appSecret);
+        configStorage.setToken(token);
+        configStorage.setAesKey(aesKey);
+        return configStorage;
+    }
+
+    public WxMaDefaultConfigImpl toWxMaConfigStorage(){
+        WxMaDefaultConfigImpl configStorage = new WxMaDefaultConfigImpl();
+        configStorage.setAppid(appId);
         configStorage.setSecret(appSecret);
         configStorage.setToken(token);
         configStorage.setAesKey(aesKey);

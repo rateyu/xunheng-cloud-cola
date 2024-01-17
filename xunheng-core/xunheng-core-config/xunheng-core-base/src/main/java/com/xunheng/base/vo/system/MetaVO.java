@@ -1,6 +1,6 @@
 package com.xunheng.base.vo.system;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 /**
@@ -12,16 +12,16 @@ import lombok.Data;
 @Data
 public class MetaVO {
 
-    @ApiModelProperty(value = "菜单标题")
+    @Schema(description = "菜单标题")
     private String title;
 
-    @ApiModelProperty(value = "图标")
+    @Schema(description = "图标")
     private String icon;
 
-    @ApiModelProperty(value = "类型")
+    @Schema(description = "类型")
     private String type;
 
-    @ApiModelProperty(value = "整页路由")
+    @Schema(description = "整页路由")
     private Boolean fullpage;
 
     public MetaVO(){

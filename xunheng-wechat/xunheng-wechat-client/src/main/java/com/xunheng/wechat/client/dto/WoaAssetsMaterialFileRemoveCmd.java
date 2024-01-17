@@ -1,16 +1,16 @@
 package com.xunheng.wechat.client.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 public class WoaAssetsMaterialFileRemoveCmd {
 
 
-    @ApiModelProperty(value = "appId")
+    @Schema(description = "appId")
     private String appId;
 
-    @ApiModelProperty(value = "文件id")
+    @Schema(description = "文件id")
     private String mediaId;
 
 

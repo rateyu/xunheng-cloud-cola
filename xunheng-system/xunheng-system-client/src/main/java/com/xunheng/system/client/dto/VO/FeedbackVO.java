@@ -1,14 +1,14 @@
 package com.xunheng.system.client.dto.VO;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 @Data
 public class FeedbackVO {
 
-    @ApiModelProperty(value = "id")
+    @Schema(description = "id")
     private String id;
 
-    @ApiModelProperty(value = "内容")
+    @Schema(description = "内容")
     private String content;
 }

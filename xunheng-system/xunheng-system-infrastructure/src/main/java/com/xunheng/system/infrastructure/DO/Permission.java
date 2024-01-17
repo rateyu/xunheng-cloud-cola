@@ -1,10 +1,10 @@
 package com.xunheng.system.infrastructure.DO;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.tangzc.mpe.actable.annotation.Table;
+import com.tangzc.mpe.autotable.annotation.Table;
 import com.xunheng.datasource.infrastructure.DO.BaseDO;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -15,40 +15,40 @@ import java.math.BigDecimal;
  */
 @Data
 @TableName("sys_permission")
-@ApiModel(value = "菜单权限")
+@Schema(description = "菜单权限")
 @Table
 public class Permission extends BaseDO {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty(value = "菜单/权限名称")
+    @Schema(description = "菜单/权限名称")
     private String name;
 
-    @ApiModelProperty(value = "类型")
+    @Schema(description = "类型")
     private String type;
 
-    @ApiModelProperty(value = "菜单标题")
+    @Schema(description = "菜单标题")
     private String title;
 
-    @ApiModelProperty(value = "页面路径/资源链接url")
+    @Schema(description = "页面路径/资源链接url")
     private String path;
 
-    @ApiModelProperty(value = "前端组件")
+    @Schema(description = "前端组件")
     private String component;
 
-    @ApiModelProperty(value = "图标")
+    @Schema(description = "图标")
     private String icon;
 
-    @ApiModelProperty(value = "整页路由")
+    @Schema(description = "整页路由")
     private Boolean fullpage;
 
-    @ApiModelProperty(value = "父id")
+    @Schema(description = "父id")
     private String parentId;
 
-    @ApiModelProperty(value = "排序值")
+    @Schema(description = "排序值")
     private BigDecimal sortOrder;
 
-    @ApiModelProperty(value = "是否启用 0启用 -1禁用")
+    @Schema(description = "是否启用 0启用 -1禁用")
     private Integer status;
 
 }

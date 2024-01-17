@@ -2,6 +2,7 @@ package com.xunheng.chatgpt.server;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
+import com.alibaba.cloud.commons.lang.StringUtils;
 import com.unfbx.chatgpt.OpenAiStreamClient;
 import com.unfbx.chatgpt.entity.chat.ChatCompletion;
 import com.unfbx.chatgpt.entity.chat.Message;
@@ -9,13 +10,12 @@ import com.xunheng.chatgpt.cache.LocalCache;
 import com.xunheng.chatgpt.listener.OpenAIWebSocketEventSourceListener;
 import com.xunheng.redis.util.RedisUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import javax.websocket.*;
-import javax.websocket.server.PathParam;
-import javax.websocket.server.ServerEndpoint;
+import jakarta.websocket.*;
+import jakarta.websocket.server.PathParam;
+import jakarta.websocket.server.ServerEndpoint;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
