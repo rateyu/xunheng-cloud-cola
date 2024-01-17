@@ -3,5 +3,4 @@ server:
 
 chatgpt:
   apiHost: https://api.openai.com/
-  #输入你自己的key
-  apiKey: sk-*****
+  apiKey:

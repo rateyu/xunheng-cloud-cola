@@ -17,13 +17,7 @@ seata:
       namespace: seata
       group: SEATA_GROUP
       dataId: "seataServer.properties"
-  registry:
-    type: nacos
-    nacos:
-      application: seata-server
-      server-addr: ${spring.cloud.nacos.server-addr}
-      group: SEATA_GROUP
-      namespace: seata
+
 
 #数据源公共配置
 spring:

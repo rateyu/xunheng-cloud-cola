@@ -4,6 +4,8 @@ server:
 
 # gateway配置    
 spring:
+  resources:
+    add-mappings: true
   cloud:
     gateway:
       routes:
@@ -49,23 +51,71 @@ spring:
             - Path=/xunheng-chatgpt/websocket/**
           filters:
             - StripPrefix=1   
+        - id: wechat-route
+          uri: lb://xunheng-wechat
+          predicates:
+            - Path=/xunheng-wechat/**
+          filters:
+            - StripPrefix=1
 #忽略鉴权URL
 ignored:
   urls:
-    - /login
-    - /captcha/*
-    - /captcha/draw/*
+    - /xunheng-system/login
+    - /xunheng-system/captcha/*
+    - /xunheng-system/captcha/draw/*
     - /favicon.ico
     - /quartz/quartzJob/**
-    - /system/admin/**
     - /system/dictData/getByType/**
-    - /system/user/regist
     - /system/common/**
     - /druid/**
-    - /swagger-ui.html
-    - /swagger-resources/**
-    - /swagger/**
+    - /swagger-ui/index.html
+    - /v3/api-docs
+    - /v3/api-docs/swagger-config
+    - /v3/api-docs/**
+    - /webjar/**
+    - /**/swagger-ui/index.html
+    - /**/v3/api-docs
+    - /**/v3/api-docs/swagger-config
+    - /**/v3/api-docs/**
+    - /**/doc.html
     - /**/*.js
     - /**/*.css
     - /**/*.png
-    - /**/*.ico            
+    - /**/*.ico
+    - /xunheng-wechat/wma/auth
+
+knife4j:
+  gateway:
+    # 是否开启
+    enabled: true
+    # 指定服务发现的模式聚合微服务文档，并且是默认`default`分组
+    strategy: manual
+    routes:
+      - name: 后台系统服务
+        service-name: xunheng-system
+        url: /xunheng-system/v3/api-docs
+        context-path: /xunheng-system
+      - name: 代码生成服务
+        service-name: xunheng-generator
+        url: /xunheng-generator/v3/api-docs
+        context-path: /xunheng-generator
+      - name: 微信服务
+        service-name: xunheng-wechat
+        url: /xunheng-wechat/v3/api-docs
+        context-path: /xunheng-wechat
+      - name: 计划任务服务
+        service-name: xunheng-quartz
+        url: /xunheng-quartz/v3/api-docs
+        context-path: /xunheng-quartz
+      - name: 日志服务
+        service-name: xunheng-log
+        url: /xunheng-log/v3/api-docs
+        context-path: /xunheng-log
+      - name: 文件服务
+        service-name: xunheng-file
+        url: /xunheng-file/v3/api-docs
+        context-path: /xunheng-file
+      - name: chatgpt服务
+        service-name: xunheng-chatgpt
+        url: /xunheng-chatgpt/v3/api-docs
+        context-path: /xunheng-chatgpt
