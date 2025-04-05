@@ -16,12 +16,13 @@
       <module>xunheng-wechat</module>
       <module>xunheng-member</module>
     <module>xunheng-auth</module>
+    <module>demo-web</module>
   </modules>
     
   <groupId>com.xunheng</groupId>
   <artifactId>xunheng-cloud</artifactId>
   <version>1.0.0</version>
-  <name>瀵昏　鍚庡彴绠＄悊妗嗘灦</name>
+  <name>寻衡后台管理框架</name>
   <description>xunheng saas admin</description>
 
   <properties>
@@ -44,7 +45,7 @@
           
   <dependencyManagement>
     <dependencies>
-      <!-- Spring Cloud Alibaba鐗堟湰绠＄悊 鏍规嵁dependency缁ф壙-->
+      <!-- Spring Cloud Alibaba版本管理 根据dependency继承-->
       <dependency>
         <groupId>com.alibaba.cloud</groupId>
         <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -52,7 +53,7 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- Spring Boot鐗堟湰绠＄悊 鏍规嵁dependency缁ф壙-->
+      <!-- Spring Boot版本管理 根据dependency继承-->
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
@@ -60,7 +61,7 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <!-- Spring Cloud鐗堟湰绠＄悊 鏍规嵁dependency缁ф壙-->
+      <!-- Spring Cloud版本管理 根据dependency继承-->
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
@@ -88,7 +89,7 @@
         <version>2.19.1</version>
         <configuration>
           <skipTests>true</skipTests>
-          <!--榛樿鍏虫帀鍗曞厓娴嬭瘯 -->
+          <!--默认关掉单元测试 -->
         </configuration>
       </plugin>
       <plugin>
@@ -98,7 +99,7 @@
       </plugin>
     </plugins>
     <resources>
-      <!--缂栬瘧閰嶇疆鏂囦欢-->
+      <!--编译配置文件-->
       <resource>
         <directory>src/main/resources</directory>
         <includes>
